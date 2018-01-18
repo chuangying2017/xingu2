@@ -1,0 +1,51 @@
+<include file='common:head' />
+<style>
+    .type_hidde{display: none}
+</style>
+<title>添加分类</title>
+</head>
+<body>
+<div class="page-container">
+    <form action="" method="post" class="form form-horizontal" id="form-article-add">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>
+                <span class="c-red">*</span>
+                栏目：</label>
+            <div class="formControls col-xs-7 col-sm-8">
+				<span class="select-box">
+						<select class="select" id="sel_Sub" name="sel_Sub">
+							<option value="0">顶级分类</option>
+                            <volist name="list" id="vo">
+                                    <option value="<{$vo.id}>"><{$vo.tree}></option>
+                            </volist>
+						</select>
+				</span>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3" style="text-align:right;"><span class="c-red">*</span>类别名称：</label>
+            <div class="formControls col-xs-7 col-sm-8">
+                <input type="text" class="input-text type_name" value="" placeholder="" id="" name="type_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>类别描述：</label>
+            <div class="formControls col-xs-7 col-sm-8">
+                <textarea name="content" cols="" rows="" class="textarea type_message"  placeholder="说点什么..." datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" ></textarea>
+                <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+            </div>
+        </div>
+
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                <button onClick="product_add_class_save();" class="btn btn-secondary radius" type="button" id="submi">
+                    <i class="Hui-iconfont">&#xe632;</i> 确认添加
+                </button>
+                <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+<include file='common:foot' />

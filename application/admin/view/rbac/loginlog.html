@@ -1,0 +1,49 @@
+<include file='common:head' />
+<title>系统日志列表</title>
+</head>
+<style>
+    div.pageNav ul li{
+            float: left;
+    }
+    div.pageNav ul{
+        margin-left: 36%;
+    }
+
+</style>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>  管理员管理<span class="c-gray en">&gt;</span>系统日志列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+    <table class="table table-border table-bordered table-bg">
+        <thead>
+        <tr>
+            <th scope="col" colspan="8">系统日志列表<span class="r">共有数据：<strong><{$count}></strong> 条</span></th>
+        </tr>
+        <tr class="text-c">
+            <th width="50">ID</th>
+            <th width="150">登录名</th>
+            <th width="150">登录地址</th>
+            <th width="100">登录ip地址</th>
+            <th >ip地址段</th>
+            <th width="120">终端</th>
+            <th width="40">状态</th>
+            <th width="180">时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name='listd' id='vo'>
+            <tr class="text-c">
+                <td><{$i}></td>
+                <td><if condition="$vo.username neq null"><{$vo.username}><else />55</if></td>
+                <td><{$vo.country}></td>
+                <td><{$vo.ip}></td>
+                <td><{$vo.beginip}>--<{$vo.endip}></td>
+                <td><{$vo.area}></td>
+                <td><if condition='$vo.status eq 1 '>成功<elseif condition='$vo.status eq 2 '/>失败</if></td>
+                <td><{$vo.create_date}></td>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+ <div id="pageNav" class="pageNav"><{$listd->render()}></div>
+</div>
+<include file='common:foot' />

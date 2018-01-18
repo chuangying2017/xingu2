@@ -1,0 +1,74 @@
+<include file='common:head' />
+<title>会员列表</title>
+<style>
+    div.pageNav ul li{
+        float: left;
+    }
+    div.pageNav ul{
+        margin-left: 36%;
+    }
+</style>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>会员管理 <span class="c-gray en">&gt;</span>会员列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <form method="post" action="<{:url('member/leaving')}>" id="myfrom">
+        <div class="text-c">
+
+            <input type="text" class="input-text" style="width:250px" placeholder="根据会员搜索" id="" value="<{$name}>" name="mobile" ><button type="submit" class="btn btn-success" id="" ><i class="Hui-iconfont">&#xe665;</i> 搜会员</button>
+            <!--<span class="select-box" style="width: 15%">-->
+							<!--<select class="select" size="1" name="status" onchange="submitForm();">-->
+								<!--<option value="" selected="">所有留言</option>-->
+								<!--<option value="0">已回复</option>-->
+								<!--<option value="1">未回复</option>-->
+							<!--</select>-->
+		<!--</span>-->
+        </div>
+
+    </form>
+    <div class="mt-0" style="margin-top: 20px;">
+        </span> <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
+        <table class="table table-border table-bordered table-hover table-bg ">
+            <thead>
+            <tr class="text-c">
+                <th width="">留言标题</th>
+                <th width="">留言会员</th>
+                <th width="">留言时间</th>
+                <th width="">状态</th>
+                <th width="120">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='vo' empty="没有数据">
+                <tr  class="text-c">
+                    <!--<td onclick="showpage('查看','<{:url('Member/usershow?id='.$vo['id'])}>','550','500')" ><{$i}></td>-->
+                    <!--<td class="text-l">-->
+                        <!--<u style="cursor:pointer" class="text-primary"><a href="<{:url('index/Login/back_login',['m'=>base64_encode($vo['id'])])}>" target='_blank'><{$vo.mobile}></a></u>-->
+                    <!--</td>-->
+                    <td><{$vo.title}></td>
+                    <td><{$vo.mobile}></td>
+                    <td><{$vo.time|date='Y-m-d h:i:s',###}></td>
+                    <if condition="$vo['status'] == 0">
+                        <td style="color:red">未回复</td>
+                    <else />
+                        <td style="color:#5eb95e">已回复</td>
+                    </if>
+                    <td>
+                        <button type="button" class="btn btn-success" onClick="showpage('留言详情','<{:url('Admin/Member/leaving_detail?id='.$vo['id'])}>','900','650')" href="javascript:;" style="font-size:14px;padding: 0 10px;">查看详情</button>&nbsp;
+                        <a title="删除" href="javascript:;" onClick="admin_leaving_del(this,<{$vo.id}>,'<{:url('Admin/Member/leaDel')}>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+        <div id="pageNav" class="pageNav"><{$page}></div>
+    </div>
+</div>
+<include file='common:foot' />
+<include file="common:datetime" />
+<script>
+    function submitForm(){
+//获取form表单对象
+        document.getElementById("myfrom").submit();;
+    }
+</script>
