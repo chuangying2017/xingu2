@@ -1,0 +1,1638 @@
+---------------------------------------------------------------
+[ 2017-11-16T00:19:52+08:00 ] 47.52.221.95 120.25.115.8 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000045201711164932605206","end_time":"20171116001951","key_sign":"c40de3a0d57b16853d1ce12738c04c15","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030921217111600184800230","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116001848","terminal_trace":"2441363230032896","total_fee":"10000","user_id":"o1-021WiKlrXvSF1Bis5n51A7tbA"}',
+  'outTradeNo' => '2441363230032896',
+  'clientSno' => '2017111655971001',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111655971001'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 202 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510762792' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (55 , 2 , '1510762792' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T00:26:28+08:00 ] 47.52.221.95 120.25.115.4 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000038201711164927074673","end_time":"20171116002627","key_sign":"c530e193101370fda8d71d10f49b6298","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889034021217111600255900814","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116002559","terminal_trace":"2441370302022656","total_fee":"10000","user_id":"o1-021WiKlrXvSF1Bis5n51A7tbA"}',
+  'outTradeNo' => '2441370302022656',
+  'clientSno' => '2017111655531001',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111655531001'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 204 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (54 , 2 , '1510763188' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 54 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T00:26:53+08:00 ] 47.52.221.95 120.25.115.8 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000044201711164930698049","end_time":"20171116002652","key_sign":"2bcb224e75dd29782cddf045525d7f24","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030321217111600252900570","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116002529","terminal_trace":"2441369812370432","total_fee":"10000","user_id":"o1-021VjMjA42deE0wCiU1I9W7S0"}',
+  'outTradeNo' => '2441369812370432',
+  'clientSno' => '2017111657514849',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111657514849'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 73  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 203 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 73 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 72  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 72 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (72 , 1 , '1510763212' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510763212' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (73 , 2 , '1510763212' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 73 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 73  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T00:28:04+08:00 ] 47.52.221.95 120.25.115.7 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000045201711164930702731","end_time":"20171116002804","key_sign":"1114f1255c9f2b4822a98fb6cdd0c78c","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030921217111600274700360","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116002747","terminal_trace":"2441372066464768","total_fee":"10000","user_id":"o1-021UowAY657eq45UIueN6BRAw"}',
+  'outTradeNo' => '2441372066464768',
+  'clientSno' => '2017111651481009',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111651481009'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 72  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 205 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 72 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510763284' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (72 , 2 , '1510763284' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 72 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 72  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T06:52:56+08:00 ] 47.52.221.95 120.25.115.7 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '2',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"2017111621001104360228188705","end_time":"20171116065256","key_sign":"5ebd3f840f18fd29a2ff2820b2c8f8aa","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030422217111606521600269","pay_type":"020","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116065216","terminal_trace":"2441750027486208","total_fee":"10000","user_id":"2088622991729362"}',
+  'outTradeNo' => '2441750027486208',
+  'clientSno' => '2017111610256989',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610256989'  AND `type` = 1 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 79  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 206 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 79 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 79 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 79 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 56  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 56 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (56 , 1 , '1510786376' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510786376' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (79 , 2 , '1510786376' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 79 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 79  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T07:19:38+08:00 ] 47.52.221.95 120.25.115.6 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000046201711164952413221","end_time":"20171116071938","key_sign":"e6c4ee84b197d4e3086749516593ae00","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889036421217111607192000649","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116071920","terminal_trace":"2441776638460928","total_fee":"10000","user_id":"o1-021W90-lLZRPocjz-T9-L_hJQ"}',
+  'outTradeNo' => '2441776638460928',
+  'clientSno' => '2017111654100989',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111654100989'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 70  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 207 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 70 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 70 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 70 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 67 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 67 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 67  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 67 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (67 , 1 , '1510787978' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 56 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (56 , 2 , '1510787978' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 3 , '1510787978' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (70 , 2 , '1510787978' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 70 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 70  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T08:08:31+08:00 ] 47.52.221.95 120.25.115.5 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000045201711164955301154","end_time":"20171116080830","key_sign":"a5712ce9a67cc34b9a4910d9fc9a0065","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030921217111608080100541","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116080801","terminal_trace":"2441824488408064","total_fee":"10000","user_id":"o1-021SG58-515k7V9smZtVRckaA"}',
+  'outTradeNo' => '2441824488408064',
+  'clientSno' => '2017111648521015',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111648521015'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 87  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 208 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 87 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 87 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 87 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 72  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 72 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (72 , 1 , '1510790910' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510790910' , 3) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T08:25:35+08:00 ] 47.52.221.95 120.76.16.230 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000032201711164954225320","end_time":"20171116082535","key_sign":"dbfdbffb98440ca6ae92c44fd6554a8b","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030421217111608231301494","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116082313","terminal_trace":"2441839445558272","total_fee":"10000","user_id":"o1-021f5WQhRPoPQn6y9MtTvVi84"}',
+  'outTradeNo' => '2441839445558272',
+  'clientSno' => '2017111649509952',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111649509952'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 85  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 209 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 85 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 85 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 85 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 63  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 63 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (63 , 1 , '1510791935' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510791935' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (85 , 2 , '1510791935' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 85 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 85  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T08:45:01+08:00 ] 47.52.221.95 120.76.16.225 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000031201711164958935136","end_time":"20171116084501","key_sign":"3781650f885bf5e8244c4ad7bda3c621","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889036421217111608424804900","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116084248","terminal_trace":"2441858685125632","total_fee":"10000","user_id":"o1-021YZ6ItGEu-fVBqaPE02OM0I"}',
+  'outTradeNo' => '2441858685125632',
+  'clientSno' => '2017111655995697',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111655995697'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 63  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 211 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 63 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510793101' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (63 , 2 , '1510793101' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 63 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 63  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T09:19:53+08:00 ] 47.52.221.95 120.76.16.228 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000032201711164962194426","end_time":"20171116091953","key_sign":"4d16daaa738bdac73ec39f09ac902288","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030121217111609184400872","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116091843","terminal_trace":"2441894002623488","total_fee":"10000","user_id":"o1-021UAJ_YhKkUsNQwOMGB38R8o"}',
+  'outTradeNo' => '2441894002623488',
+  'clientSno' => '2017111651509952',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111651509952'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 56  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 215 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 56 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510795193' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (56 , 2 , '1510795193' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 56 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 56  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T10:43:11+08:00 ] 47.52.221.95 120.76.16.232 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '2',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"2017111621001104945268833059","end_time":"20171116104311","key_sign":"6564594682d836c097072fe22599db85","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030322217111610424802073","pay_type":"020","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116104248","terminal_trace":"2441976652891136","total_fee":"10000","user_id":"2088702303096945"}',
+  'outTradeNo' => '2441976652891136',
+  'clientSno' => '2017111655564850',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111655564850'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 60  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 235 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 60 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 60 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 60 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510800191' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (60 , 2 , '1510800191' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 60 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 60  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T11:12:09+08:00 ] 47.52.221.95 120.25.115.4 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000050201711164988470286","end_time":"20171116111209","key_sign":"46925a3fed07f67c1c117dcb8f6c2089","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889036421217111611115301129","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116111153","terminal_trace":"2442005239792640","total_fee":"10000","user_id":"o1-021f1P3yaP9q9a62txjavj2W8"}',
+  'outTradeNo' => '2442005239792640',
+  'clientSno' => '2017111656100485',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111656100485'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 57  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 246 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 57 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 57 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 57 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510801929' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (57 , 2 , '1510801929' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 57 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 57  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T11:20:43+08:00 ] 47.52.221.95 120.25.115.7 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000046201711164985103219","end_time":"20171116112042","key_sign":"4e8d89347c22c116b7659a472ed971f3","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889034021217111611180301882","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116111803","terminal_trace":"2442011305755648","total_fee":"10000","user_id":"o1-021ch_G_B0Fb5gwuVPWAGYg4M"}',
+  'outTradeNo' => '2442011305755648',
+  'clientSno' => '2017111697995210',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111697995210'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 82  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 247 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 82 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 82 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 82 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 63  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 63 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (63 , 1 , '1510802443' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510802443' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (82 , 2 , '1510802443' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 82 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 82  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T11:21:16+08:00 ] 47.52.221.95 120.76.16.230 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000033201711164987123343","end_time":"20171116112116","key_sign":"857b80406c1b0d836c2fd3144caa9c9c","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889034021217111611210102198","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116112100","terminal_trace":"2442014213899264","total_fee":"10000","user_id":"o1-021RGS54j9tgRu90aZoG2gBcg"}',
+  'outTradeNo' => '2442014213899264',
+  'clientSno' => '2017111699979750',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111699979750'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 83  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 250 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 83 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 83 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 83 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 63  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 63 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (63 , 1 , '1510802476' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510802476' , 3) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T11:38:13+08:00 ] 47.52.221.95 120.25.115.5 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000044201711164988082419","end_time":"20171116113812","key_sign":"0586bd2d3e8c3884c085e01926e971b7","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030621217111611373102083","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116113731","terminal_trace":"2442030436467712","total_fee":"10000","user_id":"o1-021RZsOEcpy_4msH6mV0bJEXg"}',
+  'outTradeNo' => '2442030436467712',
+  'clientSno' => '2017111697545752',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111697545752'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 80  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 251 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 80 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 61  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 61 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (61 , 1 , '1510803492' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 2 , '1510803492' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 54 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 3 , '1510803492' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (80 , 2 , '1510803492' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 80 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 80  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T11:45:39+08:00 ] 47.52.221.95 120.25.115.6 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000044201711164990171642","end_time":"20171116114539","key_sign":"e7660287fa80ef63b02c833ae33187b8","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030321217111611443102607","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116114431","terminal_trace":"2442037324497920","total_fee":"10000","user_id":"o1-021aEpRFrAnEPERpzm2DDtPck"}',
+  'outTradeNo' => '2442037324497920',
+  'clientSno' => '2017111610198499',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610198499'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 75  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 252 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 75 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 75 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 75 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510803939' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510803939' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (75 , 2 , '1510803939' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 75 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 75  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T12:17:04+08:00 ] 47.52.221.95 120.25.115.5 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000043201711165002362863","end_time":"20171116121704","key_sign":"1f39e49983852e631544a32bd4c0aacc","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030921217111612163102197","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116121631","terminal_trace":"2442068777419776","total_fee":"10000","user_id":"o1-021bZQmzDp0BAC-yr83y_imGQ"}',
+  'outTradeNo' => '2442068777419776',
+  'clientSno' => '2017111610157971',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610157971'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 91  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 254 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 91 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 91 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 91 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 80  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 80 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (80 , 1 , '1510805824' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 61 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (61 , 2 , '1510805824' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 3 , '1510805824' , 1) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T12:33:16+08:00 ] 47.52.221.95 120.25.115.4 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '2',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"2017111621001104545394227297","end_time":"20171116123316","key_sign":"1c51e8b42324132df53252b91caadf67","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030722217111612325004133","pay_type":"020","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116123250","terminal_trace":"2442084825252864","total_fee":"10000","user_id":"2088522134003543"}',
+  'outTradeNo' => '2442084825252864',
+  'clientSno' => '2017111649571019',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111649571019'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 88  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 255 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 88 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 88 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 88 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510806796' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T12:58:44+08:00 ] 47.52.221.95 120.76.16.232 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000046201711165009046025","end_time":"20171116125843","key_sign":"6751183bc05b39ef6eb2d49ebf8d963b","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030321217111612535105864","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116125351","terminal_trace":"2442105473713152","total_fee":"10000","user_id":"o1-021YqsxPh-b6UowAHgzxUbkSg"}',
+  'outTradeNo' => '2442105473713152',
+  'clientSno' => '2017111610157101',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610157101'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 92  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 260 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 92 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 92 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 92 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510808324' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510808324' , 3) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:00:48+08:00 ] 47.52.221.95 120.76.16.232 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000034201711165012500660","end_time":"20171116130048","key_sign":"7a6c84ebfed05c6bf7114196f962c63c","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889034021217111612531911631","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116125319","terminal_trace":"2442104959861760","total_fee":"10000","user_id":"o1-021e9gtj65IltUGeNcV2ZJr0U"}',
+  'outTradeNo' => '2442104959861760',
+  'clientSno' => '2017111610110155',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610110155'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 64  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 259 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 64 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 64 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 64 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510808448' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510808448' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (64 , 2 , '1510808448' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 64 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 64  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:07:15+08:00 ] 47.52.221.95 120.76.16.225 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000040201711165009432155","end_time":"20171116130714","key_sign":"2dcd8dfc728079336af58d91ea1a401b","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030421217111613065000489","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116130650","terminal_trace":"2442118244238336","total_fee":"10000","user_id":"o1-021bZQmzDp0BAC-yr83y_imGQ"}',
+  'outTradeNo' => '2442118244238336',
+  'clientSno' => '2017111657981005',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111657981005'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 93  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 264 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 93 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 93 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 93 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 80  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 80 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (80 , 1 , '1510808834' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 61 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (61 , 2 , '1510808834' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 3 , '1510808834' , 1) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:20:53+08:00 ] 47.52.221.95 120.76.16.228 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000039201711165010142885","end_time":"20171116132052","key_sign":"6acb2bb07eab3a096ec7786c6e1a5661","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889031021217111613141000945","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116131410","terminal_trace":"2442125447480320","total_fee":"10000","user_id":"o1-021fNcuWVmtzduKtVUfdZ2R58"}',
+  'outTradeNo' => '2442125447480320',
+  'clientSno' => '2017111649985357',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111649985357'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 69  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 270 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 69 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 69 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 69 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510809653' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510809653' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (69 , 2 , '1510809653' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 69 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 69  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:21:22+08:00 ] 47.52.221.95 120.76.16.231 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000033201711165010202211","end_time":"20171116132122","key_sign":"b8677e3b23c4e14441ddb0849fbd6d16","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030421217111613204001467","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116132040","terminal_trace":"2442131849577472","total_fee":"10000","user_id":"o1-021RZsOEcpy_4msH6mV0bJEXg"}',
+  'outTradeNo' => '2442131849577472',
+  'clientSno' => '2017111656565110',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111656565110'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 95  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 280 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 95 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 95 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 95 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 80  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 80 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (80 , 1 , '1510809682' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 61 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (61 , 2 , '1510809682' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 3 , '1510809682' , 1) [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:21:48+08:00 ] 47.52.221.95 120.76.16.231 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000047201711165008183525","end_time":"20171116132147","key_sign":"e2daab3fdd3325c13808e726e09ee708","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030521217111613210101244","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116132101","terminal_trace":"2442132187087872","total_fee":"10000","user_id":"o1-021ZkRM1ibb3i3jol_eb_vfVo"}',
+  'outTradeNo' => '2442132187087872',
+  'clientSno' => '2017111610050481',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610050481'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 94  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 281 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 94 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 94 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 94 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510809708' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510809708' , 3) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:23:57+08:00 ] 47.52.221.95 120.25.115.8 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '2',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"2017111621001104195307815586","end_time":"20171116132356","key_sign":"7ef0de640965a92b0a27c78372c37cba","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030622217111613224001540","pay_type":"020","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116132240","terminal_trace":"2442133802959872","total_fee":"10000","user_id":"2088122524652199"}',
+  'outTradeNo' => '2442133802959872',
+  'clientSno' => '2017111610255481',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610255481'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 68  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 282 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 68 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 68 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 68 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510809837' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510809837' , 3) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (68 , 2 , '1510809837' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 68 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 68  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:34:38+08:00 ] 47.52.221.95 120.25.115.7 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000044201711165018321558","end_time":"20171116133438","key_sign":"b77d8e99b9c1b5efce323e60de6570d7","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889034021217111613332604190","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116133326","terminal_trace":"2442144387286016","total_fee":"10000","user_id":"o1-021Trn_or8vQ4QYEVDogug4uk"}',
+  'outTradeNo' => '2442144387286016',
+  'clientSno' => '2017111653544997',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111653544997'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 96  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 285 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 96 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 96 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 96 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 65  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+2.5  WHERE  `id` = 65 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (65 , 1 , '1510810478' , 2.5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 56 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (56 , 2 , '1510810478' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 3 , '1510810478' , 1) [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T13:44:55+08:00 ] 47.52.221.95 120.25.115.4 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000041201711165018792016","end_time":"20171116134455","key_sign":"51588942214e046270e9eb3358ef71a2","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889031021217111613434202688","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116134342","terminal_trace":"2442154480239616","total_fee":"10000","user_id":"o1-021VjMjA42deE0wCiU1I9W7S0"}',
+  'outTradeNo' => '2442154480239616',
+  'clientSno' => '2017111610054575',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610054575'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 97  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 286 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 97 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 97 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 97 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 72  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 72 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (72 , 1 , '1510811095' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510811095' , 3) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T16:04:21+08:00 ] 47.52.221.95 120.76.16.232 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000039201711165044528416","end_time":"20171116160420","key_sign":"c1d8f426d1ce6266bfc422fc0ea31811","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889036421217111616035400413","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116160354","terminal_trace":"2442292300841984","total_fee":"10000","user_id":"o1-021eMVswPXb81U22sGX7oDS6Y"}',
+  'outTradeNo' => '2442292300841984',
+  'clientSno' => '2017111657531001',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111657531001'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 99  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 293 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 99 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 99 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 99 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510819461' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T16:05:58+08:00 ] 47.52.221.95 120.76.16.230 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000031201711165044554567","end_time":"20171116160557","key_sign":"b8506a963d7244b72420a423d71366fc","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030821217111616051500273","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116160514","terminal_trace":"2442293622014976","total_fee":"10000","user_id":"o1-021cEzW806JJNw99FUVueVVWc"}',
+  'outTradeNo' => '2442293622014976',
+  'clientSno' => '2017111697535054',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111697535054'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 102  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 294 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 102 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 102 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 102 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 54  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 1 , '1510819558' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 0 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T16:53:35+08:00 ] 47.52.221.95 120.25.115.6 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '2',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"2017111621001104195307215762","end_time":"20171116165334","key_sign":"7f83b0e4eccce00f8229803049c437b3","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889036422217111616514406025","pay_type":"020","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116165143","terminal_trace":"2442339321431040","total_fee":"10000","user_id":"2088122524652199"}',
+  'outTradeNo' => '2442339321431040',
+  'clientSno' => '2017111610257515',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111610257515'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 101  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 299 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 101 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 101 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 101 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510822415' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510822415' , 3) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T17:02:34+08:00 ] 47.52.221.95 120.25.115.5 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '2',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"2017111621001104920260939120","end_time":"20171116170233","key_sign":"7d975202c7d6623e61d92f9f0c506b78","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030722217111617014900130","pay_type":"020","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116170149","terminal_trace":"2442349241631744","total_fee":"10000","user_id":"2088022763793926"}',
+  'outTradeNo' => '2442349241631744',
+  'clientSno' => '2017111699975056',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111699975056'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 89  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 300 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 89 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 89 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 89 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510822954' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510822954' , 3) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T17:09:05+08:00 ] 47.52.221.95 120.76.16.225 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000048201711165048140825","end_time":"20171116170904","key_sign":"7ad326d1a99b0208dd0332f415db5da5","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889034021217111617070201043","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116170701","terminal_trace":"2442354357781504","total_fee":"10000","user_id":"o1-021VjMjA42deE0wCiU1I9W7S0"}',
+  'outTradeNo' => '2442354357781504',
+  'clientSno' => '2017111652995210',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111652995210'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 74  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 301 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 74 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 74 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 74 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 73 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 73  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 73 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (73 , 1 , '1510823344' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 72 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 72 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (72 , 2 , '1510823344' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 3 , '1510823344' , 1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (74 , 2 , '1510823344' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 74 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 74  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T17:20:22+08:00 ] 47.52.221.95 120.76.16.230 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000035201711165056459355","end_time":"20171116172021","key_sign":"150326d7355669cf7ccbcb0a0e314340","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889036421217111617180102705","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116171801","terminal_trace":"2442365165601792","total_fee":"10000","user_id":"o1-021cLT9NXoljTErbTdgKIVWkU"}',
+  'outTradeNo' => '2442365165601792',
+  'clientSno' => '2017111656575152',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111656575152'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 71  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 302 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 71 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 71 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 71 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 57 LIMIT 1 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 57 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 57  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 57 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (57 , 1 , '1510824022' , 5) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510824022' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (71 , 2 , '1510824022' , 120) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 71 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 71  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.015625s ]
+---------------------------------------------------------------
+[ 2017-11-16T17:36:14+08:00 ] 47.52.221.95 120.76.16.225 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000043201711165057304621","end_time":"20171116173613","key_sign":"cb7f069622c72c490e8d972e2b1209b4","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889034021217111617354905917","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116173549","terminal_trace":"2442382669038592","total_fee":"10000","user_id":"o1-021XuNpNbNbein1Onh9g3AreM"}',
+  'outTradeNo' => '2442382669038592',
+  'clientSno' => '2017111652100989',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111652100989'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 61  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 225 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 61 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 55  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 1 , '1510824974' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 54 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (54 , 2 , '1510824974' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `status` , `create_date` , `money`) VALUES (61 , 2 , '1510824974' , 120) [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `money`=money+120  WHERE  `id` = 61 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `status`=2  WHERE  `uid` = 61  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2017-11-16T20:46:12+08:00 ] 47.52.221.95 120.76.16.228 POST /admin/Captcha/baibao_return
+[ error ] [2]strtolower() expects parameter 1 to be string, array given
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ error ] [8]未定义数组下标: 1
+[ info ] array (
+  'msg' => '支付成功',
+  'payType' => '4',
+  'payMoney' => '100.0',
+  'data' => '{"attach":"","channel_trade_no":"4200000034201711165096286024","end_time":"20171116204612","key_sign":"f1c48ccf7bfd249128b2e6200729ff8e","merchant_name":"深圳前海巨淘信息技术有限公司","merchant_no":"858400208000010","out_trade_no":"101889030821217111620453203538","pay_type":"010","receipt_fee":"10000","result_code":"01","return_code":"01","return_msg":"支付成功","terminal_id":"10188903","terminal_time":"20171116204531","terminal_trace":"2442569156625408","total_fee":"10000","user_id":"o1-021RZsOEcpy_4msH6mV0bJEXg"}',
+  'outTradeNo' => '2442569156625408',
+  'clientSno' => '2017111698535054',
+  'status' => '1',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=shoppings;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '2017111698535054'  AND `type` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `uid` = 104  AND `status` = 1  AND `type` = 2  AND `create_date` <= '1510761599' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `type`=2  WHERE  `id` = 306 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] UPDATE `web_product`  SET `buy_num`=buy_num+1  WHERE  `id` = 45 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT SUM(price) AS tp_sum FROM `web_orders` WHERE  `create_date` BETWEEN '1510761600' AND '1510847999'  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `buy_result`=1  WHERE  `id` = 104 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 104 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 104 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 55 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 54 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 80 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 80  AND `status` = 1  AND `type` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+5  WHERE  `id` = 80 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_bonus` [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (80 , 1 , '1510836372' , 5) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 61 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+3  WHERE  `id` = 61 [ RunTime:0.015625s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (61 , 2 , '1510836372' , 3) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `bonus`=bonus+1  WHERE  `id` = 55 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_bonus` (`uid` , `type` , `create_date` , `money`) VALUES (55 , 3 , '1510836372' , 1) [ RunTime:0.000000s ]

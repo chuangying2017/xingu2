@@ -1,0 +1,46 @@
+<include file="common/header" />
+<style>
+    body{background: url('/index/images/login_bg.png') no-repeat center top!important;background-size: 100% 100%}
+    .mui-content{background: 0!important;}
+</style>
+<body>
+<div class="mui-content mui-login" id="app">
+    <div class="mui-row mui-row-img" align="center">
+        <img src="/index/images/08.png" alt="">
+    </div>
+    <div class="mui-row mui-input">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <i class="iconfont font-size-21 font-color-01">&#xe71f;</i>
+                <input type="tel" class="mui-input-clear mui-input font-size-14 font-color-01" placeholder="账 号" value="" maxlength="11" v-model="phoneNumber">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <i class="iconfont font-size-21 font-color-01">&#xe6d1;</i>
+                <input type="password" class="mui-input-clear mui-input font-size-14 font-color-01" placeholder="密 码" value="" maxlength="11" v-model="loginPass">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 font-color-25">
+            <button class="mui-input-row mui-submit font-color-12 bg-20" @click="gui">
+                登&nbsp;陆
+            </button>
+        </div>
+        <div class="mui-row">
+            <div class="mui-col-sm-6 mui-col-xs-6">
+                <a href="<{:url('index/Register/index')}>" class="font-color-01 font-size-14">会员注册</a>
+            </div>
+            <div class="mui-col-sm-6 mui-col-xs-6" align="right">
+                <a href="<{:url('Register/seek')}>" class="font-color-01 font-size-14">忘记密码？</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="/index/js/mui.min.js"></script>
+<script src="/index/js/jquery-3.1.1.min.js"></script>
+<script src="/index/js/vue.js"></script>
+<script src="/index/js/axios.min.js"></script>
+<script src="/index/js/main.js"></script>
+<script src="/index/js/ls.js"></script>

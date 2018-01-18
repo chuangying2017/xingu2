@@ -1,0 +1,85 @@
+<include file='common:head' />
+<title>添加分类</title>
+</head>
+<body>
+<div class="page-container">
+    <form action="" method="post" class="form form-horizontal" id="form-article-add">
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>
+                <span class="c-red">*</span>
+                栏目：</label>
+            <div class="formControls col-xs-7 col-sm-8">
+						<span class="select-box">
+						<select class="select" id="sel_Sub" name="sel_Sub">
+							<option value="0">顶级分类</option>
+                            <volist name="list" id="vo">
+                                <option value="<{$vo.id}>" <if condition="$vo.id eq $id.id">selected="selected"</if>><{$vo.tree}></option>
+                            </volist>
+						</select>
+						</span>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+        <input type="hidden" name="gid" value="<{$id.id}>" />
+        <input type="hidden" name="pid_id" value="<{$id.pid}>" />
+        <{:token()}>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3" style="text-align:right;"><span class="c-red">*</span>类别名称：</label>
+            <div class="formControls col-xs-7 col-sm-8">
+                <input type="text" class="input-text type_name" value="<{$id.title}>" placeholder="" id="" name="type_name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-3 col-sm-3" style='text-align:right;'>类别描述：</label>
+            <div class="formControls col-xs-7 col-sm-8">
+                <textarea name="content" cols="" rows="" class="textarea type_message"  placeholder="说点什么..." datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" >
+                    <{$id.content}>
+                </textarea>
+                <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                <button onClick="product_wuxian_class_save('<{:url('admin/product/product_wuxian_class')}>');" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 确认修改</button>
+                <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+<include file='Common:foot' />
+<script>
+    //编辑分类
+    function product_wuxian_class_save(url){
+
+        console.log(url);
+        var class_name = $('#sel_Sub').val();
+        var content = $('textarea[name="content"]').val();
+        var type_name = $('input[name="type_name"]').val();
+        var id = $('input[name="gid"]').val();
+        var token = $('input[name="__token__"]').val();
+        var pid_id =$('input[name="pid_id"]').val();
+        $.ajax({
+            url:url,
+            data:{pid:class_name,title:type_name,content:content,id:id,token:token,pid_id:pid_id},
+            dataType:'json',
+            type:'post',
+            success:function(data) {
+                if (data.status == 1) {
+                    layer.msg(data.msg,{icon:1,time:2000},function(){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.location.reload();
+                        parent.layer.close(index);
+                    });
+                }else{
+                    layer.msg(data.msg,{icon:2,time:2000},function(){
+                        var index = parent.layer.getFrameIndex(window.name);
+//                        parent.location.reload();
+//                        parent.layer.close(index);
+                    });
+                }
+            }
+
+        });
+    }
+</script>

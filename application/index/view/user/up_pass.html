@@ -1,0 +1,106 @@
+<include file="common/header" />
+<body class="bg-01">
+<header class="mui-bar mui-bar-nav mui-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">修改密码</h1>
+</header>
+<div class="mui-content mui-register bg-01" style="padding-bottom: 40px;" id="app">
+    <div class="mui-row mui-row-one">
+        <div class="mui-col-sm-6 mui-col-xs-6 mui-col-xs-6-one border-08 bg-01" align="center" data-uid="1">
+            <div class="border-07 font-size-14 bg-01 font-color-01">
+                登录密码
+            </div>
+        </div>
+        <div class="mui-col-sm-6 mui-col-xs-6 mui-col-xs-6-two bg-01" align="center" data-uid="2">
+            <div class="font-size-14 bg-01 font-color-01 font-size-14">
+                安全密码
+            </div>
+        </div>
+    </div>
+    <div class="mui-row mui-row-two">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row font-size-14 bg-12 font-color-01">
+                <label>原密码</label>
+                <input type="password" class="mui-input-clear" placeholder="请输入原密码" id="loginpas">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row font-size-14 bg-12 font-color-01">
+                <label>新密码</label>
+                <input type="password" class="mui-input-clear" placeholder="请输入新密码" id="loginxinpass">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row font-size-14 bg-12 font-color-01">
+                <label>再次输入</label>
+                <input type="password" class="mui-input-clear" placeholder="请输入新密码" id="reloginxinpass">
+            </div>
+        </div>
+        <div class="mui-row">
+            <div class="mui-col-sm-12 mui-col-xs-12 div-submit" align="center">
+                <div class="font-size-14 bg-20 font-color-12" onclick="loginLs('#loginpas','#loginxinpass','#reloginxinpass')">
+                    提交
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mui-row mui-row-three" style="display: none">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row font-size-14 bg-12 font-color-01">
+                <label>原安全密码</label>
+                <input type="password" class="mui-input-clear" placeholder="请输入原安全密码" id="anquanpass">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row font-size-14 bg-12 font-color-01">
+                <label>新安全密码</label>
+                <input type="password" class="mui-input-clear" placeholder="请输入新安全密码" id="anquanxinpass">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row font-size-14 bg-12 font-color-01">
+                <label>再次输入</label>
+                <input type="password" class="mui-input-clear" placeholder="请输入新安全密码" id="reanquanxinpass">
+            </div>
+        </div>
+        <div class="mui-row">
+            <div class="mui-col-sm-12 mui-col-xs-12 div-submit" align="center">
+                <div class="font-size-14 bg-20 font-color-12" onclick="anquanLs('#anquanpass','#anquanxinpass','#reanquanxinpass')">
+                    提交
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<include file="common/footer" />
+</body>
+<include file="common/script" />
+<script>
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    mui('.mui-row-one').on('tap','.mui-col-sm-6',function(){
+        var forVal = this.getAttribute('data-uid');
+        document.getElementsByClassName('border-08')[0].classList.remove("border-08");
+        this.classList.add('border-08');
+        if(forVal > 1){
+            show();
+        }else{
+            hide();
+        }
+    });
+
+
+    function show(){
+        document.getElementsByClassName('mui-row-two')[0].style.display = 'none';
+        document.getElementsByClassName('mui-row-three')[0].style.display = 'block';
+    }
+    function hide(){
+        document.getElementsByClassName('mui-row-two')[0].style.display = 'block';
+        document.getElementsByClassName('mui-row-three')[0].style.display = 'none';
+    }
+	 document.getElementById('MemberInfo').classList.add('mui-active');
+</script>
+</html>
+<include file="common/pass_error" />

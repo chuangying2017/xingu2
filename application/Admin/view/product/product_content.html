@@ -1,0 +1,46 @@
+<include file='Common:head' />
+<title>查看/回复</title>
+</head>
+<body>
+<div class="pd-20">
+    <div class="Huiform">
+        <form action="" method="post">
+            <table class="table table-bg">
+                <tbody>
+                <tr>
+                    <th class="text-r">名稱：</th>
+                    <td><input type="text" style="width:300px" name="images_name" class="input-text" value="<{$message_row.images_name}>" placeholder=""></td>
+                </tr>  <tr>
+                    <th class="text-r">簡介：</th>
+                    <td><textarea name="images_sponsor" style="width:300px;height:100px;"><{$message_row.images_sponsor}></textarea></td>
+                </tr>
+                <tr class="tijiao"><th class="thbb-bb"><button onclick="dianji();" type="button">提交</button></th></tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+<include file='Common:foot' />
+<script>
+    function dianji(){
+        $.ajax({
+            url:"<{:url('admin/product/product_conten',['id'=>$message_row.id])}>",
+            data:{images_name:$('input[name="images_name"]').val(),images_sponsor:$('textarea[name="images_sponsor"]').val()},
+            async:false,
+            type:'post',
+            dataType:'json',
+            success:function(data){
+                console.log(data);
+                if(data.status == 1){
+                    layer.msg(data.msg,{icon:1,time:1500},function () {
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.location.reload();
+                        parent.layer.close(index);
+                    })
+                }else{
+                    layer.msg(data.msg,{icon:2,time:1500})
+                }
+            }
+        })
+    }
+</script>

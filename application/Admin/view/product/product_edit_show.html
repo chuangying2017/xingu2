@@ -1,0 +1,195 @@
+<include file="common:head" />
+<title>Document</title>
+<!--/meta 作为公共模版分离出去-->
+
+<link href="/hui/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/layui/css/layui.css"  media="all" />
+<style>
+    img{
+        width:100px;
+    }
+</style>
+</head>
+<body>
+<div class="page-container">
+    <form class="form form-horizontal" id="form-article-add">
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-4"><span class="c-red">*</span>产品标题：</label>
+            <div class="formControls col-xs-6 col-sm-7">
+                <input type="text" class="input-text" value="<{$edits.title}>" placeholder="" id="title" name="title" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-4">简略标题：</label>
+            <div class="formControls col-xs-6 col-sm-7">
+                <input type="text" class="input-text" value="<{$edits.introduct}>" placeholder="" id="cl_title" name="cl_title" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-8 col-sm-7"><span class="c-red">*</span>分类栏目：</label>
+            <div class="formControls col-xs-4 col-sm-4"> <span class="select-box">
+				<select name="type_name" class="select">
+                    <volist name="list1" id="vos">
+                        <option value="<{$vos.id}>"><{$vos.type_name}></option>
+                    </volist>
+
+				</select>
+				</span>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-7">参加人数</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" class="input-text" value="<{$edits.join_p}>" placeholder="" id="canxuan" name="canxuan" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-8 col-sm-7">产品编码：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input type="text" name="product_code" id="product_code" placeholder="" value="<{$edits.product_code}>" class="input-text" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-8 col-sm-7">得到帮助人数：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input type="text" name="bangren" id="bangren" placeholder="" value="<{$edits.gain_p}>" class="input-text" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-7">共筹：万元</label>
+            <div class="formControls col-xs-8 col-sm-4">
+                <input type="text" name="gongchou" id="gongchou" placeholder="" value="<{$edits.thank_money}>" class="input-text" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-8 col-sm-7">最高获得互助金额：元</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input type="text" name="edu" id="edu" placeholder="" value="<{$edits.zuigao_money}>" class="input-text" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-8 col-sm-7">预计一年支出：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input type="text" name="yaers_expend" id="yaers_expend" placeholder="" value="<{$edits.yuji}>" class="input-text" style="width:90%" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-8 col-sm-7">累计帮助人数：</label>
+            <div class="formControls col-xs-4 col-sm-4">
+                <input type="text" name="leiji" id="leiji" placeholder="" value="<{$edits.bz_prople}>" class="input-text" style="width:90%" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-7"><span class="c-red">*</span>日期范围：</label>
+            <div class="formControls col-xs-6 col-sm-5">
+                <input type="text" value="<{$edits.scrq|date='Y-m-d',###}>" onFocus="WdatePicker({minDate: '#F{$dp.$D(\'datemin\')}', minDate:'%y-%M-%d'})" id="datemax" name='search_starttime' class="input-text Wdate" style="width:120px;" nullmsg='不能为空' datatype='*'>-
+                <input type="text" value="<{$edits.hzyxq|date='Y-m-d',###}>" onFocus="WdatePicker({minDate: '#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin"   name='search_endtime' class="input-text Wdate" style="width:120px;" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <input type="hidden" value="<{$edits.id}>" name="id_product" />
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-4"></label>
+            <div class="formControls col-xs-6 col-sm-7">
+                年龄范围：
+                <input type="text"  id="yaer_scope"  name='yaer_scope' class="input-text" style="width:120px;" value="<{$edits.yaer}>" nullmsg='不能为空' datatype='*'>
+                -
+                <input type="text" id="yaers_scope"  name='yaers_scope' class="input-text" style="width:120px;" value="<{$edits.yaers}>" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-5">预期每次分摊金额：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" name="fentan" id="fentan" placeholder="" value="<{$edits.mcjtje}>" class="input-text" style="width:90%" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-5">已加入人数：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" name="jiaru" id="jiaru" placeholder="" value="<{$edits.jiaru_ren}>" class="input-text" style="width:90%" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-5">累计捐出金额：万元</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <input type="text" name="juanchu" id="juanchu" placeholder="" value="<{$edits.jcje}>" class="input-text" style="width:90%" nullmsg='不能为空' datatype='*'>
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-6 col-sm-5">文件上传：</label>
+            <div class="formControls col-xs-6 col-sm-6">
+                <div class="layui-upload">
+                    <button type="button" class="layui-btn" id="test2">多图片上传</button>
+                    <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+                        预览图：
+                        <div class="layui-upload-list" id="demo2">
+                            <img src="/<{$edits.image1}>" alt=""><img src="/<{$edits.image2}>" alt="">
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-6 col-sm-offset-4">
+                <button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交</button>
+                <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+<include file="common:foot" />
+<script type="text/javascript" src="/Hui/lib/Validform/5.3.2/Validform_v5.3.2_min.js"></script>
+<script src="/layui/layui.js" charset="utf-8"></script>
+<include file="common:datetime" />
+<script>
+    $(function () {
+        $("#form-article-add").Validform({
+            callback: function (form) {
+                product_add_save(form);
+                return false;
+            },
+            tiptype: 2,
+        });
+    });
+    layui.use('upload',function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+            //多图片上传
+        upload.render({
+            elem: '#test2'
+            ,url: '/admin/product/uploadedit'
+            ,multiple: true
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+                });
+            }
+            ,done: function(res){
+                console.log(res);
+                if(res.status == 1){
+                    layer.msg(res.msg,{icon:1,time:1000});
+                }else{
+                    layer.msg(res.msg,{icon:2,time:1000});
+                }
+                //上传完毕
+            }
+        });
+    })
+</script>
+
+
+

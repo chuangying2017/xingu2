@@ -1,0 +1,81 @@
+<include file='Common:head' />
+<title></title>
+<style>
+    div.pageNav ul li{
+        float: left;
+    }
+    div.pageNav ul{
+        margin-left: 36%;
+    }
+
+</style>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 财务管理 <span class="c-gray en">&gt;</span> 会员提现 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
+        <span class="l"> <button type="button" class="btn btn-success" ><a  href="<{:url('admin/report/xiazai')}>">下载未提现</a></button>
+            </span>
+        <span style="margin-left:20px;"> <button type="button" class="btn btn-success" ><a  href="<{:url('admin/report/xiazai',['bank'=>16])}>">下载未提现不同银行卡</a></button>
+            </span>
+        <span class="r">共有数据：<strong><{$count}></strong> 条</span>
+        <span>未提现：<strong><if condition="$zong neq null"><{$zong}><else/>0</if></strong> 个</span>
+    </div>
+    <table class="table table-border table-bordered table-hover table-bg table-sort">
+        <thead>
+        <tr class="text-c">
+            <th width="30">顺序号</th>
+            <th width="">本平台账号</th>
+            <th width="">提现金额</th>
+            <th>提现时间</th>
+            <th width="">提现实名</th>
+            <th width="">收款银行</th>
+            <th width="">账号省份</th>
+            <th width="">账号城市</th>
+            <th width="">账号开户行</th>
+            <th width="">提现状态</th>
+            <th width="">收款账号</th>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name='list' id='vo'>
+            <tr class="text-c">
+                <td><{$vo.id}></td>
+                <td><{$vo.mb}></td>
+                <td><{$vo.money}></td>
+                <td><{$vo.create_date|date='Y-m-d H:i:s',###}></td>
+                <td><{$vo.name}></td>
+                <td><{$vo.bank}></td>
+                <td><{$vo.province}></td>
+                <td><{$vo.city}></td>
+                <td><{$vo.kaihubank}></td>
+                <td><if condition="$vo.status eq 1"><a id="gg<{$vo.id}>" onclick="shuns(<{$vo.id}>);" href="javascript:;">未提现</a><elseif condition="$vo.status eq 2"/>已提现</if></td>
+                <td><{$vo.bank_crad}></td>
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+    <div id="pageNav" class="pageNav"><{$page}></div>
+</div>
+</body>
+<script>
+    function shuns(id){
+        url = "<{:url('admin/report/webstus')}>";
+        $.ajax({
+            url:url,
+            type:'get',
+            data:{id:id},
+            dataType:'json',
+            success:function(data){
+                if(data.status == 1){
+                    $('#gg'+id).html('已提现');
+                }else{
+                    layer.msg(data.msg,{icon:2,time:1500});
+                }
+            }
+        });
+    }
+
+</script>
+<include file='Common:foot' />

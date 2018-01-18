@@ -1,0 +1,52 @@
+<include file='Common:head' />
+
+<div class="pd-20">
+    <div class="Huiform">
+        <center><h3><{$list.title}></h3></center>
+        <center><h5>留言会员：&nbsp;<{$username.mobile}>&nbsp;&nbsp来源：&nbsp;<{$list.time|date='Y-m-d h:i:s',###}></h5></center>
+        <br/>
+        <{$list.content}>
+    </div>
+    <div class="Huiform" style="border-top: 1px solid #dddddd;margin-top: 20px;padding: 10px;">
+        <form action="" >
+            <table class="table table-bg">
+                <tbody>
+                <tr>
+                    <td>
+                        <textarea id="editor"  style="width:100%;height:200px;" class='editor' ><{$list.reply}></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th><input type='hidden' name='id' class='id' value='<{$list.id}>' id="id"></th>
+                </tr>
+                <tr>
+                    <td>
+                        <if condition="$list['status'] == 0">
+                            <button class="btn btn-primary radius" type="button"  onclick='leaving_tye()'><i class="Hui-iconfont">&#xe632;</i>提交回复</button>
+                         <else />
+                            <button class="btn btn-primary radius" type="button"  onclick='leaving_tyes()'><i class="Hui-iconfont">&#xe632;</i>修改回复</button>
+                        </if>
+                  </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+<include file='Common:foot' />
+<script type="text/javascript" src="/hui/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/hui/lib/webuploader/0.1.5/webuploader.min.js"></script>
+<script type="text/javascript" src="/hui/lib/ueditor/1.4.3/ueditor.config.js"></script>
+<script type="text/javascript" src="/hui/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="/hui/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var  ue=UE.getEditor('editor',{
+        toolbars: [
+            ['simpleupload', 'insertimage','emotion']
+        ]
+    });
+
+</script>

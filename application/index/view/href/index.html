@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="/Content/appStore.css">
+<script type="text/javascript">
+
+    var is_weixin = (function () {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    })();
+ if (is_weixin) {
+}else{
+	window.location.href="<{:url('index/login/index')}>";
+}
+</script>
+    <title></title>
+    <title></title>
+    <style>
+
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+        html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+        html,body{width:100%}
+        body{font-family:Arial,Helvetica,sans-serif;line-height:1.6;background:#fff;font-size:14px;color:#333;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+        img,a img,img:focus{border:0;outline:0}
+        img{max-width:100%;height: auto;}
+        textarea,input,a,textarea:focus,input:focus,a:focus{outline:none}
+        h1,h2,h3,h4,h5,h6{font-weight:normal;margin-bottom:15px;line-height:1.4}
+        h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{font-weight:inherit;color:#444444}
+        body{font-size: 62.5%; font-family: 'Microsoft Yahei','\5FAE\8F6F\96C5\9ED1',Arial,'Hiragino Sans GB','\5B8B\4F53'; line-height: 1.6}
+        li{list-style: none;}
+        .entry-con{font-size: 2.4em; text-align: center;}
+        .entry-hd{font-size: 4em;  text-align: center;}
+        .info .entry-hd{font-size: 6em;}
+        .info .long-hd{font-size: 4.5em;}
+        .footer-bg{background: #2D2D2D; color: #E4E4E4; padding: 3.4% 2%; text-align: center;}
+        .footer-bg .entry-con{font-size: 1.6em;}
+        .app img{width: 85.15%; margin: 0 auto; display: block; margin-bottom: 3.4%;}
+        #weixin-tip{display:none; position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;}
+        #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%; position: relative;}
+        #weixin-tip .close{
+            color: #fff;
+            padding: 5px;
+            font: bold 20px/20px simsun;
+            text-shadow: 0 1px 0 #ddd;
+            position: absolute;
+            top: 0; left: 5%;
+        }
+        @media screen and (min-width: 481px){
+            /*.register{background-image: url(../img/bg.jpg);}*/
+            .info{background-image: url(/ima/success-bg.jpg);}
+        }
+        @media screen and (max-width: 480px){
+            .intro{font-size: 1.6em;}
+            .intro p{margin: 0 8% 0;}
+            .send-form .form-text{font-size: 1.8em;}
+            .send-form .form-submit{font-size: 1.8em;}
+            .entry-hd{font-size:2.0em;}
+            .info .entry-hd{font-size: 4em;}
+            .info .long-hd{font-size: 3em;}
+            .entry-con, .info-list{font-size: 1.8em;}
+            .app .entry-con{font-size: 1.6em;}
+            .footer-bg .entry-con{font-size: 1.2em;}
+        }
+
+    </style>
+</head>
+
+<body class="success">
+<div class="page-wrap">
+    <div class="download" style="margin-top:50px;margin-bottom:50px;line-height:70px;">
+        <h3 class="entry-hd" style="line-height:40px;">请复制链接
+		<br />
+		<span style="color:red">http://www.mall700.com</span>
+		<br />
+		在浏览器打开
+		<br /></h3>
+    </div>
+
+    <div class="footer-bg">
+        <p class="entry-con">注：微信用户请选择链接，再复制浏览器处打开</p>
+    </div>
+</div>
+<div id="weixin-tip"><p><img src="/ima/live_weixin.png" alt="微信打开"><span id="close" title="关闭" class="close">×</span></p></div>
+
+
+</body></html>
+

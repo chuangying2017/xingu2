@@ -1,0 +1,111 @@
+<include file="common/header" />
+<body>
+<header class="mui-bar mui-bar-nav mui-bar-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">奖金记录</h1>
+</header>
+<div class="mui-content Direct" id="app">
+    <div class="mui-row" id="activity-content" style="padding: 0;background: 0">
+    </div>
+</div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<script>
+    var page_index = 1;
+    var pageSize = 15;
+    var RealtotalPage = 0; //总条数s
+    var total=0;
+    var end = 0;
+    var loaddata = function() {
+        if(RealtotalPage==0 || total <= RealtotalPage) {
+            RealtotalPage = RealtotalPage + 1;
+            total+=pageSize;
+            mui.ajax("<{:url('record/index')}>", {
+                data: {
+                    pageIndex: page_index,
+                    PageSize: pageSize
+                },
+                dataType: 'json',
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function(data) {
+                    console.log(data);
+                    if(data.status == 1){
+                        $.each(data.result, function(idx, obj) {
+                            var a = ''
+                            if(obj.type == 1){
+                                a = '一代奖励'
+                            }
+                            if(obj.type == 2){
+                                a = '二代奖励'
+                            }
+                            if(obj.type == 3){
+                                a = '三代奖励'
+                            }
+                            if(obj.type == 4){
+                                a = '团队奖励'
+                            }
+//                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
+                            var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span></p><p>奖励类型：<span class="font-color-07">'+a+'</span></p><p>获得时间：'+UnixToDates(obj.create_date,'y-m-d')+'</p></div></div>';
+                            $('#activity-content').append(contHtml);
+                        });
+                        RealtotalPage = data.total;
+                        if(total >= RealtotalPage){
+                            end = 1;
+                            refresh.pullToLoadMore.type = 'end';
+                        }else{
+                            page_index = page_index + 1;
+                            refresh.pullToLoadMore.type = 'start';
+                        }
+                    }else{
+                        refresh.pullToLoadMore.type = 'none';
+                    }
+                }
+            });
+        }
+    }
+    var refresh = new Refresh('.mui-content');
+    //设置上拉加载更多的状态
+    refresh.pullToLoadMore.type = 'start';
+    //下拉刷新
+    refresh.onPullToRefresh = function() {
+        var self = this;
+        setTimeout(function() {
+            //设置下拉加载状态
+            self.pullToRefresh.type = 'start';
+            $("#activity-content").html("");
+            page_index = 1;
+            RealtotalPage = 0;
+            total=0;
+            end = 0;
+            loaddata();
+            //设置上拉加载更多的状态
+            refresh.pullToLoadMore.type = 'start';
+        }, 1000);
+    }
+    //上拉加载
+    refresh.onPullToLoadMore  = function() {
+        refresh.pullToLoadMore.type = 'loading';
+        setTimeout(function () {
+            loaddata();
+        }, 1000);
+    };
+    loaddata();
+    //判断滚动条是否
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop();
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
+        if(scrollTop + windowHeight == scrollHeight){
+            if(end == 0){
+                refresh.onPullToLoadMore();
+            }else{
+                refresh.pullToLoadMore.type = 'end';
+            }
+        }
+    });
+	document.getElementById('MemberInfo').classList.add('mui-active');
+</script>
+<include file="common/pass_error" />

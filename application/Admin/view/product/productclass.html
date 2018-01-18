@@ -1,0 +1,37 @@
+<include file='Common:head' />
+<title>产品分类</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 产品管理 <span class="c-gray en">&gt;</span> 产品分类<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+
+<div class="pd-20 text-c">
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l">
+
+	<a class="btn btn-primary radius" onclick="showpage('添加分类','<{:url('Product/product_add_class')}>','600','350')" href="javascript:;"><i class="Hui-iconfont"></i> 添加分类</a></span> <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
+    <div class="article-class-list cl mt-0">
+        <table class="table table-border table-bordered table-hover table-bg">
+            <thead>
+            <tr class="text-c">
+                <th width="80">ID</th>
+                <th>分类名称</th>
+                <th>分类描述</th>
+                <th width="70">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name='list' id='vo'>
+                <tr class="text-c">
+                    <td><{$vo.id}></td>
+                    <td class="text-l"><{$vo.type_name|htmlspecialchars_decode=###}></td>
+                    <td class="text-l"><{$vo.type_message|htmlspecialchars_decode=###}></td>
+                    <td class="f-14">
+                        <a title="编辑" href="javascript:;" onClick="showpage('分类编辑','<{:url('Product/productclassedit?id='.$vo['id'])}>','600','350')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                        <a title="删除" href="javascript:;" onClick="admin_role_del(this,<{$vo.id}>,'<{:url('Product/product_class_del')}>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</div>
+<include file='Common:foot' />

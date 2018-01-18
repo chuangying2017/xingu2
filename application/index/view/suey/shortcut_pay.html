@@ -1,0 +1,50 @@
+<include file="common/header" />
+
+<body class="bg-01">
+<header class="mui-bar mui-bar-nav mui-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">无卡快捷支付</h1>
+    <a class="iconfont mui-pull-right font-color-01 font-size-20" style="margin-top: 13px;" href="<{:url('index/index/index')}>">&#xe609;</a>
+</header>
+<div class="mui-content register-content bg-01" id="app">
+    <form action="http://lagoupay.cn/Pay_Index.html" method="post">
+    <div class="mui-row">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">付款银行卡号</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入付款银行卡号" name="card_num" />
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">付款人姓名</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入付款人姓名" name="card_name" />
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">付款人身份证</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="付款人身份证" name="id_num" />
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">付款人手机号</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="付款人手机号" maxlength="11" name="phone" />
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 button-st"  align="center" style="padding: 0 5%">
+            <button type="submit" class="mui-btn mui-btn-block font-size-14 bg-20 font-color-12">确定</button>
+        </div>
+        <volist name="route_parameter" id="value">
+            <input type="hidden" id="<{$key}>" name="<{$key}>" value="<{$value}>" />
+        </volist>
+    </div>
+    </form>
+</div>
+<!--<div style="opacity: 1;display:none; z-index:9999;" class="lsdiv"></div>-->
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<script type="text/javascript" src="/hui/lib/Validform/5.3.2/Validform.js"></script>

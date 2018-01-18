@@ -1,0 +1,142 @@
+<include file="common/header" />
+<style>
+    .left-bo{border-right: 1px solid #575555}
+</style>
+<body class="bg-19">
+<header class="mui-bar mui-bar-nav mui-head bg-19">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">投资</h1>
+</header>
+
+<div class="mui-content Investment bg-19" id="app">
+    <div class="row bg-21 Investment-title">
+        <p class="font-color-01 font-size-14">账号：<{$data_s.mobile}></p>
+        <p class="font-color-01 font-size-14 mui-text-center title-mo"><span class="mui-pull-left font-color-15">余额：<span class="font-color-11"><{$data_s.money}></span></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="font-color-15">奖金：<span class="font-color-11"><{$data_s.bonus}></span></span>
+            <a href="<{:url('user/takeThe')}>" class="mui-pull-right mui-btn mui-btn-outlined font-color-15 bg-22" style="margin-top: -15px;line-height: 30px"> <span class="iconfont font-size-20 font-color-11 mui-pull-left" style="margin-top: -4px;">&#xe60f;<span class="font-size-14 font-color-15">&nbsp;&nbsp;提现</span></span></a>
+        </p>
+    </div>
+    <div class="mui-row Investment-head bg-12">
+        <volist name="list" id="vo">
+            <div class="mui-col-sm-6 mui-col-xs-6 font-size-14 mui-text-center font-color-01 mui-text-centersa" data-value="<{$vo.id}>">
+                <{$vo.title}>
+            </div>
+        </volist>
+        <!-- <div class="mui-col-sm-3 mui-col-xs-3 font-size-13 mui-text-center active">
+             100元商品
+         </div>
+         <div class="mui-col-sm-3 mui-col-xs-3 font-size-13 mui-text-center">
+             500元商品
+         </div>
+         <div class="mui-col-sm-3 mui-col-xs-3 font-size-13 mui-text-center">
+             1000元商品
+         </div>
+         <div class="mui-col-sm-3 mui-col-xs-3 font-size-13 mui-text-center">
+             1500元商品
+         </div>-->
+    </div>
+    <div class="mui-row Investment-content" id="htmlk">
+        <!--<div class="goods">-->
+        <!--<div class="mui-row img mui-pull-left">-->
+        <!--<img src="/index/images/04.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="mui-row font-size-14 goods-content mui-pull-left font-color-01">-->
+        <!--<span>100理财卡</span> <br>-->
+        <!--<span>￥100</span>-->
+        <!--<a href="<{:url('goods/purchase')}>" class="mui-btn bg-01 font-color-10 mui-pull-right font-size-13">-->
+        <!--立刻购买-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="goods bg-03">-->
+        <!--<div class="mui-row img">-->
+        <!--<img src="/index/images/04.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="mui-row font-size-13 goods-content">-->
+        <!--<span>手机话费充值卡</span> <br />-->
+        <!--<span>￥100</span>-->
+        <!--<a href="<{:url('goods/purchase')}>"class="mui-btn bg-01 font-color-01 mui-pull-right font-size-13">-->
+        <!--购买-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="goods bg-03">-->
+        <!--<div class="mui-row img">-->
+        <!--<img src="/index/images/04.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="mui-row font-size-13 goods-content">-->
+        <!--<span>手机话费充值卡</span> <br />-->
+        <!--<span>￥100</span>-->
+        <!--<a href="<{:url('goods/purchase')}>" class="mui-btn bg-01 font-color-01 mui-pull-right font-size-13">-->
+        <!--购买-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="goods bg-03">-->
+        <!--<div class="mui-row img">-->
+        <!--<img src="/index/images/04.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="mui-row font-size-13 goods-content">-->
+        <!--<span>手机话费充值卡</span> <br />-->
+        <!--<span>￥100</span>-->
+        <!--<a href="<{:url('goods/purchase')}>" class="mui-btn bg-01 font-color-01 mui-pull-right font-size-13" >-->
+        <!--购买-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+
+<script>
+    $('.mui-text-center:first').addClass('active');
+    mui('.Investment-head').on('tap','div',function(){
+        const thio = this;
+        const ls =  $(this).attr('data-value');
+        $(thio).siblings().removeClass('active');
+        $(thio).addClass('active');
+        ajaxs(ls)
+    })
+    var value = $('.mui-text-centersa:first').attr('data-value');
+    ajaxs(value);
+    function ajaxs(ls){
+        var url = "<{:url('index/Goods/ajax_product')}>";
+        $.ajax({
+            url:url,
+            type:'post',
+            dataType:'json',
+            async:false,
+            data:{id:ls},
+            success:function(data){
+                $('#htmlk').empty();
+                if(data.status == 1){
+                    var html = '';
+                    for(var i=0;i<data.chang;i++){
+                        html += '<div class="goods">'
+                            +'<div class="mui-row img mui-pull-left">'
+                            +'<img src="/'+data.data[i].path_img+'" alt="">'
+                            +'</div>'+'<div class="mui-row font-size-14 goods-content mui-pull-left font-color-15">'
+                            +'<span>'+data.data[i].title+'</span> '+'<br />'
+                            +'<span class="font-color-11">'+'￥'+data.data[i].price+'</span>'
+                            +'<a href="'+data.data[i].url+'" class="mui-btn bg-01 font-color-10 mui-pull-right font-size-13">'
+                            +'立即购买'+'</a>'
+                            +'</div>'
+                            +'</div>'
+                    }
+                    $('.Investment-content').append(html);
+                }
+            },error:function (type) {
+                console.log(type)
+            }
+        });
+
+    }
+
+    document.getElementById('defaultTab').classList.add('mui-active');
+    document.getElementsByClassName('mui-text-centersa')[0].classList.add('active','left-bo');
+</script>
+<include file="common/pass_error" />
+

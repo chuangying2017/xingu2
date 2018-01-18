@@ -1,0 +1,49 @@
+<include file="common:head" />
+    <title> 银行卡信息</title>
+    <style>
+        .mui-bank .mui-row{padding: 15px 20px;}
+        .mui-bank .mui-row .mui-col-sm-12{background: url('/view/images/timg.jpg')no-repeat;background-size: 100%;;padding: 15px 30px 15px 40px;margin-bottom: 20px;}
+        .mui-bank .mui-row .mui-col-sm-12 button{padding: 4px 12px;}
+        .mui-bar .row{height: 50px;text-align: center;line-height: 50px;font-size:14px;color:#ffffff}
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav mui-bar-head bg-01 ">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">银行卡信息</h1>
+</header>
+
+<div class="mui-content mui-bank">
+    <div class="mui-row">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <p class="font-size-14">建设银行 <button type="button" class="mui-btn mui-btn-danger mui-pull-right font-size-14 jiebang">
+                解绑
+            </button>
+            </p>
+            <p class="font-size-14">654212152151515151</p>
+        </div>
+    </div>
+</div>
+
+<nav class="mui-bar mui-bar-tab mui-bar-footer bg-01" id="nav">
+    <div class="row font-size-14">
+        +添加银行卡
+    </div>
+</nav>
+</body>
+<script src="/view/js/mui.min.js"></script>
+<script src="/view/js/jquery-3.1.1.min.js"></script>
+</html>
+<script>
+    $(function(){
+        $('.jiebang').on('tap', function(e) {
+            e.detail.gesture.preventDefault();
+            var btnArray = ['确定', '取消'];
+            mui.prompt('请输入您的安全密码：', '安全密码输入', '密码输入', btnArray, function(e) {
+                if (e.index == 0) {
+                    mui.alert('点了确定')
+                }
+            })
+        });
+    })
+</script>

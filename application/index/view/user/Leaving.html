@@ -1,0 +1,181 @@
+<include file="common/header" />
+<body>
+<header class="mui-bar mui-bar-nav mui-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">留言</h1>
+</header>
+<style>
+    /*加入计划*/
+    .mui-join .mui-row{padding: 10px 7px 10px 7px}
+    .mui-join .mui-row ul{box-shadow: 1px 1px 1px #cfcfd0;margin-bottom: 10px;border-radius:6px;}
+    .mui-join .mui-row ul li a{margin-bottom: 5px}
+    .mui-join .mui-row ul li a div{padding-bottom: 5px;line-height: 29px}
+    .mui-table-view-cell>a:not(.mui-btn) {white-space: unset;}
+    .mui-table-view-cell>a:not(.mui-btn).mui-active{background: 0}
+    .mui-table-view-cell{padding: 10px;}
+    .mui-join .mui-row ul li .leaving{border-top: 1px solid #dddddd;padding-top: 10px;}
+    .text-indent-25{text-indent: 2em}
+</style>
+<div class="mui-content mui-join" id="app">
+    <div class="mui-row" id="activity-content">
+        <!--<ul class="mui-table-view"><li class="mui-table-view-cell mui-media"><a  class="font-size-14"><div class="mui-media-body"><p class='mui-ellipsis font-size-14'>该平台的系统十分强大 <span class="mui-pull-right font-size-13 font-color-04">2017-12-12 17:12:51</span></p><p class="font-clo-03">为18-50岁的自己一份守护爱USD哈市的撒谎大家说的哈就看得见阿克苏asdasass</p><p class="font-clo-03"></p></div></a><p class="font-size-14 font-clo-03 leaving"><span class="font-size-16">Dubli：</span> <br /><span>谢谢您的赞赏</span> <br /><span class="mui-pull-right font-size-13">2017-12-12 17:12:51</span></p></li></ul>-->
+    </div>
+</div>
+<style>
+    #popoveras{height: 350px;top:50%;margin-top: -175px;width: 90%;margin-left: 5%;}
+    #popoveras .one{padding: 10px 0 10px 0;}
+    #popoveras .one p{margin-bottom: 0;}
+    #popoveras .one span{margin-top: -27px;}
+    #popoveras .two{padding: 10px 20px;}
+    #popoveras .two button{padding: 10px 0}
+</style>
+
+<div id="popoveras" class="mui-popover mui-popover-style">
+    <div class="mui-row mui-text-center bg-01 font-size-15 font-color-01 one one-hide" style="">
+        <p class="font-color-01">留言</p> <span class="mui-icon mui-icon-close mui-pull-right"></span>
+    </div>
+    <div class="mui-row two buls-p">
+        <input type="text" placeholder="留言标题！仅限10字内！" class="font-size-14" id="titles" maxlength="10">
+        <textarea rows="6" cols="20" placeholder="请输入留言内容！仅限50字内！" class="font-size-14"  id="contents" maxlength="50"></textarea>
+        <button type="button" class="mui-btn mui-btn-warning mui-btn-block font-size-14">提交</button>
+    </div>
+</div>
+<nav class="mui-bar mui-bar-tab bg-03 purchase-bar loinga bg-01" id="nav">
+    <div class="mui-row mui-text-center font-size-15 bg-01 font-color-01" style="line-height: 50px;">
+        我要留言
+    </div>
+</nav>
+</body>
+</html>
+<include file="common/script" />
+<script>
+    mui('.loinga').on('tap','.mui-row',function(){
+        mui('#popoveras').popover('show');
+    })
+    mui('.one-hide').on('tap','.mui-icon-close',function(){
+        mui('#popoveras').popover('hide');
+    })
+
+    mui('.buls-p').on('tap','button',function(){
+        var title = $('#titles').val();
+        var content = $('#contents').val();
+//        mui.alert(title);
+//        mui.alert(content);
+        if(title.length > 10){
+            return mui.alert('留言标题仅限10字内！');
+        }
+        if(content.length > 50){
+            return mui.alert('留言内容仅限50字内！');
+        }
+        if(title == ''){
+            return mui.alert('留言标题不能为空！');
+        }
+        if(content == ''){
+            return mui.alert('留言内容不能为空！');
+        }
+        mui.ajax('/index/user/LeavingAdd', {
+            data: {title:title,content:content},
+            dataType: 'json',
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function (data) {
+                if(data.status == 1){
+                    mui.alert(data.msg);
+                    setTimeout(function(){location.reload();},2000);
+                }
+                if(data.status == 3){
+                    mui.alert(data.msg);
+                }
+                if(data.status == 2){
+                    mui.alert(data.msg);
+                }
+            }
+        });
+    })
+
+    var page_index = 1;
+    var pageSize = 4;
+    var RealtotalPage = 0; //总条数s
+    var total=0;
+    var end = 0;
+    var loaddata = function() {
+        if(RealtotalPage==0 || total <= RealtotalPage) {
+            RealtotalPage = RealtotalPage + 1;
+            total+=pageSize;
+            mui.ajax("<{:url('user/Leaving')}>", {
+                data: {
+                    pageIndex: page_index,
+                    PageSize: pageSize
+                },
+                dataType: 'json',
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function(data) {
+                    if(data.status == 1){
+
+                        $.each(data.result, function(idx, obj) {
+                            if(obj.status == 0){
+                                var hlscon = '<p class="font-size-14 font-clo-03 leaving mui-text-center"><span class="font-size-14 mui-text-center">暂未回复</span></p>';
+                            }
+                            if(obj.status == 1){
+                                var hlscon = '<p class="font-size-14 font-clo-03 leaving"><span class="font-size-15">鑫谷平台：</span> <br /><span>'+obj.reply+'</span> <br /><span class="mui-pull-right font-size-13">'+UnixToDate(obj.reply_time,'y-m-d h:i:s')+'</span></p>';
+                            }
+                            var contHtml =  '<ul class="mui-table-view"><li class="mui-table-view-cell mui-media"><a  class="font-size-14"><div class="mui-media-body"><p class="mui-ellipsis font-size-14">'+obj.title+'<span class="mui-pull-right font-size-13 font-color-04">'+UnixToDate(obj.time,'y-m-d h:i:s')+'</span></p><p class="font-clo-03">'+obj.content+'</p><p class="font-clo-03"></p></div></a>'+hlscon+'</li></ul>';
+                            $('#activity-content').append(contHtml);
+                        });
+                        RealtotalPage = data.total;
+                        if(total >= RealtotalPage){
+                            end = 1;
+                            refresh.pullToLoadMore.type = 'end';
+                        }else{
+                            page_index = page_index + 1;
+                            refresh.pullToLoadMore.type = 'start';
+                        }
+                    }else{
+                        refresh.pullToLoadMore.type = 'none';
+                    }
+                }
+            });
+        }
+    }
+    var refresh = new Refresh('.mui-content');
+    //设置上拉加载更多的状态
+    refresh.pullToLoadMore.type = 'start';
+    //下拉刷新
+    refresh.onPullToRefresh = function() {
+        var self = this;
+        setTimeout(function() {
+            //设置下拉加载状态
+            self.pullToRefresh.type = 'start';
+            $("#activity-content").html("");
+            page_index = 1;
+            RealtotalPage = 0;
+            total=0;
+            end = 0;
+            loaddata();
+            //设置上拉加载更多的状态
+            refresh.pullToLoadMore.type = 'start';
+        }, 1000);
+    }
+    //上拉加载
+    refresh.onPullToLoadMore  = function() {
+        refresh.pullToLoadMore.type = 'loading';
+        setTimeout(function () {
+            loaddata();
+        }, 1000);
+    };
+    loaddata();
+    //判断滚动条是否
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop();
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
+        if(scrollTop + windowHeight == scrollHeight){
+            if(end == 0){
+                refresh.onPullToLoadMore();
+            }else{
+                refresh.pullToLoadMore.type = 'end';
+            }
+        }
+    });
+</script>

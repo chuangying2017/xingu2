@@ -1,0 +1,95 @@
+<include file="common/header" />
+
+<body class="bg-01">
+<header class="mui-bar mui-bar-nav mui-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">添加银行卡</h1>
+    <a class="iconfont mui-pull-right font-color-01 font-size-20" style="margin-top: 13px;" href="<{:url('index/index/index')}>">&#xe609;</a>
+</header>
+<div class="mui-content register-content bg-01" id="app">
+    <div class="mui-row">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">开户名</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入开户名字" v-model="bankUsername">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12" id="showUserPicker">
+                <label class="font-size-14 font-color-01">开户银行</label>
+                <input type="text" class="mui-input-clear font-size-14 select-input font-color-01" placeholder="请选择银行" id="userResult">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">开户支行</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="例：xx街道xx支行" v-model="banlDetailedCity">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">银行卡号</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入开户银行卡号" v-model="bankAccount" maxlength="21">
+            </div>
+        </div>
+	     <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-12">
+                <label class="font-size-14 font-color-01">身份证</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入身份证" v-model="bankCrad" maxlength="18">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row yzm bg-12">
+                <label class="font-size-14 font-color-01">短信验证码</label>
+                <div class="font-size-12">
+                  <button style="width: 100%" class="bg-20 font-color-12" onclick="daojishi(this)">获取验证码</button>
+                </div>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入验证码" v-model="bankcode">
+            </div>
+        </div>
+        <!--<div class="mui-col-sm-12 mui-col-xs-12">-->
+            <!--<div class="mui-input-row yzm">-->
+                <!--<label class="font-size-14 font-clo-01">短信验证码</label>-->
+                <!--<div class="font-size-13 font-clo-02 bg-10 font-color-01" style="border-radius: 6px;">-->
+                    <!--获取验证码-->
+                <!--</div>-->
+                <!--<input type="text" class="mui-input-clear" placeholder="请输入短信验证">-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="mui-col-sm-12 mui-col-xs-12 button-st" align="center" style="padding: 0 5%">
+            <button type="button" class="mui-btn mui-btn-block font-size-14 bg-20 font-color-12" @click="submit_bank">确定</button>
+        </div>
+    </div>
+</div>
+<div style="opacity: 1;display:none; z-index:9999;" class="lsdiv"></div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<script>
+    var userPicker = new mui.PopPicker();
+    userPicker.setData(<{$list}>);
+    var showUserPickerButton = document.getElementById('showUserPicker');
+    var userResult = document.getElementById('userResult');
+    showUserPickerButton.addEventListener('tap', function(event) {
+        userPicker.show(function(items) {
+            userResult.value = items[0].text;
+            app.bankName = items[0].text;
+            app.bankId = items[0].value;
+        });
+    }, false);
+    var setTime;
+    function daojishi(obj){
+	mui.alert('正在处理,请稍候....');
+	document.getElementsByClassName('lsdiv')[0].style.display = 'block';
+		mui.toast('正在处理,请稍候....');
+		$(this).html('请求中...');
+		document.getElementsByClassName('lsdiv')[0].style.display = 'none';
+		setTimeout(function(){lsa(obj);},2000);
+		
+    }
+	function lsa(obj,setTime){
+	timess(obj,setTime);
+	}
+</script>
+<include file="common/pass_error" />

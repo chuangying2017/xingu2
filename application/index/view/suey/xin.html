@@ -1,0 +1,111 @@
+<include file="common/header" />
+<style>
+    .mui-table-view:before{height: 0}
+    .mui-table-view-cell{border-bottom: 1px solid #575555}
+    .weixi .row{border-bottom: 1px solid #575555}
+    .fullPage-loadMore{color:#FFFFFF}
+    .fullPage-refresh{color:#FFFFFF}
+    .mui-table-view-cell>a:not(.mui-btn).mui-active{background: #2a2a2a}
+</style>
+<body class="bg-23">
+<header class="mui-bar mui-bar-nav mui-bar-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">新闻公告</h1>
+</header>
+<div class="mui-content bg-23 weixi" id="app">
+    <div class="row">
+        <img src="/index/images/11.png" alt="" width="100%">
+    </div>
+    <ul class="mui-table-view bg-23" id="activity-content">
+    </ul>
+</div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<script>
+    var page_index = 1;
+    var pageSize = 15;
+    var RealtotalPage = 0; //总条数s
+    var total=0;
+    var end = 0;
+    var loaddata = function() {
+        if(RealtotalPage==0 || total <= RealtotalPage) {
+            RealtotalPage = RealtotalPage + 1;
+            total+=pageSize;
+            mui.ajax("<{:url('Suey/xin')}>", {
+                data: {
+                    pageIndex: page_index,
+                    PageSize: pageSize
+                },
+                dataType: 'json',
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function(data) {
+                    if(data.status == 1){
+                        $.each(data.result, function(idx, obj) {
+                            var contHtml =  '<li class="mui-table-view-cell font-size-13 font-color-01"><a onclick="Show_news('+obj.id+')"></span>'+obj.art_title+'<span class="mui-pull-right font-color-13">'+obj.art_time+'</span></a></li>';
+                            $('#activity-content').append(contHtml);
+                        });
+                        RealtotalPage = data.total;
+                        if(total >= RealtotalPage){
+                            end = 1;
+                            refresh.pullToLoadMore.type = 'end';
+                        }else{
+                            page_index = page_index + 1;
+                            refresh.pullToLoadMore.type = 'start';
+                        }
+                    }else{
+                        refresh.pullToLoadMore.type = 'none';
+                    }
+                }
+            });
+        }
+    }
+    var refresh = new Refresh('.mui-content');
+    //设置上拉加载更多的状态
+    refresh.pullToLoadMore.type = 'start';
+    //下拉刷新
+    refresh.onPullToRefresh = function() {
+        var self = this;
+        setTimeout(function() {
+            //设置下拉加载状态
+            self.pullToRefresh.type = 'start';
+            $("#activity-content").html("");
+            page_index = 1;
+            RealtotalPage = 0;
+            total=0;
+            end = 0;
+            loaddata();
+            //设置上拉加载更多的状态
+            refresh.pullToLoadMore.type = 'start';
+        }, 1000);
+    }
+    //上拉加载
+    refresh.onPullToLoadMore  = function() {
+        refresh.pullToLoadMore.type = 'loading';
+        setTimeout(function () {
+            loaddata();
+        }, 100000);
+    };
+    loaddata();
+    //判断滚动条是否
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop();
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
+        if(scrollTop + windowHeight == scrollHeight){
+            if(end == 0){
+                refresh.onPullToLoadMore();
+            }else{
+                refresh.pullToLoadMore.type = 'end';
+            }
+        }
+    });
+
+    function Show_news(id){
+        window.location.href="<{:url('Suey/news')}>?id="+id;
+    }
+	 document.getElementById('transaction').classList.add('mui-active');
+</script>
+<include file="common/pass_error" />

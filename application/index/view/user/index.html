@@ -1,0 +1,208 @@
+<include file="common/header" />
+<style>
+    .border-left{border-right: 1px solid #575555}
+</style>
+<body class="bg-01">
+<header class="mui-bar mui-bar-nav mui-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">会员中心</h1>
+</header>
+<div class="mui-content mui-user Investment bg-01" id="app">
+    <!--<div class="mui-row mui-bg-div bg-21">-->
+        <!--<img src="/index/images/01.png" alt="" class="mui-pull-left">-->
+        <!--<span class="font-size-14 mui-pull-left font-color-01">账号：<{$data_s.mobile}> </span>-->
+        <!--<span class="mui-pull-right font-size-14"><a href="<{:url('user/up_pass')}>" class="font-color-01">修改密码  <i class="mui-icon mui-icon-forward inc-float font-size-18"></i></a></span>-->
+    <!--</div>-->
+    <!--<div class="mui-row bg-21 mui-user-Assets">-->
+        <!--<div class="mui-col-sm-6 mui-col-xs-6 mui-text-center font-size-14">-->
+            <!--<span class="font-color-01">余额：</span> <span class="font-color-08">￥<{$data_s.money}><a href="<{:url('user/takeThe')}>" class="mui-btn mui-btn-outlined font-color-01">提现</a></span>-->
+        <!--</div>-->
+        <!--<div class="mui-col-sm-6 mui-col-xs-6 mui-text-center font-size-14 left">-->
+            <!--<span class="font-color-01">奖金：</span><span class="font-color-03">￥<{$data_s.bonus}><a href="javascript:;" id="bonus_deposit" class="mui-btn mui-btn-outlined font-color-03">转余额</a></span>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="row bg-21 Investment-title">
+        <p class="font-color-01 font-size-14" style="margin-bottom: 15px;">账号：<{$data_s.mobile}><a href="<{:url('user/up_pass')}>" class="font-color-15 mui-pull-right">修改密码  <i class="mui-icon mui-icon-forward inc-float font-size-18"></i></a></p>
+        <p class="font-color-01 font-size-14 mui-text-center title-mo">
+            <span class="mui-pull-left font-color-15">余额：<span class="font-color-11"><{$data_s.money}></span>
+                <a href="<{:url('user/takeThe')}>" class="mui-pull-right mui-btn mui-btn-outlined font-color-15 bg-22">
+                    <span class="iconfont font-size-20 font-color-11 mui-pull-left" style="margin-top: -4px;">&#xe60f;<span class="font-size-14 font-color-15"> &nbsp;提现</span></span></a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="font-color-15 mui-pull-right">奖金：<span class="font-color-11"><{$data_s.bonus}></span>
+                <a href="javascript:;" id="bonus_deposit" class="mui-btn mui-btn-outlined font-size-20 font-color-15 font-size-14 zhuanyue" style="padding: 3px">转余额</a></span>
+
+        </p>
+
+    </div>
+    <div class="mui-row bg-21" style="border-top:1px solid #575555;padding: 10px 0">
+        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center font-color-15 font-size-14 border-left">
+            投资总额 <br />
+            <span class="font-color-11"><{$total_pricce}></span>
+        </div>
+        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center font-color-15 font-size-14 border-left">
+            直推人数 <br />
+            <span class="font-color-11"><{$data_s.invite_person}></span>
+        </div>
+        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center font-color-15 font-size-14">
+            冻结钱袋 <br />
+            <span class="font-color-11"><{$data_s.frozenmoney}></span>
+        </div>
+    </div>
+    <div class="mui-row mui-ico bg-12" style="margin-top: 10px;">
+        <template v-if="bankCount > 0">
+            <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+                <a href="<{:url('suey/bank')}>">
+                    <div class="mui-div font-size-14">
+                        <span class="iconfont font-size-20 font-color-14">&#xe624;</span>
+                        <span class="text-cl font-color-15">银行卡信息</span>
+                        <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                    </div>
+                </a>
+            </div>
+        </template>
+        <template v-else>
+            <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+                <a href="<{:url('suey/index')}>">
+                    <div class="mui-div font-size-14">
+                        <span class="iconfont font-size-20 font-color-14">&#xe624;</span>
+                        <span class="text-cl font-color-15">银行卡信息</span>
+                        <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                    </div>
+                </a>
+            </div>
+        </template>
+    </div>
+    <div class="mui-row mui-ico">
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+            <a href="<{:url('record/inscl')}>">
+                <div class="mui-div font-size-14">
+                    <span class="iconfont font-size-20 font-color-14">&#xe60f;</span>
+                    <span class="text-cl font-color-15">投资记录</span>
+                    <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                </div>
+            </a>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+            <a href="<{:url('record/index')}>">
+                <div class="mui-div font-size-14">
+                    <span class="iconfont font-size-20 font-color-14">&#xe603;</span>
+                    <span class="text-cl font-color-15">奖金记录</span>
+                    <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                </div>
+            </a>
+        </div>
+		<div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+            <a href="<{:url('record/insla')}>">
+                <div class="mui-div font-size-14">
+                    <span class="iconfont font-size-20 font-color-14">&#xe603;</span>
+                    <span class="text-cl font-color-15">返现记录</span>
+                    <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                </div>
+            </a>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+            <a href="<{:url('record/a_bonus')}>">
+                <div class="mui-div font-size-14">
+                    <span class="iconfont font-size-20 font-color-14">&#xe603;</span>
+                    <span class="text-cl font-color-15">分红记录</span>
+                    <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                </div>
+            </a>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+            <a href="<{:url('suey/withdrawals')}>">
+                <div class="mui-div font-size-14">
+                    <span class="iconfont font-size-20 font-color-14">&#xe60f;</span>
+                    <span class="text-cl font-color-15">提现记录</span>
+                    <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="mui-row mui-ico">
+        <!--<div class="mui-col-sm-12 mui-col-xs-12 bg-23">-->
+            <!--<a href="<{:url('suey/share')}>">-->
+                <!--<div class="mui-div font-size-14">-->
+                    <!--<span class="iconfont font-size-20 font-color-14">&#xe62b;</span>-->
+                    <!--<span class="text-cl font-color-01">推广管理</span>-->
+                    <!--<span class="mui-icon mui-icon-forward inc-float font-size-19"></span>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+            <a href="<{:url('suey/team')}>">
+                <div class="mui-div font-size-14">
+                    <span class="iconfont font-size-20 font-color-14">&#xe619;</span>
+                    <span class="text-cl font-color-15">我的团队</span>
+                    <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+<div class="mui-row mui-ico">
+        <!--<div class="mui-col-sm-12 mui-col-xs-12 bg-23">-->
+            <!--<a href="<{:url('suey/xin')}>">-->
+                <!--<div class="mui-div font-size-14">-->
+                    <!--<span class="iconfont font-size-20 font-color-09">&#xe63e;</span>-->
+                    <!--<span class="text-cl font-color-01">通知公告</span>-->
+                    <!--<span class="mui-icon mui-icon-forward inc-float font-size-19"></span>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+        <a href="<{:url('user/Leaving')}>">
+        <div class="mui-div font-size-14">
+        <span class="iconfont font-size-20 font-color-14">&#xe600;</span>
+        <span class="text-cl font-color-15">在线反馈</span>
+        <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+        </div>
+        </a>
+        </div>
+    </div>
+    <div class="mui-row mui-ico">
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-23">
+            <a href="#" id="confirmBtn">
+                <div class="mui-div font-size-14">
+                    <span class="iconfont font-size-20 font-color-14">&#xe67b;</span>
+                    <span class="text-cl font-color-15">安全退出</span>
+                    <span class="mui-icon mui-icon-forward inc-float font-size-19 font-color-15"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<script>
+
+    document.getElementById("confirmBtn").addEventListener('tap', function() {
+        var btnArray = ['退出', '再看看'];
+        mui.confirm('是否确认退出？', '提示', btnArray, function(e) {
+            if (e.index == 0) {
+                window.location.href = "login_log";
+            } else {
+
+            }
+        })
+    });
+	 document.getElementById('MemberInfo').classList.add('mui-active');
+    app.bankCount = <{$count}>;
+	
+	    var bonus_deposit = document.getElementById('bonus_deposit');
+    bonus_deposit.addEventListener('tap',function () {
+                mui.post('<{:url("index/User/transition")}>',{
+                    username:'1'
+                },function (data) {
+                        if(data.status == 1){
+                           mui.alert(data.msg,function(){
+                               location.reload();
+                           });
+                        }else{
+                            mui.alert(data.msg);
+                        }
+                },'json');
+    })
+	
+</script>
+<include file="common/pass_error" />

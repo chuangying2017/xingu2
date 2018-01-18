@@ -1,0 +1,1 @@
+D:\phpStudy\php\php-5.6.27-nts\php.exe -q G:\phpstorm\file_name\public\index.php admin/captcha/member_func

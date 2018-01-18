@@ -1,0 +1,143 @@
+<include file="common/header" />
+<body>
+<header class="mui-bar mui-bar-nav mui-bar-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">投资记录</h1>
+</header>
+<div class="mui-content Direct" id="app">
+    <div class="mui-row" id="activity-content" style="padding: 0;background: 0">
+        <!--<div class="mui-row"><div class="mui-col-sm-7 mui-col-xs-7 font-size-13"><p>订单号：C10087</p><p>商品名称：<span class="font-color-07">加油卡</span></p><p>购买时间：2017-06-15</p></div><div class="mui-col-sm-5 mui-col-xs-5 font-size-13"><p>购买状态：<span class="font-color-06">成功</span></p><p>商品价格：100</p></div></div>-->
+    </div>
+</div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<script>
+    var page_index = 1;
+    var pageSize = 8;
+    var RealtotalPage = 0; //总条数s
+    var total=0;
+    var end = 0;
+    var loaddata = function() {
+        if(RealtotalPage==0 || total <= RealtotalPage) {
+            RealtotalPage = RealtotalPage + 1;
+            total+=pageSize;
+            mui.ajax("<{:url('record/inscl')}>", {
+                data: {
+                    pageIndex: page_index,
+                    PageSize: pageSize
+                },
+                dataType: 'json',
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function(data) {
+                    console.log(data);
+                    if(data.status == 1){
+                        $.each(data.result[0], function(idx, obj) {
+                            var a = (obj.status == 1 && obj.type == 2) ? '支付成功' : obj.type == 1 ?'待支付'+'<span style="color: #aa7700;" onclick="my_cexiao('+obj.id+');">撤销</span>' : '返利';
+//                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
+                            var contHtml =  '<div class="mui-row"><div class="mui-col-sm-7 mui-col-xs-7 font-size-13"><p>订单号：'+obj.order_no+'</p><p>商品名称：<span class="font-color-07">'+obj.title+'</span></p><p>购买时间：'+obj.create_date+'</p></div><div class="mui-col-sm-5 mui-col-xs-5 font-size-13"><p>购买状态：<span class="font-color-06">'+a+'</span></p><p>商品价格：<span class="font-color-07">'+obj.price+'</span></p><p>可获利息：<span class="font-color-07">'+obj.lixi+'</span></p></div></div>';
+                            $('#activity-content').append(contHtml);
+                        });
+                        $.each(data.result[1], function(idx, obj) {
+                            var a = (obj.status == 1) ? '支付成功' : '待支付 &nbsp;<span style="color: #aa7700;" onclick="my_cexiaos('+obj.id+');">撤销</span>'
+//                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
+                            var contHtml =  '<div class="mui-row"><div class="mui-col-sm-7 mui-col-xs-7 font-size-13"><p>订单号：'+obj.order_no+'</p><p>商品名称：<span class="font-color-07">'+obj.title+'</span></p><p>应发分红：<span class="font-color-07">'+obj.should+'</span></p><p>购买时间：'+obj.create_time+'</p></div><div class="mui-col-sm-5 mui-col-xs-5 font-size-13"><p>购买状态：<span class="font-color-06">'+a+'</span></p><p>商品价格：<span class="font-color-07">'+obj.price+'</span></p><p>实发分红：<span class="font-color-07">'+obj.real+'</span></p></div></div>';
+                            $('#activity-content').append(contHtml);
+                        });
+                        RealtotalPage = data.total;
+                        if(total >= RealtotalPage){
+                            end = 1;
+                            refresh.pullToLoadMore.type = 'end';
+                        }else{
+                            page_index = page_index + 1;
+                            refresh.pullToLoadMore.type = 'start';
+                        }
+                    }else{
+                        refresh.pullToLoadMore.type = 'none';
+                    }
+                }
+            });
+        }
+    }
+    var refresh = new Refresh('.mui-content');
+    //设置上拉加载更多的状态
+    refresh.pullToLoadMore.type = 'start';
+    //下拉刷新
+    refresh.onPullToRefresh = function() {
+        var self = this;
+        setTimeout(function() {
+            //设置下拉加载状态
+            self.pullToRefresh.type = 'start';
+            $("#activity-content").html("");
+            page_index = 1;
+            RealtotalPage = 0;
+            total=0;
+            end = 0;
+            loaddata();
+            //设置上拉加载更多的状态
+            refresh.pullToLoadMore.type = 'start';
+        }, 1000);
+    }
+    //上拉加载
+    refresh.onPullToLoadMore  = function() {
+        refresh.pullToLoadMore.type = 'loading';
+        setTimeout(function () {
+            loaddata();
+        }, 1000);
+    };
+    loaddata();
+    //判断滚动条是否
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop();
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
+        if(scrollTop + windowHeight == scrollHeight){
+            if(end == 0){
+                refresh.onPullToLoadMore();
+            }else{
+                refresh.pullToLoadMore.type = 'end';
+            }
+        }
+    });
+	document.getElementById('MemberInfo').classList.add('mui-active');
+	
+	    function my_cexiao(id){
+       $.ajax({
+           url:"<{:url('index/Record/revocation')}>",
+           data:{id:id},
+           async:false,
+           type:'post',
+           dataType:'json',
+           success:function(data){
+               if(data.status == 1){
+                  mui.alert(data.msg,function(){
+                      window.location.href=data.url;
+                  });
+               }else{
+                   mui.alert(data.msg);
+               }
+           }
+       })
+    }
+    function my_cexiaos(id){
+        $.ajax({
+            url:"<{:url('index/Record/my_cexiaos')}>",
+            data:{id:id},
+            async:false,
+            type:'post',
+            dataType:'json',
+            success:function(data){
+                if(data.status == 1){
+                    mui.alert(data.msg,function(){
+                        window.location.href=data.url;
+                    });
+                }else{
+                    mui.alert(data.msg);
+                }
+            }
+        })
+    }
+</script>
+<include file="common/pass_error" />

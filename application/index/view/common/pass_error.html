@@ -1,0 +1,35 @@
+<script>
+    var security = '<{$data_s.password_two}>'
+    if(security == ''){
+        poper();
+    }
+
+    function poper(){
+        var btnArray = ['确认设置'];
+        mui.prompt('安全密码设置', '请输入6-12位字母数字', '为了您的资金安全，请设置安全密码', btnArray, function(e) {
+            if (e.index == 0) {
+                if(!(/^[a-z\d]{6,12}$/i.test(e.value))){
+                    mui.toast('密码格式错误');
+                    setTimeout(function(){poper()},2000);
+                }else{
+                    mui.ajax('/index/index/pass_t', {
+                        data: {password_two:e.value},
+                        dataType: 'json',
+                        type: 'post', //HTTP请求类型
+                        timeout: 10000, //超时时间设置为10秒；
+                        success: function (data) {
+                            if(data.status == 1){
+                                mui.alert(data.msg);
+                            }
+                            if(data.status == 2){
+                                mui.toast(data.msg);
+                                setTimeout(function(){poper()},2000);
+                            }
+                        }
+                    });
+                }
+            }
+        })
+        document.querySelector('.mui-popup-input input').type='password'
+    }
+</script>

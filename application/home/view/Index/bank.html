@@ -1,0 +1,92 @@
+<include file="common:head" />
+    <title>添加银行卡</title>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav mui-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">添加银行卡</h1>
+</header>
+<div class="mui-content register-content">
+    <div class="mui-row">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <label class="font-size-14 font-clo-01">手机号码</label>
+                <input type="text" class="mui-input-clear font-size-14" placeholder="请输入手机号码">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row" id="showUserPicker">
+                <label class="font-size-14 font-clo-01">开户银行</label>
+                <input type="text" class="mui-input-clear font-size-14 select-input" value="中国银行" id="userResult">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <label class="font-size-14 font-clo-01">开户名</label>
+                <input type="text" class="mui-input-clear font-size-14" placeholder="请输入开户名字">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <label class="font-size-14 font-clo-01">开户行账户</label>
+                <input type="text" class="mui-input-clear font-size-14" placeholder="请输入开户银行账户">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <label class="font-size-14 font-clo-01">银行地址</label>
+                <input type="text" class="mui-input-clear font-size-14" placeholder="请输入开户银行地址">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row yzm">
+                <label class="font-size-14 font-clo-01">图形验证码</label>
+                <div class="font-size-12">
+                    <img src="/view/images/yzm.png" alt="">
+                </div>
+                <input type="text" class="mui-input-clear font-size-14" placeholder="请输入验证码">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row yzm">
+                <label class="font-size-14 font-clo-01">短信验证码</label>
+                <div class="font-size-13 font-clo-02 bg-10 font-color-01" style="border-radius: 6px;">
+                    获取验证码
+                </div>
+                <input type="text" class="mui-input-clear" placeholder="请输入短信验证">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 button-st" align="center" style="padding: 0 5%">
+            <button type="button" class="mui-btn mui-btn-block font-size-14 bg-01 font-color-01">确定</button>
+        </div>
+    </div>
+</div>
+<include file="common:foot" />
+<script>
+    var userPicker = new mui.PopPicker();
+    userPicker.setData([{
+        value: '01',
+        text: '中国银行'
+    }, {
+        value: '02',
+        text: '中国工商银行'
+    }, {
+        value: '03',
+        text: '中国农业银行'
+    }, {
+        value: '04',
+        text: '中国建设银行'
+    }, {
+        value: '05',
+        text: '中国银行'
+    }]);
+    var showUserPickerButton = document.getElementById('showUserPicker');
+    var userResult = document.getElementById('userResult');
+    showUserPickerButton.addEventListener('tap', function(event) {
+        userPicker.show(function(items) {
+            userResult.value = items[0].text;
+            //返回 false 可以阻止选择框的关闭
+            //return false;
+        });
+    }, false);
+</script>

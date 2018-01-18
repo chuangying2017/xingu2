@@ -1,0 +1,57 @@
+<include file="common:head" />
+    <title>会员中心</title>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav mui-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">购买</h1>
+</header>
+
+<div class="mui-content purchase">
+    <div class="mui-row purchase-head bg-03 font-size-14">
+        <img src="/view/images/04.png" alt="" class="mui-pull-left">
+        <span>手机话费充值卡</span>
+        <br>
+        <span class="font-color-06">￥100</span>
+        <br>
+        <div class="mui-numbox" data-numbox-min='1' data-numbox-max='9'>
+            <button class="mui-btn mui-btn-numbox-minus font-color-01 bg-01" type="button">-</button>
+            <input id="test" class="mui-input-numbox bg-09 font-color-01 font-size-14" type="number" value="1"/>
+            <button class="mui-btn mui-btn-numbox-plus bg-01 font-color-01" type="button">+</button>
+        </div>
+    </div>
+    <div class="mui-row purchase-content">
+        <div class="zhi bg-03 active">
+            <div class="mui-row mui-text-center font-size-14">
+                <img src="/view/images/wx.png" alt="">
+                <span>微信支付</span>
+            </div>
+        </div>
+        <div class="zhi bg-03">
+            <div class="mui-row mui-text-center font-size-14">
+                <img src="/view/images/zfb.png" alt="">
+                <span>支付宝支付</span>
+            </div>
+        </div>
+        <div class="zhi bg-03">
+            <div class="mui-row mui-text-center font-size-14">
+                <img src="/view/images/kj.png" alt="">
+                <span>快捷支付</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="mui-bar mui-bar-tab bg-03 purchase-bar" id="nav">
+    <div class="mui-row">
+        <div class="mui-col-sm-8 mui-col-xs-8 font-size-14 font-color-04">
+            合计：100元
+        </div>
+        <a href="#" class="mui-col-sm-4 mui-col-xs-4 font-size-14 mui-text-center bg-01 font-color-01">
+            支付
+        </a>
+    </div>
+</nav>
+</body>
+<script src="/view/js/mui.min.js"></script>
+</html>

@@ -1,0 +1,158 @@
+<include file='Common:head' />
+<title>奖金设置</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统设置 <span class="c-gray en">&gt;</span> 参数设置 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="pd-20">
+    <form method="post" action="">
+        <table class="table table-border table-bordered table-hover table-bg">
+            <tbody>
+            <tr>
+            <tr>
+                <th class="text-r" width="200">提现开关：</th>
+                <td>
+                    <label><input name="tixian_status" value="1" type="radio" <if condition="$setparameter.tixian_status eq 1">checked='checked'</if>>启用</label>&nbsp;
+                    <label><input name="tixian_status" value="0" type="radio" <if condition="$setparameter.tixian_status eq 0">checked='checked'</if>>关闭</label>&nbsp
+                </td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">充值开关：</th>
+                <td>
+                    <label><input name="chongzhi_status" value="1" type="radio" <if condition="$setparameter.chongzhi_status eq 1">checked='checked'</if>>启用</label>&nbsp;
+                    <label><input name="chongzhi_status" value="0" type="radio" <if condition="$setparameter.chongzhi_status eq 0">checked='checked'</if>>关闭</label>&nbsp
+                </td>
+            </tr>
+			     <tr>
+                <th class="text-r" width="200">提现时间开关：</th>
+                <td>
+                    <label><input name="deposit_time_start" value="1" type="radio" <if condition="$setparameter.deposit_time_start eq 1">checked='checked'</if>>开</label>&nbsp;
+                    <label><input name="deposit_time_start" value="0" type="radio" <if condition="$setparameter.deposit_time_start eq 0">checked='checked'</if>>关</label>&nbsp;
+                </td>
+            </tr>
+			        <tr>
+                <th class="text-r" width="200">提现时间：</th><td><input type="number" name='deposit_time_hour' placeholder="" value="<{$setparameter.deposit_time_hour}>" style="width:50px" class="input-text deposit_time_hour">:时&nbsp;&nbsp;<input type="number" name='deposit_time_minute' placeholder="" value="<{$setparameter.deposit_time_minute}>" style="width:50px" class="input-text deposit_time_minute">:分&nbsp;至&nbsp;&nbsp;
+                <input type="number" name='deposit_time_hour_stop' placeholder="" value="<{$setparameter.deposit_time_hour_stop}>" style="width:50px" class="input-text deposit_time_hour_stop">:时&nbsp;&nbsp;
+                <input type="number" name='deposit_time_minute_stop' placeholder="" value="<{$setparameter.deposit_time_minute_stop}>" style="width:50px" class="input-text deposit_time_minute_stop">:分
+            </td>
+            </tr>
+			
+			     <tr>
+                <th class="text-r" width="200">提现次数：</th>
+                <td>
+                    <input type="text" name='deposit_number' placeholder="" value="<{$setparameter.deposit_number}>" style="width:50px" class="input-text deposit_number">
+                </td>
+            </tr>
+			
+             <tr>
+                <th class="text-r" width="200">推荐奖：</th><td>1代：<input type="text" name='recommend_one' placeholder="" value="<{$setparameter.recommend_one}>" style="width:100px" class="input-text recommend_one">%&nbsp;2代：<input type="text" name='recommend_tow' placeholder="" value="<{$setparameter.recommend_tow}>" style="width:100px" class="input-text recommend_tow">%&nbsp;
+                 3代：<input type="text" name='recommend_three' placeholder="" value="<{$setparameter.recommend_three}>" style="width:100px" class="input-text recommend_three">%
+             </td>
+            </tr>
+
+
+           <!-- <tr>
+                <th class="text-r" width="200">代理奖励：</th><td><input type="text" name='usinvite' placeholder="" value="<{$setparameter.usinvite}>" style="width:200px" class="input-text xianchafen">美元积分
+                &nbsp;商家奖励：<input type="text" name='usmerchant' placeholder="" value="<{$setparameter.usmerchant}>" style="width:200px" class="input-text xianchafen">美元积分
+                &nbsp;奖励倍率：<input type="text" name='bouns_double' placeholder="" value="<{$setparameter.bouns_double}>" style="width:200px" class="input-text xianchafen">倍数
+            </td>
+            </tr>-->
+
+            <!--<tr>
+                <th class="text-r" width="200">成为代理：</th><td><input type="text" name='cwdaili' placeholder="" value="<{$setparameter.cwdaili}>" style="width:200px" class="input-text xianchafen">美元
+                &nbsp;成为商家：<input type="text" name='cwshangjia' placeholder="" value="<{$setparameter.cwshangjia}>" style="width:200px" class="input-text xianchafen">美元
+            </td>
+            </tr>-->
+
+           <!-- <tr>
+                <th class="text-r" width="200">购物比例：</th>
+                <td>
+                    <input type="text" name='recharge_ratio' placeholder="" value="<{$setparameter.recharge_ratio}>" style="width:200px" class="input-text xianchafen">倍
+                </td>
+            </tr>-->
+
+            <tr>
+                <th class="text-r" width="200">团队奖励：</th><td>直推人数：<input type="text" name='team_people_num_zhi' placeholder="" value="<{$setparameter.team_people_num_zhi}>" style="width:100px" class="input-text team_people_num_zhi">&nbsp;团队人数：<input type="text" name='team_people_num' placeholder="" value="<{$setparameter.team_people_num}>" style="width:100px" class="input-text team_people_num">&nbsp;
+                奖励：<input type="text" name='bonus_money_team' placeholder="" value="<{$setparameter.bonus_money_team}>" style="width:100px" class="input-text bonus_money_team">%
+            </td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">团队奖励：</th><td>直推人数：<input type="text" name='team_people_num_zhis' placeholder="" value="<{$setparameter.team_people_num_zhis}>" style="width:100px" class="input-text team_people_num_zhis">&nbsp;团队人数：<input type="text" name='team_people_num1' placeholder="" value="<{$setparameter.team_people_num1}>" style="width:100px" class="input-text team_people_num1">&nbsp;
+                奖励：<input type="text" name='bonus_money_team1' placeholder="" value="<{$setparameter.bonus_money_team1}>" style="width:100px" class="input-text bonus_money_team1">%
+            </td>
+            </tr>
+
+            <tr>
+                <th class="text-r" width="200">购物奖励：</th>
+                <td>
+                    <input type="text" name='deduct_s' placeholder="" value="<{$setparameter.deduct_s}>" style="width:110px" class="input-text xianchafen">%
+                </td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">会员人数：</th><td><input type="text" name='recharge_day' placeholder="" value="<{$setparameter.recharge_day}>" style="width:100px" class="input-text xianchafen"></td>
+            </tr>
+           <!-- <tr>
+                <th class="text-r" width="200">美元对人民币倍率：</th><td><input type="text" name='usdouble' placeholder="" value="<{$setparameter.usdouble}>" style="width:200px" class="input-text xianchafen">倍</td>
+            </tr>-->
+
+            <tr>
+                <th class="text-r" width="200">在线人数：</th><td><input type="text" name='zbjfen' placeholder="" value="<{$setparameter.zbjfen}>" style="width:100px" class="input-text zbjfen">
+               &nbsp;&nbsp;
+            </td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">投资人数：</th>
+                <td>
+                    <input type="text" name='bonusmoney' placeholder="" value="<{$setparameter.bonusmoney}>" style="width:100px" class="input-text bonusmoney">
+                    &nbsp;&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">最低充值金额：</th><td><input type="text" name='minmoney' placeholder="" value="<{$setparameter.minmoney}>" style="width:200px" class="input-text xianchafen">元</td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">最高充值金额：</th><td><input type="text" name='maxmoney' placeholder="" value="<{$setparameter.maxmoney}>" style="width:200px" class="input-text xianchafenjifen">元</td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">提现手续费：</th><td><input type="text" name='shouxufei' placeholder="" value="<{$setparameter.shouxufei}>" style="width:200px" class="input-text tixianjinemin">%</td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">提现金额最低：</th><td><input type="text" name='tixianjinemin' placeholder="" value="<{$setparameter.tixianjinemin}>" style="width:200px" class="input-text tixianjinemin">元</td>
+            </tr>
+            <tr>
+                <th class="text-r" width="200">提现金额最高：</th><td><input type="text" name='tixianjinemax' placeholder="" value="<{$setparameter.tixianjinemax}>" style="width:200px" class="input-text tixianjinemax">元</td>
+            </tr>
+          <!--  <tr>
+                <th class="text-r" width="200">退货扣除：</th><td><input type="text" name='tuihuo' placeholder="" value="<{$setparameter.tuihuo}>" style="width:200px" class="input-text tuihuo">%</td>
+            </tr>-->
+
+            <tr>
+                <th class="text-r"></th><td><button  class="btn btn-primary radius" type="button"><i class="Hui-iconfont">&#xe632;</i>  确定</button></td>
+            </tr>
+
+            </tbody>
+        </table>
+</div>
+
+</form>
+<include file='Common:foot' />
+<script type="text/javascript">
+    $(function(){
+        $('button[type="button"]').on('click',function(){
+                var options = {
+                    url:'/admin/webconfig/setbonus',
+                    type:'post',
+                    dataType:'json',
+                    async:false,
+                    success:function(data){
+                        if(data.status == 1){
+                            layer.msg(data.msg,{icon:1,time:1500});
+                        }else{
+                            layer.msg(data.msg,{icon:2,time:1500});
+                        }
+                    }
+                };
+                $("form").ajaxSubmit(options);
+        })
+    })
+
+</script>

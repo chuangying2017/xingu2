@@ -1,0 +1,32 @@
+<include file='Common:head' />
+<title>会员查看</title>
+</head>
+<body>
+<div class="cl pd-20" style=" background-color:#5bacb6">
+    <img class="avatar avatar-XL l" src="/Hui/static/h-ui/images/user.png">
+    <dl style="margin-left:80px; color:#fff">
+        <dt><span class="f-18">账号：<{$mobile}></span> </dt>
+        <dd class="pt-10 f-12" style="margin-left:0"></dd>
+    </dl>
+</div>
+<div class="pd-20">
+    <table class="table">
+        <tbody>
+
+        <tr>
+            <th class="text-r">注册时间：</th>
+            <td><{$reg_time|date='Y-m-d H:i:s',###}></td>
+        </tr>
+
+        <tr>
+            <th class="text-r">登录次数：</th>
+            <td><{$log_num}></td>
+        </tr>
+        <tr>
+            <th class="text-r">登录ip：</th>
+            <td><{$log_ip}></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<include file='Common:foot' />

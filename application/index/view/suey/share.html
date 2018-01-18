@@ -1,0 +1,58 @@
+<include file="common/header" />
+<body class="bg-12">
+<header class="mui-bar mui-bar-nav mui-bar-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">推广管理</h1>
+</header>
+
+<div class="mui-content mui-tuig bg-12" id="app">
+    <div class="mui-row">
+        <div class="mui-col-sm-3 mui-col-xs-3"></div>
+        <div class="mui-col-sm-6 mui-col-xs-6" align="center">
+            <!--<span class="font-color-01">推广二维码</span>-->
+            <img src="<{:url('index/User/qrcode_s')}>" style="" alt="">
+        </div>
+        <div class="mui-col-sm-3 mui-col-xs-3"></div>
+        <div class="mui-col-sm-3 mui-col-xs-3"></div>
+        <div class="mui-col-sm-6 mui-col-xs-6 lisn" style="">
+
+            <input id="foo" value="<{$tui}>" type="text" style="border-radius:5px;width:100%;" class="mui-text-center bg-11 font-size-14 mui-ellipsis">
+            <button class="btn mui-btn mui-btn-warning mui-btn-block font-size-14 btn" data-clipboard-target="#foo" aria-label="复制成功！" >复制链接</button>
+        </div>
+        <div class="mui-col-sm-3 mui-col-xs-3"></div>
+
+        <div style="text-align:center;margin-top:10px;">
+
+
+
+        </div>
+
+    </div>
+</div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<include file="common/pass_error" />
+<script src="/index/js/dist/clipboard.min.js"></script>
+<script>
+
+    var clipboard = new Clipboard('.btn');
+
+    clipboard.on('success', function (e) {
+        var msg = e.trigger.getAttribute('aria-label');
+        mui.alert(msg);
+        console.info
+
+        ('Action:', e.action);
+        console.info
+
+        ('Text:', e.text);
+        console.info
+
+        ('Trigger:', e.trigger);
+
+        e.clearSelection();
+    });
+	 document.getElementById('Warehouse').classList.add('mui-active');
+</script>

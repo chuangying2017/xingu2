@@ -1,0 +1,144 @@
+.mui-content{max-width:600px;margin: 0 auto;padding-bottom: 55px!important;}
+::-webkit-input-placeholder{font-size:14px}
+/*登陆界面样式*/
+.mui-login{background: 0}
+.mui-login .mui-row-img img{text-align: center;width: 130px;height:130px;margin-top: 80px;margin-bottom: 20px;}
+.mui-login .mui-input div .mui-input-row{width: 80%;margin-left: 10%;height: 45px;border-radius:35px;margin-top:20px;padding-left: 10px;}
+.mui-login .mui-input div .mui-input-row input{width: 85%;float: left;background: 0;border: none;;height: 45px;}
+.mui-login .mui-input div .mui-input-row  i{height: 45px;line-height: 45px;width: 10%;text-align: center;float: left;}
+.mui-login .mui-input div .mui-submit{line-height: 40px;border: none;margin-top: 25px;}
+.mui-login .mui-input .mui-row{padding: 0 12%}
+.mui-login .mui-input .mui-row div{padding-top: 15px;}
+.mui-login .mui-input .mui-col-sm-12  button{padding: 0;line-height: 45px;}
+/*会员中心*/
+.mui-user{padding-bottom: 45px;}
+.mui-user .mui-bg-div{padding: 10px 5%}
+.mui-user .mui-bg-div img{width: 50px;height: 50px;margin-right: 10px;}
+.mui-user .mui-bg-div span{height: 50px;line-height: 50px;}
+.mui-user .style-back{width: 90%;margin-left: 5%;padding-top: 10px;padding-bottom: 10px;}
+.mui-user .style-back div .mui-row-div-sty{width: 49%;float: left;font-size:15px;border-radius:6px;height: 40px;line-height: 40px;background: rgba(255,255,255,0.7);border: 2px solid #c6c6c6;color:#c6c6c6}
+.mui-user .style-back div .rise{border: 2px solid #73b7f8;color:#73b7f8}
+.mui-user .mui-ico{background: #ffffff;margin-bottom: 10px;}
+.mui-user .mui-ico .mui-col-sm-12{padding-top: 12px;padding-bottom: 12px;box-shadow: inset  0 0 1px 0 #e5e5e5;}
+.mui-user .mui-ico .mui-col-sm-12 a div{width: 90%;margin-left: 5%}
+.mui-user .mui-ico .mui-col-sm-12 a div .mui-icon{float: right;color:#c6c6c6}
+.mui-user .mui-ico .mui-col-sm-12 a div .text-cl{margin-left: 20px;}
+.mui-user .mui-user-Assets  .mui-col-sm-6{padding: 20px 0;border-top:1px solid #80dbc1}
+.mui-user .mui-user-Assets  .left{border-left: 1px solid #80dbc1}
+.mui-user .mui-user-Assets  .mui-col-sm-6 .mui-btn{padding: 1px 10px;border: 1px solid #aae136;margin-top:-2px;margin-left: 10px;border-radius: 15px;}
+/*首页*/
+.index .index-content{padding: 10px 3% 10px 0}
+.index .index-content .index-content-head{width: 22%;float: left;margin-left: 3%;line-height: 30px;padding: 10px 0;border-radius: 6px;}
+.index .mui-row .mui-col-sm-12{padding: 15px 3%;box-shadow: inset  0 0 1px 0 #e5e5e5;}
+.index .index-table{border-bottom: 10px solid #f2f2f2}
+.index .index-table .table-content{padding: 0 3%;}
+.index .index-table .table-content .mui-table{padding: 15px 0;}
+.index .index-table .table-content .Roll{overflow:hidden;height:215px;margin: 0;}
+.index .index-table .table-content .Roll ul{padding-left: 0;margin-top: -20px;}
+.index .index-Notice .mui-col-sm-12 .yuan{width: 5px;height: 5px;border-radius: 285px;margin-right: 10px;margin-top: 7px;}
+.index .index-ren{padding: 10px 0;border-top: 10px solid #f2f2f2;border-bottom: 10px solid #f2f2f2}
+/*投资*/
+.Investment .Investment-head .mui-col-sm-3{padding: 10px 0;}
+.Investment .Investment-head .active{background: #00a375;color:#ffffff!important;}
+.Investment .Investment-content .goods{width: 47%;border-radius:8px;float: left;margin-left: 2%;margin-top: 10px;}
+.Investment .Investment-content .goods .img{padding: 0 10px;}
+.Investment .Investment-content .goods .img img{width: 100%;margin: 20px 0}
+.Investment .Investment-content .goods .goods-content{border-top: 1px solid #dddddd;padding:10px 10px;}
+.Investment .Investment-content .goods .goods-content a{padding: 2px 15px;margin-top: -3px;border-radius: 15px;}
+/*购买*/
+.purchase .purchase-head{padding: 10px 5%}
+.purchase .purchase-head img{width: 130px;height: 77px;margin-right: 15px;}
+.purchase .purchase-head  .mui-numbox{height: 25px;width: 150px;border: none!important;background: 0!important;margin-top: 10px;border-radius: 0}
+.purchase .purchase-head  .mui-numbox input{border-right: 10px solid #ffffff!important;border-left: 10px solid #ffffff!important;}
+.purchase .purchase-content{margin: 20px 0}
+.purchase .purchase-content .zhi{width:30%;margin-left: 2.5%;float: left;border-radius: 6px;padding-bottom: 10px;}
+.purchase .purchase-content .zhi .mui-row{padding: 0 15%;}
+.purchase .purchase-content .zhi .mui-row img{width: 90%;margin-left: 5%}
+.purchase .purchase-content .active{border: 2px solid #00b683}
+.purchase .purchase-content .active .mui-row{background: url('../images/06.png')no-repeat 100% 0%;background-size: 40px 38px;}
+/*购买底部*/
+.purchase-bar .mui-row{height: 100%}
+.purchase-bar .mui-row .mui-col-sm-8{line-height: 50px;padding-left: 20px;}
+.purchase-bar .mui-row .mui-col-sm-4{line-height: 50px;}
+/*注册*/
+.register-content .mui-row .mui-col-sm-12 .mui-input-row{background: #ffffff;box-shadow: inset  0 0 1px 0 #e5e5e5;padding-top: 7px;padding-bottom: 7px;}
+.register-content .mui-row .mui-col-sm-12 .mui-input-row label{color: black;padding: 0 10px;margin-top:13px;text-align: center;width: 30%;border-right: 1px solid #cccccc}
+.register-content .mui-row .mui-col-sm-12 .mui-input-row input{width: 70%;padding-left: 15px;}
+.register-content .mui-row .mui-col-sm-12 .mui-input-row span{top:17px;}
+.register-content .mui-row  .mui-col-sm-12 .yzm input{width: 40%}
+.register-content .mui-row  .mui-col-sm-12 .yzm button{width: 25%;float: right;height: 35px;line-height: 35px;text-align: center;padding: 0 3px;margin-right: 5%;margin-top: 3px;}
+.register-content .mui-row  .mui-col-sm-12 .yzm div{width: 25%;float: right;height: 35px;line-height: 35px;text-align: center;padding: 0 3px;margin-right: 5%;margin-top: 3px;}
+.register-content .mui-row  .mui-col-sm-12 .yzm span{right: 28%}
+.register-content .mui-row  .mui-col-sm-12 .yzm div img{width: 100%;height: 100%}
+.register-content .mui-row  .button-st{margin-top: 25px;padding: 0 5%;}
+.register-content .mui-row  .button-st button{padding: 12px 0;border-radius: 36px;}
+/*推广链接*/
+.mui-tuig .mui-row .mui-col-sm-6{margin-top: 30px;}
+.mui-tuig .mui-row .mui-col-sm-6 img{width: 100%}
+.mui-tuig .mui-row .mui-col-sm-6 span{font-weight: 700;font-size:15px;}
+.mui-tuig .mui-row .lisn{margin-left: 25%}
+.mui-tuig .mui-row .lisn div{width: 100%;height: 50px;line-height: 50px;margin-bottom: 15px;border-radius: 8px;}
+.mui-tuig .mui-row .lisn button{padding: 10px 0;border-radius: 6px;}
+/*新闻公告*/
+.weixi>.mui-table-view:first-child{margin-top: 0}
+.weixi .mui-table-view-cell:after{height:0}
+.weixi .mui-table-view:after{height: 0}
+/*提现记录*/
+.Direct .mui-row{padding: 10px;background: #ffffff;margin-bottom: 7px;}
+.Direct .mui-row div p{margin-bottom: 5px;}
+.Direct .mui-row div .mg-bu{margin-top: 83px;}
+    /*头部*/
+.mui-bar-nav{box-shadow: 0 0 0 #ccc;max-width: 600px;margin: 0 auto}
+
+/*底部*/
+.mui-bar-tab{max-width: 600px;margin: 0 auto}
+.mui-bar-tab a{line-height: 27px;}
+    /*字体颜色*/
+.font-color-01{color:#ffffff!important;}
+.font-color-02{color:#656565}
+.font-color-03{color:#fff60e}
+.font-color-04{color:#90908f}
+.font-color-05{color:#f2f2f2}
+.font-color-06{color:#00b683}
+.font-color-07{color:red}
+/*显示和隐藏*/
+.show{display: block}
+.hidden{display: none}
+
+
+.select-input{background: url('../images/07.png')no-repeat 92% 50%!important;background-size: 20px 10px!important;}
+
+
+/*字体大小*/
+.font-size-10{font-size:10px}
+.font-size-12{font-size:12px}
+.font-size-13{font-size:13px}
+.font-size-14{font-size:14px}
+.font-size-15{font-size:15px}
+.font-size-16{font-size:16px}
+.font-size-17{font-size:17px}
+.font-size-18{font-size:18px}
+.font-size-19{font-size:19px}
+.font-size-20{font-size:20px}
+.font-size-21{font-size:21px!important;}
+.font-size-25{font-size:25px}
+.font-size-30{font-size:30px}
+
+/*背景颜色*/
+.bg-01{background: #00b683!important;}
+.bg-02{background: #daa600!important;}
+.bg-03{background: #ffffff!important;}
+.bg-04{background: #f2f2f2}
+.bg-05{background: #1f92d4}
+.bg-06{background: #d53d8c}
+.bg-07{background: #e2961e}
+.bg-08{background: #13ba36}
+.bg-09{background: #d9d9d9!important;}
+.bg-10{background: #aaaaaa}
+.bg-11{background: #656565}
+@media screen and (max-width:360px){
+    .mui-user .mui-user-Assets  .mui-col-sm-6 .mui-btn{padding: 3px 5px;border: 1px solid #aae136;margin-top: -3px;margin-left: 5px;border-radius: 15px;font-size:12px;}
+    .Investment .Investment-content .goods .goods-content button{padding: 2px 8px;}
+}
+
+

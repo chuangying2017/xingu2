@@ -1,0 +1,101 @@
+﻿<include file="common/head" />
+<!--[endif]-->
+<title>权限管理</title>
+<style>
+	div.pageNav ul li{
+		float: left;
+	}
+	div.pageNav ul{
+		margin-left: 36%;
+	}
+
+</style>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 权限管理 <span class="c-gray en">&gt;</span> 节点权限 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="text-c">
+		<form class="Huiform" method="post" action="<{:url('rbac/adminpermission')}>" target="_self">
+			<input type="text" class="input-text" style="width:250px" placeholder="权限名称" id="" name="serch_name" />
+			<button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜权限节点</button>
+		</form>
+	</div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="admin_batch_del('<{:url('Admin/Rbac/betch_del')}>')" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="showpage('添加权限节点','<{:url('admin/rbac/poweradd','','html')}>','380','310')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加权限节点</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+	<table class="table table-border table-bordered table-bg">
+		<thead>
+			<tr>
+				<th scope="col" colspan="7">权限节点</th>
+			</tr>
+			<tr class="text-c">
+				<th width="25"><input type="checkbox" name="" value=""></th>
+				<th width="40">ID</th>
+				<th width="200">节点名称</th>
+				<th>字段名</th>
+				<th>父ID</th>
+				<th>排序</th>
+				<th width="100">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+		<volist name="select" id="vo">
+			<tr class="text-c">
+				<td><input type="checkbox" value="<{$vo.id}>" name="powerid"></td>
+				<td><{$vo.id}></td>
+				<td><{$vo.name}></td>
+				<td><{$vo.control_action}></td>
+				<td><{$vo.pid}></td>
+				<td><{$vo.sort}></td>
+				<td><a title="编辑" href="javascript:;" onclick="admin_edit_show('角色编辑','<{:url('/admin/rbac/power_show','','html')}>','<{$vo.id}>','400','450')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_role_del(this,'<{$vo.id}>','/admin/rbac/admin_permission_del')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+			</tr>
+		</volist>
+		</tbody>
+	</table>
+
+		<div id="pageNav" class="pageNav"><{$select->render()}></div>
+
+</div>
+
+<include file="common/foot" />
+
+<script type="text/javascript">
+/*
+	参数解释：
+	title	标题
+	url		请求的url
+	id		需要操作的数据id
+	w		弹出层宽度（缺省调默认值）
+	h		弹出层高度（缺省调默认值）
+*/
+/*管理员-权限-添加*/
+/*function admin_permission_add(title,url,w,h){
+	layer_show(title,url,w,h);
+}*/
+/*管理员-权限-编辑*/
+function admin_edit_show(title,url,id,w,h){
+  //alert()
+    		$.ajax({
+				url:url,
+				data:{id:id},
+				type:'get'
+				});
+	layer_show(title,url,w,h);
+}
+
+/*管理员-权限-删除*/
+/*function admin_permission_del(obj,id){
+	layer.confirm('确认要删除吗？',function(index){
+		$.ajax({
+			type: 'POST',
+			url: '',
+			dataType: 'json',
+			success: function(data){
+				$(obj).parents("tr").remove();
+				layer.msg('已删除!',{icon:1,time:1000});
+			},
+			error:function(data) {
+				console.log(data.msg);
+			},
+		});		
+	});
+}*/
+</script>

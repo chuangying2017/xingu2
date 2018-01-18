@@ -1,0 +1,73 @@
+---------------------------------------------------------------
+[ 2017-12-28T11:40:56+08:00 ] 192.168.1.86 192.168.1.86 POST /index/goods/buy_data.html
+[ info ] 192.168.1.86:717/index/goods/buy_data.html [运行时间：0.097006s][吞吐率：10.31req/s] [内存消耗：2,882.66kb] [文件加载：55]
+[ info ] [ LANG ] G:\phpstorm\shigoo1\shoppings\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'goods',
+    2 => 'buy_data',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=891heiur48126lfskrmpvo7so6; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'en,zh-CN;q=0.8,zh;q=0.6',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.86:717/index/goods/purchase/sid/Ng%3D%3D.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://192.168.1.86:717',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-length' => '55',
+  'connection' => 'close',
+  'host' => '192.168.1.86:717',
+)
+[ info ] [ PARAM ] array (
+  'pid' => '6',
+  'token' => 'ebfe19b86a586e27bdcb6cd2289859a8',
+  'pay_type' => '8',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Goods->buy_data[ G:\phpstorm\shigoo1\shoppings\application\index\controller\Goods.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]strtolower() expects parameter 1 to be string, array given[G:\phpstorm\shigoo1\shoppings\thinkphp\library\think\Route.php:242]
+[ error ] [8]未定义数组下标: 1[G:\phpstorm\shigoo1\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] [8]未定义数组下标: 1[G:\phpstorm\shigoo1\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] [8]未定义数组下标: 1[G:\phpstorm\shigoo1\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] [8]未定义数组下标: 1[G:\phpstorm\shigoo1\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] fields not exists:[0]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3308;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 13 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_infinite_class` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_infinite_class` WHERE  `id` = 30 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 13  AND `pid` = 6  AND `type` = 2 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 6 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT DISTINCT price From web_product WHERE type_id=30 ORDER  BY price [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MAX(price) AS tp_max FROM `web_orders` WHERE  `uid` = 13  AND `type` = 2 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 13  AND `type` = 2  AND `create_date` < '1514390400' ORDER BY price desc LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 13  AND `type` = 2  AND `price` = 500  AND `create_date` < '1514390400' ORDER BY price desc LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 13  AND `type` = 2  AND `price` = 1000  AND `create_date` < '1514390400' ORDER BY price desc LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `uid` = 13  AND `type` = 2  AND `create_date` BETWEEN '1514390400' AND '1514476799' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `web_orders` WHERE  `uid` = 13  AND `type` = 1  AND `create_date` BETWEEN '1514390400' AND '1514476799' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20171228565010154' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`pid` , `uid` , `create_date` , `order_no` , `num` , `price` , `interest`) VALUES (6 , 13 , '1514432456' , '20171228565010154' , 1 , 100 , 20) [ RunTime:0.014001s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 125 LIMIT 1 [ RunTime:0.001000s ]

@@ -1,0 +1,48 @@
+<nav class="mui-bar mui-bar-tab bg-03" id="nav">
+    <a id="defaultTab" class="mui-tab-item" data-title="首页">
+        <span class="iconfont font-size-25">&#xe602;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">首页</span>
+    </a>
+    <a class="mui-tab-item" data-title="投资" id="transaction">
+        <span class="iconfont font-size-25">&#xe604;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">投资</span>
+    </a>
+    <a class="mui-tab-item " data-title="推广" id="Warehouse">
+        <span class="iconfont font-size-25">&#xe62e;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">推广</span>
+    </a>
+
+    <a id="MemberInfo" class="mui-tab-item " data-title="我的">
+        <span class="iconfont font-size-25">&#xe601;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">我的</span>
+    </a>
+</nav>
+</body>
+<script src="/view/js/mui.min.js"></script>
+<script src="/view/js/jquery-3.1.1.min.js"></script>
+</html>
+<script type="text/javascript">
+    var qi = document.getElementsByClassName('table-contents');
+    for(var i = 0;i < qi.length;i++){
+        if(i%2 == 0){
+
+        }else{
+            document.getElementsByClassName('table-contents')[i].style.backgroundColor = "#f2f2f2";
+        }
+
+    }
+    function AutoScroll(obj) {
+        $(obj).find("ul:first").animate({
+            marginTop: "-245px"
+        }, 5000, function() {
+            $(this).css({ marginTop: "-20px" }).find("li:first").appendTo(this);
+        });
+    }
+    $(document).ready(function() {
+        setInterval('AutoScroll("#demo")', 10000)
+    });
+</script>

@@ -1,0 +1,6 @@
+[ 2017-12-05T10:04:22+08:00 ][ info ] [ LOG ] INIT File
+[ 2017-12-05T10:04:22+08:00 ][ error ] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'xin.web_tordersadsa' doesn't exist
+[ 2017-12-05T10:06:35+08:00 ][ info ] [ LOG ] INIT File
+[ 2017-12-05T10:06:35+08:00 ][ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idasdsa' in 'where clause'
+[ 2017-12-05T10:06:35+08:00 ][ info ] [ LOG ] INIT File
+[ 2017-12-05T10:06:35+08:00 ][ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'idasdsa' in 'where clause'

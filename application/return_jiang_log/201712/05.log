@@ -1,0 +1,54 @@
+---------------------------------------------------------------
+[ 2017-12-05T08:50:49+08:00 ] 192.168.1.24 192.168.1.24 GET /index/Distribute
+[ info ] 192.168.1.24:3361/index/Distribute [运行时间：0.068000s][吞吐率：14.71req/s] [内存消耗：1,908.95kb] [文件加载：54]
+[ info ] [ LANG ] F:\shoppings\shoppings\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Distribute',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=78vkak81rkts03q5h9t4g0tmh6; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => '192.168.1.24:3361',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Distribute->index[ F:\shoppings\shoppings\application\index\controller\Distribute.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ info ] [ LOG ] INIT File
+[ error ] [2]strtolower() expects parameter 1 to be string, array given[F:\shoppings\shoppings\thinkphp\library\think\Route.php:242]
+[ error ] [8]未定义数组下标: 1[F:\shoppings\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] [8]未定义数组下标: 1[F:\shoppings\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] [8]未定义数组下标: 1[F:\shoppings\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] [8]未定义数组下标: 1[F:\shoppings\shoppings\thinkphp\library\think\Route.php:215]
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ error ] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ids' in 'where clause'
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=127.0.0.1;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_torder` [ RunTime:0.013000s ]
+[ sql ] [ SQL ] SELECT `a`.*,`b`.`name_bei`,`b`.`name_tian`,`b`.`title` FROM `web_torder` `a` INNER JOIN `web_product` `b` ON `a`.`pid`=`b`.`id` WHERE  `a`.`status` = 1  AND `a`.`type` = 0 [ RunTime:0.001000s ]

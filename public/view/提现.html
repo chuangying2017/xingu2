@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>提现</title>
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" href="ico/css/iconfont.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav mui-bar-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">提现</h1>
+</header>
+<div class="mui-content register-content">
+    <div class="mui-row">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <label class="font-size-14 font-clo-01"> 可用余额</label>
+                <input type="text" class="mui-input-clear font-size-14" value="5211245" disabled>
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <label class="font-size-14 font-clo-01">提现金额</label>
+                <input type="text" class="mui-input-clear font-size-14" placeholder="请输入提现金额" value="100">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row yzm">
+                <label class="font-size-14 font-clo-01">图形验证码</label>
+                <div class="font-size-12">
+                    <img src="images/yzm.png" alt="">
+                </div>
+                <input type="text" class="mui-input-clear" placeholder="请输入验证码">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <label class="font-size-14">安全密码</label>
+                <input type="password" class="mui-input-clear" placeholder="请输入您的安全密码">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 button-st" align="center" style="padding: 0 5%">
+            <button type="button" class="mui-btn mui-btn-block font-size-16 bg-01 font-color-01">确定</button>
+        </div>
+    </div>
+</div>
+<nav class="mui-bar mui-bar-tab bg-03" id="nav">
+    <a id="defaultTab" class="mui-tab-item" data-title="首页">
+        <span class="iconfont font-size-25">&#xe602;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">首页</span>
+    </a>
+    <a class="mui-tab-item" data-title="投资" id="transaction">
+        <span class="iconfont font-size-25">&#xe604;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">投资</span>
+    </a>
+    <a class="mui-tab-item " data-title="推广" id="Warehouse">
+        <span class="iconfont font-size-25">&#xe62e;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">推广</span>
+    </a>
+
+    <a id="MemberInfo" class="mui-tab-item " data-title="我的">
+        <span class="iconfont font-size-25">&#xe601;</span>
+        <br>
+        <span class="mui-tab-label font-size-14">我的</span>
+    </a>
+</nav>
+</body>
+<script src="js/mui.min.js"></script>
+</html>

@@ -1,0 +1,13 @@
+<include file='common:head' />
+<title>查看</title>
+</head>
+<body>
+<div class="pd-20">
+    <div class="Huiform">
+        <center><h3><{$article_row.art_title}></h3></center>
+        <center><h5>作者：&nbsp;<{$article_row.art_author}>&nbsp;&nbsp来源：&nbsp;<{$article_row.art_source}></h5></center>
+        <br/>
+        <{$article_row.art_content|htmlspecialchars_decode=###}>
+    </div>
+</div>
+<include file='common:foot' />

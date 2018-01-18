@@ -1,0 +1,43 @@
+<include file="common/header" />
+<style>
+    .bg-00{background: #2a2a2a}
+    .paymen .paymen-first{line-height: 30px;}
+    .paymen .paymen-Second{background: #424242;padding: 10px 20px;margin-top: 10px;}
+    .paymen .paymen-Third{padding: 10px 20px;}
+    .paymen .paymen-Third .mui-col-sm-12{padding: 10px;}
+    .paymen .paymen-Third .mui-col-sm-12 p{padding: 0 10px;margin-bottom: 0;color:#f00e0b}
+    .paymen .paymen-Third .mui-col-sm-12 img{width: 100%}
+</style>
+<body class="bg-00">
+<header class="mui-bar mui-bar-nav mui-head bg-00">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">扫码支付</h1>
+	<a class="iconfont mui-pull-right font-color-01 font-size-20" style="margin-top: 13px;" href="<{:url('index/index/index')}>">&#xe609;</a>
+</header>
+<div class="mui-content paymen bg-00" id="app">
+    <div class="mui-row mui-text-center paymen-first">
+      
+        <span class="font-size-25 font-color-01">￥<{$Think.session.zhifu_jinqian}></span>
+    </div>
+    <div class="mui-row font-size-14 paymen-Second">
+        <span class="mui-pull-left font-color-01">收款方</span>
+        <span class="mui-pull-right font-color-01">鑫谷</span>
+    </div>
+    <div class="mui-row paymen-Third">
+        <div class="mui-col-sm-12 mui-col-xs-12 bg-03">
+            <p class="font-size-14 mui-text-center">
+                <span>二维码扫码支付</span>
+            </p>
+            <img style="width:91%;margin-left:4%;" src="<{$Think.session.zhifu_code}>" alt="">
+        </div>
+    </div>
+</div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+
+<include file="common/pass_error" />
+<script>
+ document.getElementById('transaction').classList.add('mui-active');
+ </script>
