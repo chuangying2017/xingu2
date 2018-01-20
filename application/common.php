@@ -35,7 +35,7 @@ function md5_pass($type,$data){
         if($type == 1){
             $password = md5($data.md5(config('ADMINKEY')));
         }elseif ($type == 2){
-            $password = md5($data.md5(config('USERKEY')));
+            $password = $data.md5(config('USERKEY'));
         }
         return $password;
 }

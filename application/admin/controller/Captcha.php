@@ -41,10 +41,8 @@ class Captcha extends Controller
         dump($result);
     }
     //
-    public  function index(){
-        $result=Db::name('member');
-        $ee=$result->find();
-        return $this->fetch();
+    public  function indexddd(){
+       dump(md5(md5_pass('2','123456')));
     }
     public function resaction(){
         $resule=Logs::portbility();

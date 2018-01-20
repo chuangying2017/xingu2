@@ -36,7 +36,7 @@
             </td>
             </tr>
 			
-			     <tr>
+            <tr>
                 <th class="text-r" width="200">提现次数：</th>
                 <td>
                     <input type="text" name='deposit_number' placeholder="" value="<{$setparameter.deposit_number}>" style="width:50px" class="input-text deposit_number">
@@ -44,15 +44,17 @@
             </tr>
 			
              <tr>
-                <th class="text-r" width="200">众筹推荐奖：</th><td>1代：<input type="text" name='recommend_one' placeholder="" value="<{$setparameter.recommend_one}>" style="width:100px" class="input-text recommend_one">%&nbsp;2代：<input type="text" name='recommend_tow' placeholder="" value="<{$setparameter.recommend_tow}>" style="width:100px" class="input-text recommend_tow">%&nbsp;
+                <th class="text-r" width="200">推荐奖：</th><td>1代：<input type="text" name='recommend_one' placeholder="" value="<{$setparameter.recommend_one}>" style="width:100px" class="input-text recommend_one">%&nbsp;2代：<input type="text" name='recommend_tow' placeholder="" value="<{$setparameter.recommend_tow}>" style="width:100px" class="input-text recommend_tow">%&nbsp;
                  3代：<input type="text" name='recommend_three' placeholder="" value="<{$setparameter.recommend_three}>" style="width:100px" class="input-text recommend_three">%
+                 &nbsp;&nbsp;迭代人数：<input type="text" name="iteration_of" style="width: 50px" placeholder="" value="<{$setparameter.iteration_of}>" class="input-text" />
+                 &nbsp;&nbsp;比例：<input type="text" class="input-text" name="iteration_percentage" style="width: 50px" placeholder="" value="<{$setparameter.iteration_percentage}>" />%
              </td>
             </tr>
-            <tr>
+            <!--<tr>
                 <th class="text-r" width="200">分红推荐奖：</th><td>1代：<input type="text" name='zhong_one' placeholder="" value="<{$setparameter.zhong_one}>" style="width:100px" class="input-text zhong_one">%&nbsp;2代：<input type="text" name='zhong_tow' placeholder="" value="<{$setparameter.zhong_tow}>" style="width:100px" class="input-text zhong_tow">%&nbsp;
                 3代：<input type="text" name='zhong_three' placeholder="" value="<{$setparameter.zhong_three}>" style="width:100px" class="input-text zhong_three">%
             </td>
-            </tr>
+            </tr>-->
 
            <!-- <tr>
                 <th class="text-r" width="200">代理奖励：</th><td><input type="text" name='usinvite' placeholder="" value="<{$setparameter.usinvite}>" style="width:200px" class="input-text xianchafen">美元积分
@@ -75,12 +77,16 @@
             </tr>-->
 
             <tr>
-                <th class="text-r" width="200">团队奖励：</th><td>直推人数：<input type="text" name='team_people_num_zhi' placeholder="" value="<{$setparameter.team_people_num_zhi}>" style="width:100px" class="input-text team_people_num_zhi">&nbsp;团队人数：<input type="text" name='team_people_num' placeholder="" value="<{$setparameter.team_people_num}>" style="width:100px" class="input-text team_people_num">&nbsp;
+                <th class="text-r" width="200">团队奖励：</th><td>直推人数：<input type="text" name='team_people_num_zhi' placeholder="" value="<{$setparameter.team_people_num_zhi}>" style="width:100px" class="input-text team_people_num_zhi">&nbsp;
+                团队人数：<input type="text" name='team_people_num' placeholder="" value="<{$setparameter.team_people_num}>" style="width:100px" class="input-text team_people_num">&nbsp;
+                推荐层级：<input type="text" name="relationship" value="<{$setparameter.relationship}>" style="width:50px" class="input-text" />
                 奖励：<input type="text" name='bonus_money_team' placeholder="" value="<{$setparameter.bonus_money_team}>" style="width:100px" class="input-text bonus_money_team">%
             </td>
             </tr>
             <tr>
-                <th class="text-r" width="200">团队奖励：</th><td>直推人数：<input type="text" name='team_people_num_zhis' placeholder="" value="<{$setparameter.team_people_num_zhis}>" style="width:100px" class="input-text team_people_num_zhis">&nbsp;团队人数：<input type="text" name='team_people_num1' placeholder="" value="<{$setparameter.team_people_num1}>" style="width:100px" class="input-text team_people_num1">&nbsp;
+                <th class="text-r" width="200">团队奖励：</th><td>直推人数：<input type="text" name='team_people_num_zhis' placeholder="" value="<{$setparameter.team_people_num_zhis}>" style="width:100px" class="input-text team_people_num_zhis">&nbsp;
+                团队人数：<input type="text" name='team_people_num1' placeholder="" value="<{$setparameter.team_people_num1}>" style="width:100px" class="input-text team_people_num1">&nbsp;
+                推荐层级：<input type="text" name="relationship1" value="<{$setparameter.relationship1}>" style="width:50px" class="input-text" />
                 奖励：<input type="text" name='bonus_money_team1' placeholder="" value="<{$setparameter.bonus_money_team1}>" style="width:100px" class="input-text bonus_money_team1">%
             </td>
             </tr>
@@ -88,17 +94,17 @@
             <tr>
                 <th class="text-r" width="200">购物奖励：</th>
                 <td>
-                    <input type="text" name='deduct_s' placeholder="" value="<{$setparameter.deduct_s}>" style="width:110px" class="input-text xianchafen">%
+                    <input type="text" name='deduct_s' placeholder="" value="<{$setparameter.deduct_s}>" style="width:110px" class="input-text xianchafen">% &nbsp;&nbsp;
+                    返还次数：<input type="text" name="restitution_of" class="input-text" style="width: 50px;" value="<{$setparameter.restitution_of}>" placeholder="" />
                 </td>
             </tr>
-            <tr>
+           <!-- <tr>
                 <th class="text-r" width="200">会员人数：</th><td><input type="text" name='recharge_day' placeholder="" value="<{$setparameter.recharge_day}>" style="width:100px" class="input-text xianchafen"></td>
-            </tr>
+            </tr>-->
            <!-- <tr>
                 <th class="text-r" width="200">美元对人民币倍率：</th><td><input type="text" name='usdouble' placeholder="" value="<{$setparameter.usdouble}>" style="width:200px" class="input-text xianchafen">倍</td>
             </tr>-->
-
-            <tr>
+           <!--  <tr>
                 <th class="text-r" width="200">在线人数：</th><td><input type="text" name='zbjfen' placeholder="" value="<{$setparameter.zbjfen}>" style="width:100px" class="input-text zbjfen">
                &nbsp;&nbsp;
             </td>
@@ -109,7 +115,7 @@
                     <input type="text" name='bonusmoney' placeholder="" value="<{$setparameter.bonusmoney}>" style="width:100px" class="input-text bonusmoney">
                     &nbsp;&nbsp;
                 </td>
-            </tr>
+            </tr>-->
             <tr>
                 <th class="text-r" width="200">最低充值金额：</th><td><input type="text" name='minmoney' placeholder="" value="<{$setparameter.minmoney}>" style="width:200px" class="input-text xianchafen">元</td>
             </tr>

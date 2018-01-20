@@ -10,10 +10,32 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-01-18 17:39:26
+Date: 2018-01-20 17:58:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for my_profit
+-- ----------------------------
+DROP TABLE IF EXISTS `my_profit`;
+CREATE TABLE `my_profit` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) DEFAULT NULL COMMENT '会员id',
+  `create_time` char(20) DEFAULT NULL COMMENT '创建时间',
+  `money` decimal(10,2) DEFAULT '0.00' COMMENT '分红金额',
+  `order_id` int(11) DEFAULT NULL COMMENT '订单id',
+  `return_num` tinyint(2) DEFAULT NULL COMMENT '迭代次数',
+  `type` tinyint(1) DEFAULT NULL COMMENT '1每日分红2动态分红3全球分红',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`) USING BTREE,
+  KEY `uid` (`uid`) USING BTREE,
+  KEY `order_id` (`order_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='每日分红';
+
+-- ----------------------------
+-- Records of my_profit
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for web_admin
@@ -52,18 +74,18 @@ INSERT INTO `web_admin` VALUES ('2', 'abcd123', '68cb582802363ea105f89d6d7b0e20b
 DROP TABLE IF EXISTS `web_article`;
 CREATE TABLE `web_article` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `art_title` varchar(200) NOT NULL,
-  `art_info` varchar(255) NOT NULL,
-  `art_keyword` varchar(200) NOT NULL,
-  `art_content` text NOT NULL,
-  `art_author` varchar(200) NOT NULL,
-  `art_time` int(10) unsigned NOT NULL DEFAULT '0',
-  `art_type` smallint(5) unsigned NOT NULL,
-  `art_img` varchar(200) NOT NULL,
-  `art_order` int(10) unsigned NOT NULL,
-  `art_click` int(10) unsigned NOT NULL DEFAULT '0',
-  `art_source` varchar(200) NOT NULL,
-  `art_status` tinyint(1) NOT NULL DEFAULT '1',
+  `art_title` varchar(200) DEFAULT NULL,
+  `art_info` varchar(255) DEFAULT NULL,
+  `art_keyword` varchar(200) DEFAULT NULL,
+  `art_content` text,
+  `art_author` varchar(200) DEFAULT NULL,
+  `art_time` int(10) unsigned DEFAULT '0',
+  `art_type` smallint(5) unsigned DEFAULT NULL,
+  `art_img` varchar(200) DEFAULT NULL,
+  `art_order` int(10) unsigned DEFAULT NULL,
+  `art_click` int(10) unsigned DEFAULT '0',
+  `art_source` varchar(200) DEFAULT NULL,
+  `art_status` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `type_id` (`art_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='文章表';
@@ -315,7 +337,7 @@ CREATE TABLE `web_infinite_class` (
 -- ----------------------------
 -- Records of web_infinite_class
 -- ----------------------------
-INSERT INTO `web_infinite_class` VALUES ('30', '众筹', '                                                                            ', '0', '0', '1', '0');
+INSERT INTO `web_infinite_class` VALUES ('30', '众筹', '                                                                            ', '0', '0', '2', '0');
 INSERT INTO `web_infinite_class` VALUES ('36', '分红', '                                                                                                                                        ', '0', '0', '1', '1');
 
 -- ----------------------------
@@ -530,7 +552,7 @@ CREATE TABLE `web_member` (
 -- ----------------------------
 -- Records of web_member
 -- ----------------------------
-INSERT INTO `web_member` VALUES ('1', '18655000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444204', null, null, '2017-12-22 16:58:59', '1512444581', '10066.00', '455159', '0', null, '1', '8', '0.00', null, '1513872000', '0', '0', '0', '0.00', '0.00', null);
+INSERT INTO `web_member` VALUES ('1', '18655000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444204', null, null, '2017-12-22 16:58:59', '1512444581', '10066.00', '455159', '0', null, '1', '8', '0.00', '', '1513872000', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('2', '18600000001', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444220', null, null, '2017-12-25 16:24:30', '1512444220', '9316.67', '519802', '1', null, '1', '0', '0.00', null, '1514131200', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('3', '18600000002', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444231', null, null, '2017-12-05 14:57:48', '1512444231', '9316.67', '251084', '1', null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('4', '18600000003', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444242', null, null, '2017-12-05 14:57:48', '1512444242', '9316.67', '571126', '1', null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
@@ -545,7 +567,7 @@ INSERT INTO `web_member` VALUES ('12', '18655000001', '68cb582802363ea105f89d6d7
 INSERT INTO `web_member` VALUES ('13', '18655000002', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444570', null, null, '2017-12-05 16:07:33', '1512444608', '6670.01', '295301', '1', null, '1', '0', '0.00', null, '0', '0', '0', '0', '3799.99', '200.01', null);
 INSERT INTO `web_member` VALUES ('14', '18655000003', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444581', null, null, '2017-12-05 16:07:33', '1512459113', '7453.33', '232313', '1', null, '1', '1', '6.00', null, '0', '0', '0', '0', '1900.01', '99.99', null);
 INSERT INTO `web_member` VALUES ('15', '18675205465', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', null, '1512452480', null, null, '2017-12-06 08:58:29', '1512458631', '1763.35', '205465', '1', null, '1', '0', '0.00', null, '1512489600', '0', '0', '0', '3916.65', '83.35', '');
-INSERT INTO `web_member` VALUES ('16', '18512001472', '01957ebadbc62ccfbddd9ed87f93d699', '2d4a1c803bf642508fb9b57bde3ee464', null, '1512460940', null, null, '2017-12-05 16:07:34', '1512461170', '4333.34', '001472', '14', null, '1', '0', '0.00', null, '1512403200', '0', '0', '0', '966.66', '33.34', '445966588844569874');
+INSERT INTO `web_member` VALUES ('16', '18512001472', '01957ebadbc62ccfbddd9ed87f93d699', '1e2263b227d3580a587068b026d2f465', null, '1512460940', null, null, '2018-01-19 17:24:13', '1516353853', '4333.34', '001472', '14', null, '1', '0', '0.00', null, '1512403200', '0', '0', '0', '966.66', '33.34', '445966588844569874');
 
 -- ----------------------------
 -- Table structure for web_orders
@@ -616,7 +638,7 @@ CREATE TABLE `web_power` (
   `level` tinyint(10) DEFAULT '0',
   `style` varchar(20) CHARACTER SET gbk DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8 COMMENT='栏目表';
+) ENGINE=InnoDB AUTO_INCREMENT=265 DEFAULT CHARSET=utf8 COMMENT='栏目表';
 
 -- ----------------------------
 -- Records of web_power
@@ -712,11 +734,10 @@ INSERT INTO `web_power` VALUES ('247', '246', '认购记录', 'Order/kucun', '24
 INSERT INTO `web_power` VALUES ('254', '86', '文章分类', 'Product/productclass', '254-11', '1', null);
 INSERT INTO `web_power` VALUES ('256', '226', '产品分类', 'Product/classxian', '256-226', '1', '');
 INSERT INTO `web_power` VALUES ('257', '201', '提现列表', 'Report/tixian', '257-201', '1', '');
-INSERT INTO `web_power` VALUES ('258', '201', '众筹订单', 'Orderd/index', '258-201', '1', '');
 INSERT INTO `web_power` VALUES ('260', '85', '留言列表', 'member/leaving', '260-1', '1', null);
-INSERT INTO `web_power` VALUES ('261', '201', '投资订单', 'Orderd/tindex', '261-201', '1', null);
 INSERT INTO `web_power` VALUES ('262', '257', '下载权限', 'report/xiazai', '262-257-201', '2', null);
 INSERT INTO `web_power` VALUES ('263', '201', '充值明细', 'Report/recharge', '263-201', '1', null);
+INSERT INTO `web_power` VALUES ('264', '201', '购买订单', 'Orderd/index', '264-201', '1', null);
 
 -- ----------------------------
 -- Table structure for web_product
@@ -780,22 +801,6 @@ CREATE TABLE `web_recharge` (
 -- ----------------------------
 -- Records of web_recharge
 -- ----------------------------
-INSERT INTO `web_recharge` VALUES ('11', null, '1510818373', '1', '78', '1', '2017111654481009', '1', '210.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('12', null, '1510819182', '1', '78', '1', '2017111610110048', '1', '120.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('13', null, '1510916100', '1', '78', '1', '2017111753485449', '1', '100.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('14', null, '1510916318', '1', '78', '1', '2017111710110052', '1', '100.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('15', null, '1511150592', '1', '197', '1', '2017112048525150', '1', '100.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('16', null, '1511249247', '1', '125', '1', '2017112110249535', '1', '100.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('17', null, '1511249566', '1', '125', '2', '2017112110249495', '1', '100.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('18', null, '1511255845', '1', '73', '1', '2017112153979750', '1', '120.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('19', null, '1511319021', '1', '63', '1', '2017112210053100', '1', '120.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('20', null, '1511321319', '1', '223', '1', '2017112255559953', '1', '500.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('21', null, '1512095524', '1', '413', '1', '2017120152999757', '1', '500.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('22', null, '1512096571', '1', '413', '1', '2017120199489997', '1', '500.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('23', null, '1512127163', '1', '412', '1', '2017120198524810', '1', '100.00', null, '手动充值', '1', '1', '2');
-INSERT INTO `web_recharge` VALUES ('24', null, '1512268106', '1', '413', '1', '2017120397981009', '1', '500.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('25', null, '1512352663', '1', '415', '1', '2017120456485410', '1', '500.00', null, '手动充值', '1', '1', '1');
-INSERT INTO `web_recharge` VALUES ('26', null, '1512365753', '1', '4', '1', '2017120457579998', '1', '500.00', null, '手动充值', '1', '1', '1');
 INSERT INTO `web_recharge` VALUES ('27', null, '1512366235', '1', '4', '1', '2017120498565555', '1', '500.00', null, '手动充值', '1', '1', '1');
 INSERT INTO `web_recharge` VALUES ('28', null, '1512366354', '1', '4', '1', '2017120451485354', '1', '1000.00', null, '手动充值', '1', '1', '1');
 INSERT INTO `web_recharge` VALUES ('29', null, '1512367766', '1', '9', '1', '2017120454994999', '1', '1000.00', null, '手动充值', '1', '1', '1');
@@ -834,41 +839,6 @@ INSERT INTO `web_role` VALUES ('19', '超级管理员', '一般都是傻B', '64,
 INSERT INTO `web_role` VALUES ('20', '小明', '今天需要学习', '64,65,70,71,72,73,66,74,75,76,67,77,78,79,80,81,84,167,68,69,177,85,89,91,95,96,97,98,99,101,194,195,193,260,86,90,102,103,104,105,106,107,108,254,201,257,262', ',,Rbac/adminrole,Rbac/adminpermission,Rbac/adminlist,,Webconfig/index,Rbac/adminroleedit,Rbac/adminroleadd,Rbac/adminRoleDel,Rbac/datadelRole,Rbac/poweredit,Rbac/del,Rbac/datadelPower,Rbac/admin_stop,Rbac/admin_start,Rbac/adminedit,Rbac/adminpasswordedit,Rbac/adminDel,Rbac/datadelAdmin,,,Member/index,Article/index,Member/useradd,Member/user_start,Member/user_stop,Member/usershow,Member/useredit,Member/userpasswordedit,Member/userDel,Article/article_start,Article/article_stop,Article/datadelArticle,Article/articleDel,Article/articlezhang,Article/articleedit,Article/articleadd,Rbac/loginlog,Webconfig/setbonus,Member/usertree,Member/recharge,Member/deduct,,Product/productclass,Report/tixian,member/leaving,report/xiazai');
 
 -- ----------------------------
--- Table structure for web_torder
--- ----------------------------
-DROP TABLE IF EXISTS `web_torder`;
-CREATE TABLE `web_torder` (
-  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键自增',
-  `order_no` char(30) DEFAULT NULL COMMENT '订单号',
-  `create_time` char(20) DEFAULT NULL COMMENT '创建订单时间',
-  `uid` int(11) DEFAULT NULL COMMENT '用户ID',
-  `pid` int(11) DEFAULT NULL COMMENT '产品ID',
-  `price` decimal(10,2) DEFAULT '0.00' COMMENT '产品价格',
-  `should` decimal(10,2) DEFAULT '0.00' COMMENT '应发赠送金额',
-  `real` decimal(10,2) DEFAULT '0.00' COMMENT '实发赠送金额',
-  `status` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '0为未支付1为已支付',
-  `type` tinyint(1) unsigned zerofill DEFAULT '0' COMMENT '0未发完赠送奖金1已发完赠送奖金',
-  `codeUrl` varchar(200) DEFAULT NULL,
-  `lagou_sign` char(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of web_torder
--- ----------------------------
-INSERT INTO `web_torder` VALUES ('17', '2017120548545097', '1512457120', '15', '1', '500.00', '1000.00', '50.01', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('18', '2017120555481019', '1512457127', '14', '2', '1000.00', '2000.00', '99.99', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('19', '2017120548545010', '1512457136', '13', '3', '2000.00', '4000.00', '200.01', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('20', '2017120554985453', '1512457142', '12', '4', '3000.00', '6000.00', '300.00', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('21', '2017120548525656', '1512457152', '11', '5', '5000.00', '9000.00', '450.00', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('22', '2017120548995156', '1512457200', '15', '1', '500.00', '1000.00', '33.34', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('23', '2017120552565399', '1512461060', '16', '1', '500.00', '1000.00', '33.34', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('24', '2017120548981005', '1512462160', '15', '1', '500.00', '1000.00', '0.00', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('25', '2017120549561025', '1512463249', '15', '1', '500.00', '1000.00', '0.00', '1', '0', null, null);
-INSERT INTO `web_torder` VALUES ('26', '2017120754995397', '1512627606', '16', '1', '500.00', '1000.00', '0.00', '0', '0', null, null);
-INSERT INTO `web_torder` VALUES ('27', '20171222504856989', '1513939794', '5', '1', '500.00', '1000.00', '0.00', '0', '0', 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx201712221849502dfd7da5b40596379957&package=3541017907', null);
-
--- ----------------------------
 -- Table structure for web_touziconfig
 -- ----------------------------
 DROP TABLE IF EXISTS `web_touziconfig`;
@@ -899,4 +869,4 @@ CREATE TABLE `web_webconfig` (
 -- Records of web_webconfig
 -- ----------------------------
 INSERT INTO `web_webconfig` VALUES ('1', '基本设置', '{\"smsusername\":\"jxcm2017\",\"smsservice\":\"\",\"smspassword\":\"jxcm2017\",\"onoff\":\"1\",\"chaoshi\":\"0\",\"webname\":\"\\u84dd\\u7ea2\\u9ec4\",\"weburl\":\"http:\\/\\/mall700.com\\/\",\"title\":\"\\u84dd\\u7ea2\\u9ec4\",\"keywords\":\"\\u84dd\\u7ea2\\u9ec4\",\"description\":\"\\u84dd\\u7ea2\\u9ec4\",\"copyright\":\"\",\"icp\":\"\",\"cnzz\":\"\",\"ip\":\"\",\"num\":\"4\"}');
-INSERT INTO `web_webconfig` VALUES ('2', '参数设置', '{\"tixian_status\":\"1\",\"chongzhi_status\":\"1\",\"deposit_time_start\":\"0\",\"deposit_time_hour\":\"07\",\"deposit_time_minute\":\"00\",\"deposit_time_hour_stop\":\"12\",\"deposit_time_minute_stop\":\"00\",\"deposit_number\":\"1\",\"recommend_one\":\"4\",\"recommend_tow\":\"3\",\"recommend_three\":\"1\",\"zhong_one\":\"0.4\",\"zhong_tow\":\"0.3\",\"zhong_three\":\"0.1\",\"team_people_num_zhi\":\"20\",\"team_people_num\":\"150\",\"bonus_money_team\":\"2\",\"team_people_num_zhis\":\"30\",\"team_people_num1\":\"300\",\"bonus_money_team1\":\"3\",\"deduct_s\":\"20\",\"recharge_day\":\"3700\",\"zbjfen\":\"400\",\"bonusmoney\":\"200\",\"minmoney\":\"100\",\"maxmoney\":\"2500\",\"shouxufei\":\"2\",\"tixianjinemin\":\"100\",\"tixianjinemax\":\"100000\"}');
+INSERT INTO `web_webconfig` VALUES ('2', '参数设置', '{\"tixian_status\":\"1\",\"chongzhi_status\":\"1\",\"deposit_time_start\":\"0\",\"deposit_time_hour\":\"07\",\"deposit_time_minute\":\"00\",\"deposit_time_hour_stop\":\"12\",\"deposit_time_minute_stop\":\"00\",\"deposit_number\":\"1\",\"recommend_one\":\"5\",\"recommend_tow\":\"3\",\"recommend_three\":\"2\",\"iteration_of\":\"10\",\"iteration_percentage\":\"1\",\"team_people_num_zhi\":\"20\",\"team_people_num\":\"150\",\"relationship\":\"10\",\"bonus_money_team\":\"2\",\"team_people_num_zhis\":\"30\",\"team_people_num1\":\"300\",\"relationship1\":\"10\",\"bonus_money_team1\":\"3\",\"deduct_s\":\"20\",\"restitution_of\":\"9\",\"minmoney\":\"100\",\"maxmoney\":\"2500\",\"shouxufei\":\"2\",\"tixianjinemin\":\"100\",\"tixianjinemax\":\"100000\"}');

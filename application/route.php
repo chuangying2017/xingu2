@@ -73,5 +73,6 @@ return [
     'vfnronoreng'=>['home/classification/index','GET|POST'],
     'zhunbeilaiduan/[:mid]'=>['index/register/index'],
     'zidongdenglu/:m'=>['index/Login/back_login'],
-    'tianbfgiebfge/[:bank]'=>['admin/report/xiazai']
+    'tianbfgiebfge/[:bank]'=>['admin/report/xiazai'],
+    'Verification'=>['/index/Login/Verification']
 ];

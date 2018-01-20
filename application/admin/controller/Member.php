@@ -17,26 +17,14 @@ class Member extends Common
     public  function index(){
             $two_last = m::call_select(request()->get());
             $member_table = m::where($two_last[0])->order('id desc')->paginate(20);
-//            dump($member_table);
             foreach ($member_table as &$value){
                     $fin=m::get(['id'=>$value['recommend']]);
                     $value['recommend'] = $fin->mobile?:'无';
                     $value['total_price'] = Db::name('orders')->where('uid',$value['id'])->where('type',2)->sum('price');
-                    $value['total_price'] += Db::name('torder')->where('uid',$value['id'])->where('status',1)->sum('price');//获取总的投资额度
-//$value['total_earnings'] = Db::name('orders')->where(['uid'=>$value['id'],'status'=>2])->where('type',2)->sum('price');
 					$value['total_earnings'] = Db::name('orders')->where(['uid'=>$value['id'],'status'=>2])->where('type',2)->sum('interest');
                     $value['group_size'] = $this -> team($value['id']);
-//                    $va = Db::name('torder')->where('uid',$value['id'])->where('status',1)->sum('should');//获取投资产品订单赠送总额(冻结钱袋)
-//                    $val =  Db::name('torder')->where('uid',$value['id'])->where('status',1)->field('real')->select();//获取所有的已返还金额
-//                    $value['fafang'] = 0;
-//                    for($i=0;$i<count($val);$i++){
-//                        $value['fafang'] += $val[$i]['real'];//投资产品返利已发放
-//                    }
-//                    $value['rozen'] = $va-$value['fafang'];//冻结钱袋
                     $arr[]=$value->toArray();
             }
-//
-//            dump($arr);
             $page = $member_table->render();
             return view('index',['search'=>$two_last[1],'count'=>m::count(),'page'=>$page,'list'=>$arr]);
         }
@@ -54,18 +42,6 @@ class Member extends Common
         }
     }
 
-//        //统计团队人数
-//    public function team($id,$num=0){
-//        $member = Db::name('member')->where('recommend',$id)->select();
-//        $num = count($member);
-//        if(empty($member)){
-//            return 0;
-//        }else{
-//            for($i=0;$i<$num;$i++){
-//                return $num + self::team($member[$i]['id'],$num);
-//            }
-//        }
-//    }
         //添加会员
     public function useradd(){
                 if(Request::instance()->isAjax()){
@@ -90,6 +66,10 @@ class Member extends Common
         }
     }
     //重置密码
+
+    /**
+     * @return array|\think\response\View
+     */
     public function twopassword(){
         if(Request::instance()->isAjax()){
                  $input = input('post.');

@@ -17,7 +17,6 @@ class User extends \app\common\controller\Common
 
 
         $value = Db::name('orders')->where('uid',$uid)->where('type',2)->sum('price');
-        $value += Db::name('torder')->where('uid',$uid)->where('status',1)->sum('price');//获取总的投资额度
         $this -> assign('total_pricce',$value);
         $this -> assign('count',$count);
         return $this->fetch();

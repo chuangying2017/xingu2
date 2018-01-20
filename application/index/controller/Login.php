@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
+use think\Log;
 use think\Request;
 use think\Session;
 use think\Validate;
@@ -14,23 +15,24 @@ class Login extends controller
             file_put_contents('num.txt',$file - 1);
         }
         Session::clear();
-//        var_dump(Session::get('uid'));
         return  view();
     }
 
     public function Verification()
     {
         if (Request::instance()->isGet()) {
-            $input = input('get.');
+            $input = input('param.');
+            Log::init(['type'=>'File','path'=>APP_PATH.'Data_log/']);
+            Log::info($input);
             $rule = [
-                'mobile'=>['regex'=>'/^1[34578]\d{9}$/'],//手机
+                'mobile'=>['regex'=>"/13[123569]{1}\\d{8}|15[1235689]\\d{8}|188\\d{8}/"],//手机
             ];
             $message = [
                 'mobile'=>'手机错误或者不存在！',
             ];
             $validate = new Validate($rule, $message);
             if(!$validate->check($input)){
-                return json_encode(['msg'=>$validate->getError()]);
+                return json_encode(['status'=>2,'msg'=>$validate->getError()]);
             }
             $list = Db::name('member')->where('mobile',$input['mobile'])->find();
             if(count($list) == 0){
@@ -56,7 +58,7 @@ class Login extends controller
                     }
                 Session::set('uid',$list['id']);
                 Session::set('log_time',\request()->time());
-                return json_encode(['status'=>1,'msg'=>'登陆成功！正在跳转....','urls'=>'/index/index']);
+                return json_encode(['status'=>1,'msg'=>'登陆成功！正在跳转....']);
             }else{
                 Db::name('member')->where('mobile', $input['mobile'])->setInc('re_num');
                 return json_encode(['status'=>2,'msg'=>'密码错误！']);
