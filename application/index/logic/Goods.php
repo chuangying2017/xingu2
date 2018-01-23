@@ -624,6 +624,7 @@ class Goods extends Model
             }elseif ($num1 > 0){//当日购买相同的产品false
                 return json_encode(['status'=>2,'msg'=>'请选择更高']);
             }
+            $member_table = Db::name('member');
             $data_base = database(2);//获取参数设置
             $product_buy_total = $data_product['price'] * $data['buy_num'];//购买数量 * 产品价格 = 总金额
             $order_id = $orders_table_object->insertGetId([//产生一个订单

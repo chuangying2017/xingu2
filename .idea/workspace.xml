@@ -1,85 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6773acbd-3caf-4ac4-9775-788f5a9eee3e" name="Default" comment="three commit change databases &#10;new insert tables">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/logic/Goods.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/index/view/login/test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/request_data.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/common.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/config.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/controller/Index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/controller/Investment.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/controller/Login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/controller/Product_buy.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/controller/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/model/Deposit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/model/Login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/model/Orderno.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/model/Products.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/model/Recharge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/model/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/validate/Deposit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/validate/Login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/validate/Orderno.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/validate/Products.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/validate/Recharge.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/validate/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Common/foot.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Common/head.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Index/Investment.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Index/bank.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Index/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Index/purchase.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Login/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Login/register.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/Login/retrieval.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/User/bank_show.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/User/draw.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/User/generalize.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/User/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/application/home/view/User/journalism.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_12821512356182.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_12821512356182thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_12821512356182xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_26851512356600.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_26851512356600thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_26851512356600xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_37511512356235.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_37511512356235thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_37511512356235xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_59591512356198.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_59591512356198thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_59591512356198xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_77811512356220.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_77811512356220thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_77811512356220xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_88251512356624.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_88251512356624thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_88251512356624xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_92151512355999.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_92151512355999thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_92151512355999xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_92811512356568.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_92811512356568thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_92811512356568xiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_93391512356613.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_93391512356613thumb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/upload/images/mb_93391512356613xiao.png" afterPath="" />
+    <list default="true" id="6773acbd-3caf-4ac4-9775-788f5a9eee3e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Captcha.php" afterPath="$PROJECT_DIR$/application/admin/controller/Captcha.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Product.php" afterPath="$PROJECT_DIR$/application/admin/controller/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/model/Products.php" afterPath="$PROJECT_DIR$/application/admin/model/Products.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/product/index.html" afterPath="$PROJECT_DIR$/application/admin/view/product/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/product/product_edit.html" afterPath="$PROJECT_DIR$/application/admin/view/product/product_edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/product/productadd.html" afterPath="$PROJECT_DIR$/application/admin/view/product/productadd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common.php" afterPath="$PROJECT_DIR$/application/common.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common/controller/Common.php" afterPath="$PROJECT_DIR$/application/common/controller/Common.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/common.php" afterPath="$PROJECT_DIR$/application/index/common.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/controller/Goods.php" afterPath="$PROJECT_DIR$/application/index/controller/Goods.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/controller/Login.php" afterPath="$PROJECT_DIR$/application/index/controller/Login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/model/Goods.php" afterPath="$PROJECT_DIR$/application/index/model/Goods.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/route.php" afterPath="$PROJECT_DIR$/application/route.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/num.txt" afterPath="$PROJECT_DIR$/public/num.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/index/logic/Goods.php" afterPath="$PROJECT_DIR$/application/index/logic/Goods.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -177,8 +101,8 @@
       <file leaf-file-name="Goods.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/logic/Goods.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="634" column="12" lean-forward="true" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
+            <state relative-caret-position="548">
+              <caret line="626" column="47" lean-forward="false" selection-start-line="626" selection-start-column="47" selection-end-line="626" selection-end-column="47" />
               <folding>
                 <element signature="e#6#101#0#PHP" expanded="true" />
                 <element signature="e#131#153#0#PHP" expanded="true" />
@@ -195,7 +119,7 @@
                 <element signature="e#27527#28856#0#PHP" expanded="false" />
                 <element signature="e#28862#29987#0#PHP" expanded="false" />
                 <element signature="e#30059#30248#0#PHP" expanded="false" />
-                <marker date="1516707220431" expanded="true" signature="1847:1944" ph="SELECT DISTI... web_product" />
+                <marker date="1516707549843" expanded="true" signature="1847:1944" ph="SELECT DISTI... web_product" />
               </folding>
             </state>
           </provider>
@@ -1870,7 +1794,7 @@
       <workItem from="1516585055106" duration="15682000" />
       <workItem from="1516668186386" duration="4764000" />
       <workItem from="1516674597229" duration="385000" />
-      <workItem from="1516675259362" duration="25474000" />
+      <workItem from="1516675259362" duration="25708000" />
     </task>
     <task id="LOCAL-00001" summary="three commit change databases &#10;new insert tables">
       <created>1516442411597</created>
@@ -1886,11 +1810,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516442448890</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="five commit num">
+      <created>1516707372224</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1516707372224</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="397571000" />
+    <option name="totallyTimeSpent" value="397805000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1963,7 +1894,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="three commit change databases &#10;new insert tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="three commit change databases &#10;new insert tables" />
+    <MESSAGE value="five commit num" />
+    <option name="LAST_COMMIT_MESSAGE" value="five commit num" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2413,8 +2345,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/index/logic/Goods.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="634" column="12" lean-forward="true" selection-start-line="634" selection-start-column="12" selection-end-line="634" selection-end-column="12" />
+        <state relative-caret-position="548">
+          <caret line="626" column="47" lean-forward="false" selection-start-line="626" selection-start-column="47" selection-end-line="626" selection-end-column="47" />
           <folding>
             <element signature="e#6#101#0#PHP" expanded="true" />
             <element signature="e#131#153#0#PHP" expanded="true" />
@@ -2431,7 +2363,7 @@
             <element signature="e#27527#28856#0#PHP" expanded="false" />
             <element signature="e#28862#29987#0#PHP" expanded="false" />
             <element signature="e#30059#30248#0#PHP" expanded="false" />
-            <marker date="1516707220431" expanded="true" signature="1847:1944" ph="SELECT DISTI... web_product" />
+            <marker date="1516707549843" expanded="true" signature="1847:1944" ph="SELECT DISTI... web_product" />
           </folding>
         </state>
       </provider>
