@@ -1,0 +1,50 @@
+<include file="common/header" />
+<style>
+    body{background: url('/index/images/login_bg.png') no-repeat center top!important;background-size: 100% 100%}
+    .mui-content{background: 0!important;}
+</style>
+<body>
+<div class="mui-content mui-login" id="app">
+    <div class="mui-row mui-row-img" align="center">
+        <img src="/index/images/08.png" alt="">
+    </div>
+    <div class="mui-row mui-input">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <i class="iconfont font-size-21 font-color-01">&#xe71f;</i>
+                <input type="tel" class="mui-input-clear mui-input font-size-14 font-color-01" placeholder="账 号" value="" maxlength="11">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row">
+                <i class="iconfont font-size-21 font-color-01">&#xe6d1;</i>
+                <input type="password" class="mui-input-clear mui-input font-size-14 font-color-01" placeholder="密 码" value="" maxlength="11">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12 font-color-25">
+            <button class="mui-input-row mui-submit font-color-12 bg-20">
+                登&nbsp;陆
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="/index/js/jquery-3.1.1.min.js"></script>
+<script>
+    $(function(){
+        $('.mui-submit').on('click',function(){
+            $.ajax({
+                url:'/Product_buy/a2',
+                type:'post',
+                dataType:'json',
+                data:{id:'11',name:'zhangxiao'},
+                success:function (data) {
+                    if(data.status == 1){
+                        return alert(data.msg);
+                    }
+                }
+            })
+        })
+    })
+</script>

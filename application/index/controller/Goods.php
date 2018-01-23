@@ -1,16 +1,19 @@
 <?php
 namespace app\index\controller;
 
+use app\common\controller\Common;
 use Org\service\Service;
 use think\Build;
 use think\cache\driver\Redis;
 use think\Controller;
 use think\Db;
+use think\Log;
 use think\Request;
 use think\Session;
 use think\Url;
+use think\view\driver\Think;
 
-class Goods extends \app\common\controller\Common
+class Goods extends Common
 {
 
 //    public function product(){
@@ -156,4 +159,25 @@ class Goods extends \app\common\controller\Common
 
     }
 
+    //展示产品
+    public function product_message(){
+            $product = Db::name('product');
+            $result_img_product=$product->alias('p')
+                ->join('web_img w','p.id=w.pid')
+                ->where('p.status',1)
+                ->field('p.*,w.path_img')->select();
+            echo json_encode($result_img_product);
+    }
+
+    //购买产品
+    public function buy_product($type=null){
+            //$type == a1 使用余额复投 否者就是新投
+           if(Request::instance()->isGet()){
+               $post_data = input('param.');
+               Log::info($post_data);
+               return \app\index\logic\Goods::buy_product_data($post_data);
+           }else{
+               return json_encode(['status'=>2,'msg'=>'wangwu']);
+           }
+    }
 }

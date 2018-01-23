@@ -14,20 +14,7 @@ class Product extends Common{
     public $imgs;
     //展示产品列表
     public  function  index(){
-//        dump($_GET);
-        $where = [];
-//        $call = Products::index_call(input('post.'));
-        $keyword = input('get.');
-        if($keyword){
-            if($keyword['search_type']){
-                $where['m.type'] = ['like','%'.$keyword['search_type'].'%'];
-                $this -> assign('type',$keyword['search_type']);
-            }else{
-                $where['m.type'] = ['like','%0%'];
-            }
-        }else{
-            $where['m.type'] = ['like','%0%'];
-        }
+        $where['m.type'] = ['like','%1%'];
         $name = Db::name('product')
             ->alias('a')
             ->join('web_infinite_class m','a.type_id=m.id')
@@ -35,11 +22,8 @@ class Product extends Common{
             ->field('a.*,m.title as title_s,m.type')
             ->select();
         for($i = 0;$i < count($name);$i++){
-            if($name[$i]['type'] == 1){
-                $name[$i]['beishu'] = $name[$i]['price']*$name[$i]['name_bei'];
-            }
+            $name[$i]['beishu'] = $name[$i]['price']*($name[$i]['name_bei'] / 10);
         }
-//        dump($name);
         $this ->assign('list',$name);
         return $this->fetch();
     }
@@ -89,11 +73,9 @@ class Product extends Common{
             }
          $table_class = Db::name('infinite_class');
          $call_back= Products::get($id);
-//        dump($call_back);
          $call_value=$table_class->where('status',1)->select();
-         $type = $table_class->where('id',$call_back['type_id'])->find();
          $call_=$this->rescursion($call_value);
-        return view('',['full_page'=>$call_back->toArray(),'list1'=>$call_,'type'=>$type['type']]);
+        return view('',['full_page'=>$call_back->toArray(),'list1'=>$call_]);
     }
     //添加产品图片页面
     public function productimg($id=null){

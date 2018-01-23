@@ -33,9 +33,9 @@ function md5_pass($type,$data){
     //1是安全密码或者提现密码
     //2是登录密码
         if($type == 1){
-            $password = md5($data.md5(config('ADMINKEY')));
+            $password = md5($data.md5(config('ADMINKEY')));//安全密码
         }elseif ($type == 2){
-            $password = $data.md5(config('USERKEY'));
+            $password = md5($data.md5(config('USERKEY')));//登录密码
         }
         return $password;
 }
@@ -276,3 +276,20 @@ function send_mail($tomail, $name, $subject = '', $body = '', $attachment = null
     return $mail->Send() ? true : $mail->ErrorInfo;
 }
 
+//生成会员推荐密码
+function member_inviteCode(){
+    while (true){
+        $rand_number = rand(111111,999999);
+        $member = db('member')->where('invite_code',$rand_number)->find();
+        if(!$member){
+            return $rand_number;
+        }
+    }
+}
+
+//定义一个redis对象
+function redis_obj(){
+    $redis = new \think\session\driver\Redis();
+    $redis->open();
+    return $redis;
+}
