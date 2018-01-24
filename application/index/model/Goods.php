@@ -8,6 +8,6 @@ use think\Model;
 
 class Goods extends Model
 {
-    protected $table = 'orders';//订单表
+    protected $table = 'web_orders';//订单表
 
 }

@@ -21,6 +21,7 @@
                 <input type="password" class="mui-input-clear mui-input font-size-14 font-color-01" placeholder="密 码" value="" maxlength="11">
             </div>
         </div>
+
         <div class="mui-col-sm-12 mui-col-xs-12 font-color-25">
             <button class="mui-input-row mui-submit font-color-12 bg-20">
                 登&nbsp;陆
@@ -35,10 +36,11 @@
     $(function(){
         $('.mui-submit').on('click',function(){
             $.ajax({
-                url:'/Product_buy/a2',
-                type:'post',
+                url:'/Product_buy/a1',
+                type:'get',
                 dataType:'json',
-                data:{id:'11',name:'zhangxiao'},
+                async:false,
+                data:{pid:'3',buy_num:'3'},
                 success:function (data) {
                     if(data.status == 1){
                         return alert(data.msg);

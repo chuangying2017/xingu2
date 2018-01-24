@@ -623,19 +623,93 @@ class Goods extends Model
                 return json_encode(['status'=>2,'msg'=>'未支付订单过多']);
             }elseif ($num1 > 0){//当日购买相同的产品false
                 return json_encode(['status'=>2,'msg'=>'请选择更高']);
+            }elseif($data['buy_num'] > $data_product['gou_num']){//当前
+                return json_encode(['status'=>2,'msg'=>'购买数量超出']);
             }
-            $member_table = Db::name('member');
+            $member_table = Db::name('member');//会员表
+            $bonus_table = Db::name('bonus');//奖金表
+            $uid = redis_obj()->read('uid');
+            $member_data=$member_table->where('id',$uid)->find();
+            if(!$member_data){
+                return json_encode(['status'=>2,'msg'=>'会员不存在']);
+            }
             $data_base = database(2);//获取参数设置
             $product_buy_total = $data_product['price'] * $data['buy_num'];//购买数量 * 产品价格 = 总金额
-            $order_id = $orders_table_object->insertGetId([//产生一个订单
+            $product_buy_total += $product_buy_total * 0.03;
+            if($member_data['money'] < $product_buy_total){
+                return json_encode(['status'=>2,'msg'=>'余额不足']);
+            }
+            $member_table->where(['id'=>$uid])->update(['money'=>$member_data['money'] - $product_buy_total,'update_time'=>time()]);
+            $order_id = $orders_table_object->insertGetId([//产生一个订单id
                 'order_no'=>self::self_return(),
                 'create_date'=>time(),
                 'uid'=>$data['member_id'],'pid'=>$data['pid'],'num'=>$data['buy_num'],
-                'type'=>1,'interest'=>$data_product['price'] * ($data_product['name_bei'] / 10) * $data_product['name_tian']
+                'type'=>1,'interest'=>$data_product['price'] * ($data_product['name_bei'] / 10) * $data_product['name_tian']//得到价格的20%金额
             ]);
-
+            $product_table->where(['id'=>$data['pid']])->update([//产品表更新购买数量，剩余数量，
+                'buy_num'=>$data_product['buy_num'] + $data['buy_num'],
+                'residue_num'=>$data_product['residue_num'] - $data['buy_num'],'update_time'=>time()
+            ]);
+            if($member_data['recommend']){//计算直推荐关系奖金
+                $recommend_id = 0;$recommend_one = $member_data['recommend'];
+                for ($j=1;$j<$data_base['iteration_of']+1;$j++){//计算迭代10层级关系
+                    if($recommend_id >= $j){
+                      switch ($recommend_id){
+                          case 2://计算二代奖金
+                              $two_bonus = $product_buy_total * ($data_base['recommend_tow'] / 100);
+                              $two_level_member=$member_table->where('id',$one_member_data['recommend'])->find();
+                              if($two_level_member){
+                                  $member_table->where('id',$two_level_member['id'])->setInc('bonus',$two_bonus);//添加二级推荐奖励
+                                  $bonus_table->insert([
+                                      'uid'=>$two_level_member['id'],'type'=>'2','create_date'=>time(),'money'=>$two_bonus,'order_id'=>$order_id
+                                  ]);//生成一条奖金记录
+                                  $recommend_id++;
+                              }
+                              break;
+                          case 3://计算三代奖金
+                              $three_bonus = $product_buy_total * ($data_base['recommend_three'] / 100);
+                              $three_level_member=$member_table->where('id',$two_level_member['recommend'])->find();
+                              if($three_level_member){
+                                  $member_table->where('id',$three_level_member['id'])->setInc('bonus',$three_bonus);//添加三级级推荐奖励
+                                  $bonus_table->insert([
+                                      'uid'=>$three_level_member['id'],'type'=>'3','create_date'=>time(),'money'=>$three_bonus,'order_id'=>$order_id
+                                  ]);//生成一条奖金记录
+                                  $recommend_id++;
+                                  $recommend_one = $three_level_member['recommend'];
+                              }
+                              break;
+                          default://剩余全部计算奖金
+                                $total_bonus = $product_buy_total * ($data_base['iteration_percentage'] / 100);
+                                $all_member_data = $member_table->where('id',$recommend_one)->find();
+                                if($all_member_data){
+                                    $recommend_one = $all_member_data['recommend'];
+                                    $member_table->where('id',$all_member_data['id'])->setInc('bonus',$total_bonus);//添加三级级推荐奖励
+                                    $bonus_table->insert([
+                                        'uid'=>$all_member_data['id'],'type'=>$recommend_id,'create_date'=>time(),'money'=>$total_bonus,'order_id'=>$order_id
+                                    ]);//生成一条奖金记录
+                                    $recommend_id++;
+                                }
+                              break;
+                      }
+                    }else{
+                       if($recommend_id > 0){
+                           break;
+                       }else{
+                           $one_member_data=$member_table->where('id',$recommend_one)->find();//查询上一级
+                           //计算购买产品的一代奖金
+                           $one_bonus = $product_buy_total * ($data_base['recommend_one'] / 100);
+                           $member_table->where('id',$one_member_data['id'])->setInc('bonus',$one_bonus);//加到会员奖金
+                           $bonus_table->insert([
+                               'uid'=>$one_member_data['id'],'type'=>'1','create_date'=>time(),'money'=>$one_bonus,'order_id'=>$order_id
+                           ]);//生成一条奖金记录
+                           $recommend_id = 2;
+                       }
+                    }
+                }
+            }
+            return json_encode(['status'=>1,'msg'=>'复投成功']);
         }elseif($data['type'] == 'a2'){
-
+                return ['status'=>1,'msg'=>'successfully'];
         }else{
             exit('Can not ask for it');
         }
