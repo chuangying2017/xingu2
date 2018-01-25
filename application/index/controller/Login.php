@@ -5,13 +5,14 @@ use think\Controller;
 use think\Log;
 use think\Request;
 use think\Session;
+use think\Url;
 use think\Validate;
 use think\Db;
 class Login extends controller
 {
-    public function index()
+    public function index()//展示登录页面
     {
-
+        Session::clear();
         return  view();
     }
     public function test_ll(){
@@ -103,11 +104,9 @@ class Login extends controller
                 return json_encode(['status'=>2,'msg'=>'错误次数超过限制！请明天在试...']);
             }
             if(md5_pass(2,$input['password']) === $list['password']){
-                $redis = new \think\session\driver\Redis();
-                $redis->open();
-                $redis->write('uid',$list['id']);
-                $redis->write('log_time',\request()->time());
-                return json_encode(['status'=>1,'msg'=>'登陆成功', 'member_id'=>$list['id']]);
+                Session::set('uid',$list['id']);
+                Session::set('log_time',\request()->time());
+                return json_encode(['status'=>1,'msg'=>'登陆成功请稍后....', 'urls'=>Url::build('index/Index/index')]);
             }else{
                 Db::name('member')->where('mobile', $input['mobile'])->setInc('re_num');
                 return json_encode(['status'=>2,'msg'=>'密码错误！']);

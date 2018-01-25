@@ -60,18 +60,7 @@ class Goods extends Common
     //接收购买的数据
     public function buy_data(){
             if(Request::instance()->isAjax()){
-                $list = Db::name('product')->where('id',$_POST['pid'])->find();
-                $result = Db::name('infinite_class')->where('id',$list['type_id'])->find();
-                if($result['type'] == 1){
-                    return \app\index\model\Goods::Goodsnvestment(input('post.'));//投资
-                }else{
-                    $uid = Session::get('uid');
-                    $re_num = Db::name('orders')->where('uid',$uid)->where('pid',$list['id'])->where('type',2)->select();
-                    if(count($re_num) >= $list['gou_num']){
-                        return ['status'=>2,'msg'=>'本产品限购'.$list['gou_num'].'次！'];
-                    }
-                    return \app\index\model\Goods::buy_data_verfiy(input('post.'));//众抽
-                }
+                return \app\index\logic\Goods::Goodsnvestment(input('post.'));//投资
             }
     }
 

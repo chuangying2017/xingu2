@@ -25,19 +25,19 @@
         </div>
     </div>
     <div class="mui-row">
-        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center" style="line-height: 32px;">
+        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center" style="line-height: 32px;text-align: center">
             <volist name="list" id="vo">
-                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$vo.id}>"><span class="iconfont font-size-16 font-color-06">&#xe620;</span> <{$vo.mobile}></a>
+                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$vo.id}>"> <{$vo.mobile}></a>
             </volist>
         </div>
-        <div class="mui-col-sm-4 mui-col-xs-4" style="line-height: 32px;">
+        <div class="mui-col-sm-4 mui-col-xs-4" style="line-height: 32px;text-align: center">
             <volist name="twonum" id="vos">
-                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$vos.id}>"><span class="iconfont font-size-16 font-color-06">&#xe620;</span> <{$vos.mobile}></a>
+                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$vos.id}>"><{$vos.mobile}></a>
             </volist>
         </div>
-        <div class="mui-col-sm-4 mui-col-xs-4" style="line-height: 32px;">
+        <div class="mui-col-sm-4 mui-col-xs-4" style="line-height: 32px;text-align: center">
             <volist name="threess" id="ls">
-                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$ls.id}>"><span class="iconfont font-size-16 font-color-06">&#xe620;</span> <{$ls.mobile}></a>
+                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$ls.id}>" style=""><{$ls.mobile}></a>
             </volist>
         </div>
     </div>
@@ -61,7 +61,7 @@
             dataType:'json',
             type:'post',
             success:function(data){
-//                console.log(data);
+                console.log(data);
                 if(data.status == 1){
                     $(a).siblings().remove();
                     var shtml ='';
@@ -88,6 +88,7 @@
             type: 'post', //HTTP请求类型
             timeout: 10000, //超时时间设置为10秒；
             success: function (data) {
+                console.log(data)
 //                    console.log(data);
                                 if(data.status == 1) {
                                     $(po).siblings().remove();

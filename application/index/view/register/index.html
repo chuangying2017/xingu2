@@ -1,19 +1,19 @@
 <include file="common/header" />
-<body class="bg-01">
+<body style="background: #072431">
 <header class="mui-bar mui-bar-nav mui-bar-head font-color-01 font-size-14 bg-01">
     <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01 " ></a>
     <h1 id="title" class="mui-title font-color-01 font-size-15">注册</h1>
 </header>
-<div class="mui-content register-content bg-01" id="app">
+<div class="mui-content register-content " id="app" style="background: #072431">
         <template v-if="ok">
             <div class="mui-row">
                 <div class="mui-col-sm-12 mui-col-xs-12">
-                    <div class="mui-input-row bg-12">
+                    <div class="mui-input-row bg-25">
                         <label class="font-size-14 font-color-01">手机号码</label>
                         <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入手机号码" v-model="rephoneNumber" maxlength="11">
                     </div>
                 </div>
-                <div class="mui-col-sm-12 mui-col-xs-12">
+   <!--             <div class="mui-col-sm-12 mui-col-xs-12">
                     <div class="mui-input-row yzm bg-12">
                         <label class="font-size-14 font-color-01">验 证 码</label>
                         <button class="font-size-13 bg-20 font-color-01 font-color-01" onclick="daojishi(this)">
@@ -21,54 +21,56 @@
                         </button>
                         <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入短信验证" v-model="reCode">
                     </div>
-                </div>
+                </div>-->
+                <!--<div class="mui-col-sm-12 mui-col-xs-12">-->
+                    <!--<div class="mui-input-row bg-25">-->
+                        <!--<label class="font-size-14 font-color-01">身份证</label>-->
+                        <!--<input type="text" class="mui-input-clear font-color-01 font-size-14" placeholder="请输入身份证" v-model="reCrad" maxlength="21">-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="mui-col-sm-12 mui-col-xs-12">
-                    <div class="mui-input-row bg-12">
-                        <label class="font-size-14 font-color-01">身份证</label>
-                        <input type="tel" class="mui-input-clear font-color-01 font-size-14" placeholder="请输入身份证" v-model="reCrad" maxlength="21">
-                    </div>
-                </div>
-                <div class="mui-col-sm-12 mui-col-xs-12">
-                    <div class="mui-input-row bg-12">
+                    <div class="mui-input-row bg-25">
                         <label class="font-size-14 font-color-01">登陆密码</label>
                         <input type="password" class="mui-input-clear font-color-01" placeholder="请输入登陆密码" v-model="repass" maxlength="12">
                     </div>
                 </div>
                 <div class="mui-col-sm-12 mui-col-xs-12">
-                    <div class="mui-input-row bg-12">
+                    <div class="mui-input-row bg-25">
                         <label class="font-size-14 font-color-01">确认密码</label>
                         <input type="password" class="mui-input-clear font-color-01" placeholder="再次确认密码" v-model="repasses" maxlength="12">
                     </div>
                 </div>
                 <div class="mui-col-sm-12 mui-col-xs-12">
-                    <div class="mui-input-row bg-12">
+                    <div class="mui-input-row bg-25">
                         <label class="font-size-14 font-color-01">邀 请 码</label>
                         <input type="text" class="mui-input-clear font-size-14 font-color-01"  placeholder="请输入邀请码" v-model="rey">
                     </div>
                 </div>
                 <div class="mui-col-sm-12 mui-col-xs-12 button-st" align="center">
-                    <button type="button" class="mui-btn mui-btn-block font-size-14 font-color-12 bg-20" @click='Toggle'>下一步</button>
+                    <button type="button" class="mui-btn mui-btn-block font-size-14 font-color-01 bg-24" @click='Toggle'>下一步</button>
                     <a href="<{:url('index/login/index')}>" class="font-size-14 font-color-01">已有账号？点击登陆</a>
                 </div>
             </div>
+
         </template>
     <template v-else>
         <div class="mui-row">
             <div class="mui-col-sm-12 mui-col-xs-12">
-                <div class="mui-input-row bg-12">
+                <div class="mui-input-row bg-25">
                     <label class="font-size-14 font-color-01">安全密码</label>
                     <input type="password" class="mui-input-clear font-color-01" placeholder="请输入安全密码" v-model="tixpas">
                 </div>
             </div>
             <div class="mui-col-sm-12 mui-col-xs-12">
-                <div class="mui-input-row bg-12">
+                <div class="mui-input-row bg-25">
                     <label class="font-size-14 font-color-01">安全密码</label>
                     <input type="password" class="mui-input-clear font-color-01" placeholder="请再次确认安全密码" v-model="retixpas">
                 </div>
+				<p class="font-size-13 font-color-07" style="padding: 0 7%;">温馨提示： <br />安全密码是保证您资金提现时的安全保障！请务必谨记！</p>
             </div>
 
             <div class="mui-col-sm-12 mui-col-xs-12 button-st" align="center">
-                <button type="button" class="mui-btn mui-btn-block font-size-14 font-color-12 bg-20" @click="resubmit">确定</button>
+                <button type="button" class="mui-btn mui-btn-block font-size-14 font-color-01 bg-24" @click="resubmit">确定</button>
             </div>
         </div>
     </template>

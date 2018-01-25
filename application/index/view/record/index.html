@@ -48,7 +48,7 @@
                                 a = '团队奖励'
                             }
 //                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
-                            var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span></p><p>奖励类型：<span class="font-color-07">'+a+'</span></p><p>获得时间：'+UnixToDates(obj.create_date,'y-m-d')+'</p></div></div>';
+                            var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span></p><p>奖励类型：<span class="font-color-07">'+a+'</span></p><p>获得时间：'+obj.create_date+'</p></div></div>';
                             $('#activity-content').append(contHtml);
                         });
                         RealtotalPage = data.total;

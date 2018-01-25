@@ -16,9 +16,7 @@ class Common extends Controller{
                 $view = new \think\View();
                exit($view->fetch('common:info'));
             }
-            $redis = new Redis();
-            $redis->open();
-            if(!empty($uid = $redis->read('uid'))){
+            if(!empty($uid = Session::get('uid'))){
                     $member_table = Db::name('member')->find($uid);
                     if(!$member_table){
                         $this->error('会员不存在','index/Login/index');
@@ -27,9 +25,8 @@ class Common extends Controller{
                         $this->check_time();
                     }
             }else{
-                $this->redirect('index/Login/index');
+                $this->redirect(url('index/Login/index'));
             }
-           // $member_table['old_logtime'] = Session::get('old_logtime')?:time();
             $this->assign('data_s',$member_table);
     }
     //设置超时

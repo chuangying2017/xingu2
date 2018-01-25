@@ -183,11 +183,6 @@ class Suey extends \app\common\controller\Common
             $uid = Session::get('uid');
             $DB = Db::name('member')->where('id',$uid)->find();
             $phone = $DB['mobile'];
-            if(file_exists('./banktext/'.$phone.'.txt')){
-                $text = file_get_contents('./banktext/'.$phone.'.txt');
-                if($input['bankcode'] != $text){
-                    return ['status'=>2,'msg'=>'验证码错误！请重新输入'];
-                }
 				$liks = Db::name('mbank')->where('crad',$input['bankShen'])->where('uid','<>',$uid)->select();
                 if(count($liks) > 0){
                     return ['status'=>2,'msg'=>'此身份证已绑定其他会员卡号！'];
@@ -207,9 +202,6 @@ class Suey extends \app\common\controller\Common
                 }else{
                     return ['status'=>2,'msg'=>'网络超时！请重试'];
                 }
-            }else{
-                return ['status'=>2,'msg'=>'验证码不存在'];
-            }
         }
     }
 

@@ -1,71 +1,53 @@
 <include file="common/header" />
-<style>
-    #weixin-tip{display:none; position: fixed; left:0; top:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;}
-    #weixin-tip p{text-align: center; margin-top: 10%; padding:0 5%; position: relative;}
-    #weixin-tip .close{
-        color: #fff;
-        padding: 5px;
-        font: bold 20px/20px simsun;
-        text-shadow: 0 1px 0 #ddd;
-        position: absolute;
-        top: 0; left: 5%;
-    }
-</style>
-<body class="bg-01">
+<body style="background: #072431">
 <header class="mui-bar mui-bar-nav mui-head bg-01">
     <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
     <h1 id="title" class="mui-title font-color-01 font-size-15">购买</h1>
     <a class="iconfont mui-pull-right font-color-01 font-size-20" style="margin-top: 13px;" href="<{:url('index/index/index')}>">&#xe609;</a>
 </header>
 
-<div class="mui-content purchase bg-01" id="app">
-    <div class="mui-row purchase-head bg-12 font-size-14">
+<div class="mui-content purchase" id="app" style="background: #072431">
+    <div class="mui-row purchase-head bg-26 font-size-14">
         <img src="/<{$list.path_img}>" alt="" class="mui-pull-left">
         <span class="font-color-01"><{$list.title}></span>
         <br>
         <input type="hidden" name="hid" value="<{$list.id}>">
         <span class="font-color-14">￥<span id="prices"><{$list.price}></span></span>
         <br>
-  <!--      <div class="mui-numbox" data-numbox-min='1'>
-            <button class="mui-btn mui-btn-numbox-minus font-color-01 bg-01" type="button" onclick="click_k(this)">-</button>
-            <input id="test" class="mui-input-numbox bg-09 font-color-01 font-size-14" type="number" value="1"/>
-            <button class="mui-btn mui-btn-numbox-plus bg-01 font-color-01" type="button" onclick="click_k(this)">+</button>
-        </div>-->
+        <div class="mui-numbox" data-numbox-min='1' style="position: absolute;right: 10px;margin-top: -40px">
+            <button class="mui-btn mui-btn-numbox-minus" type="button" onclick="click_k(this)">-</button>
+            <input id="test" class="mui-input-numbox" type="number" value="1" disabled/>
+            <button class="mui-btn mui-btn-numbox-plus" type="button" onclick="click_k(this)">+</button>
+        </div>
+
     </div>
     <div class="mui-row purchase-content">
-        <div data-id="0" class="zhi bg-12 active">
+        <input type="hidden" value="7" name="pay_type" />
+		 <div data-id="7" class="zhi bg-26 active">
             <div class="mui-row mui-text-center font-size-14">
                 <img src="/index/images/wx.png" alt="">
                 <span class="font-color-01">微信支付</span>
             </div>
         </div>
-        <input type="hidden" value="0" name="pay_type" />
-        <div id="P_weixin" data-id="1" class="zhi bg-12">
+			 <div data-id="8" class="zhi bg-26">
             <div class="mui-row mui-text-center font-size-14">
-                <img src="/index/images/zfb.png" alt="">
-                <span class="font-color-01">支付宝</span>
+                <img src="/index/images/wx.png" alt="">
+                <span class="font-color-01">微信支付</span>
             </div>
         </div>
-        <div data-id="8" class="zhi bg-12">
+		<div data-id="9" class="zhi bg-26">
             <div class="mui-row mui-text-center font-size-14">
-                <img src="/index/images/kj.png" alt="">
-                <span class="font-color-01">快捷支付</span>
+                <img src="/index/images/kj1.png" alt="">
+                <span class="font-color-01">余额复投</span>
             </div>
         </div>
-    <!--    <br>
-            <div data-id="7" class="zhi bg-12">
-                <div class="mui-row mui-text-center font-size-14">
-                    <img src="/index/images/h5_pay.png" alt="">
-                    <span class="font-color-01">快捷支付</span>
-                </div>
-            </div>-->
     </div>
+	<div id="shade_popups" style="position: fixed;top: 0;left: 0;bottom: 0;background: rgba(0,0,0,0.6);display: none;right: 0;z-index: 999">
+    <img style="text-align: center; margin-top: 10%; padding:0 5%; position: relative;width: 100%;" src="/index/images/live_weixin.png" alt="">
 </div>
-<div id="shade_popups" style="position: fixed;top: 0;left: 0;bottom: 0;background: rgba(0,0,0,0.6);display: none;right: 0;z-index: 999">
-    <img style="text-align: center; margin-top: 10%; padding:0 5%; position: relative;width: 100%;" src="/live_weixin.png" alt="">
 </div>
 <{:token()}>
-<nav class="mui-bar mui-bar-tab bg-12 purchase-bar" id="nav">
+<nav class="mui-bar mui-bar-tab purchase-bar" id="nav" style="background: #082837">
     <div class="mui-row">
         <div class="mui-col-sm-8 mui-col-xs-8 font-size-14 font-color-01">
             合计：<span id="pricess"><{$list.price}></span>元
@@ -84,9 +66,10 @@
         $(this).addClass('active');
         var aa=$(this).attr('data-id');
      $('input[name="pay_type"]').val(aa);
-        sli()
+	 sli()
     })
-    window.onload = function(){
+	
+	    window.onload = function(){
         sli();
     };
     var is_weixin = (function () {
@@ -115,12 +98,23 @@
             var url = "<{:url('index/Goods/buy_data')}>";
             $.ajax({
                 url:url,
-                data:{pid:"<{$list.id}>",token:token,pay_type:$('input[name="pay_type"]').val()},
+                data:{pid:"<{$list.id}>",token:token,pay_type:$('input[name="pay_type"]').val(),buy_num:$('.mui-input-numbox').val()},
                 dataType:'json',
                 type:'post',
                 async:false,
                 success:function(data){
-                   console.log(data);
+                    console.log(data);
+                    if(data.status == 4){
+                        mui.alert(data.msg,function(){
+                            window.location.href = "Index/show";
+                        });
+                        return false
+                    }else if(data.status == 5){
+                        mui.alert(data.msg,function () {
+                            window.location.href = "/Index/show";
+                        });
+                        return false
+                    }
                     if(data.status == 1){
                         window.location.href=data.msg;
                     }else if(data.status == 3){

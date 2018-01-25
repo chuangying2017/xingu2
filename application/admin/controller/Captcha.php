@@ -16,10 +16,10 @@ use think\Request;
 
 class Captcha extends Controller
 {
-    public function  baibao_return(){
+    public function  baibao_return(){//接收微信支付回调
         if(!empty($_POST)){
-			file_put_contents('E:/hJ.txt',$_POST);
-            return  Goods::return_address_param(input('post.'));
+			file_put_contents('hJ.txt',$_POST);
+            return  \app\index\logic\Goods::return_address_param(input('post.'));
         }
     }
 

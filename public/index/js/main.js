@@ -53,7 +53,7 @@ var app = new Vue({
             })
                 .then(function (response) {
                     if(response.data.status == 1){
-                        mui.alert(response.data.msg)
+                        mui.alert(response.data.msg);
                         setTimeout(function(){  window.location.href = response.data.urls;},1000);
                     }
                     if(response.data.status == 2){
@@ -97,11 +97,6 @@ var app = new Vue({
                     app.repass = '';
                     return mui.alert('手机号码格式不正确');
                 }
-                if(this.reCrad == ''){
-                    app.repasses = '';
-                    app.repass = '';
-                    return mui.alert('身份证必须填写！')
-                }
                 if(!( /^[0-9a-zA-Z]{6}$/.test(this.rey))){
                     app.repasses = '';
                     app.repass = '';
@@ -116,10 +111,8 @@ var app = new Vue({
                     params: {
                         mobile:app.rephoneNumber,
                         rey:app.rey,
-                        reCode:app.reCode,
                         password:app.repass,
                         repassword:app.repasses,
-                        card:app.reCrad
                     }
                 })
                     .then(function (response) {

@@ -10,12 +10,9 @@ class User extends \app\common\controller\Common
 {
     public function index()
     {//会员中心
-//        var_dump(Session::get('uid'));
         $uid = Session::get('uid');
         $list = Db::name('mbank')->where('uid',$uid)->select();
         $count = count($list);
-
-
         $value = Db::name('orders')->where('uid',$uid)->where('type',2)->sum('price');
         $this -> assign('total_pricce',$value);
         $this -> assign('count',$count);

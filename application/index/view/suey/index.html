@@ -1,50 +1,50 @@
 <include file="common/header" />
 
-<body class="bg-01">
+<body style="background: #072431">
 <header class="mui-bar mui-bar-nav mui-head bg-01">
     <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
     <h1 id="title" class="mui-title font-color-01 font-size-15">添加银行卡</h1>
     <a class="iconfont mui-pull-right font-color-01 font-size-20" style="margin-top: 13px;" href="<{:url('index/index/index')}>">&#xe609;</a>
 </header>
-<div class="mui-content register-content bg-01" id="app">
+<div class="mui-content register-content" id="app" style="background: #072431">
     <div class="mui-row">
         <div class="mui-col-sm-12 mui-col-xs-12">
-            <div class="mui-input-row bg-12">
+            <div class="mui-input-row bg-25">
                 <label class="font-size-14 font-color-01">开户名</label>
                 <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入开户名字" v-model="bankUsername">
             </div>
         </div>
         <div class="mui-col-sm-12 mui-col-xs-12">
-            <div class="mui-input-row bg-12" id="showUserPicker">
+            <div class="mui-input-row bg-25" id="showUserPicker">
                 <label class="font-size-14 font-color-01">开户银行</label>
                 <input type="text" class="mui-input-clear font-size-14 select-input font-color-01" placeholder="请选择银行" id="userResult">
             </div>
         </div>
         <div class="mui-col-sm-12 mui-col-xs-12">
-            <div class="mui-input-row bg-12">
+            <div class="mui-input-row bg-25">
                 <label class="font-size-14 font-color-01">开户支行</label>
-                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="例：xx街道xx支行" v-model="banlDetailedCity">
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="例如 xxx省xxx市xxx支行" v-model="banlDetailedCity">
             </div>
         </div>
         <div class="mui-col-sm-12 mui-col-xs-12">
-            <div class="mui-input-row bg-12">
+            <div class="mui-input-row bg-25">
                 <label class="font-size-14 font-color-01">银行卡号</label>
                 <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入开户银行卡号" v-model="bankAccount" maxlength="21">
             </div>
         </div>
 	     <div class="mui-col-sm-12 mui-col-xs-12">
-            <div class="mui-input-row bg-12">
+            <div class="mui-input-row bg-25">
                 <label class="font-size-14 font-color-01">身份证</label>
                 <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入身份证" v-model="bankCrad" maxlength="18">
             </div>
         </div>
         <div class="mui-col-sm-12 mui-col-xs-12">
-            <div class="mui-input-row yzm bg-12">
-                <label class="font-size-14 font-color-01">短信验证码</label>
-                <div class="font-size-12">
-                  <button style="width: 100%" class="bg-20 font-color-12" onclick="daojishi(this)">获取验证码</button>
-                </div>
-                <input type="text" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入验证码" v-model="bankcode">
+            <div class="mui-input-row  bg-25">
+                <label class="font-size-14 font-color-01">安全密码</label>
+                <!--<div class="font-size-12">-->
+                  <!--<button style="width: 100%" class="bg-20 font-color-12" onclick="daojishi(this)">获取验证码</button>-->
+                <!--</div>-->
+                <input type="password" class="mui-input-clear font-size-14 font-color-01" placeholder="请输入安全密码" v-model="bankcode">
             </div>
         </div>
         <!--<div class="mui-col-sm-12 mui-col-xs-12">-->
@@ -57,7 +57,7 @@
             <!--</div>-->
         <!--</div>-->
         <div class="mui-col-sm-12 mui-col-xs-12 button-st" align="center" style="padding: 0 5%">
-            <button type="button" class="mui-btn mui-btn-block font-size-14 bg-20 font-color-12" @click="submit_bank">确定</button>
+            <button type="button" class="mui-btn mui-btn-block font-size-14 bg-24 font-color-01" @click="submit_bank">确定</button>
         </div>
     </div>
 </div>

@@ -17,26 +17,27 @@ class Member extends Common
     public  function index(){
             $two_last = m::call_select(request()->get());
             $member_table = m::where($two_last[0])->order('id desc')->paginate(20);
+          //  $member_obj = Db::name('member');
             foreach ($member_table as &$value){
                     $fin=m::get(['id'=>$value['recommend']]);
                     $value['recommend'] = $fin->mobile?:'无';
                     $value['total_price'] = Db::name('orders')->where('uid',$value['id'])->where('type',2)->sum('price');
 					$value['total_earnings'] = Db::name('orders')->where(['uid'=>$value['id'],'status'=>2])->where('type',2)->sum('interest');
-                    $value['group_size'] = $this -> team($value['id']);
+                   // $value['group_size'] = $this -> team($value['id'],$member_obj);
                     $arr[]=$value->toArray();
             }
             $page = $member_table->render();
             return view('index',['search'=>$two_last[1],'count'=>m::count(),'page'=>$page,'list'=>$arr]);
         }
 
-    public function team($id){
-         $member = Db::name('member')->where('recommend',$id)->where('status',1)->select();
+    public function team($id,$obj){
+         $member = $obj->where('recommend',$id)->where('status',1)->select();
         $num=count($member);
         if($num < 1){
             return $num;
         }else{
             for($i=0;$i<$num;$i++){
-                $num+=self::team($member[$i]['id']);
+                $num+=self::team($member[$i]['id'],$obj);
             }
             return $num;
         }
