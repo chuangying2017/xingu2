@@ -67,13 +67,9 @@
                 <if condition="$vo.type eq 1">
                     <td class="td-status"><span class="label">待支付</span></td>
                     <elseif condition="$vo.type eq 2" />
-                    <if condition="$vo.status eq 1">
                         <td class="td-status"><span class="label label-success">在线支付</span></td>
-                    </if>
                     <elseif condition="$vo.type eq 3"/>
-                    <if condition="$vo.status eq 1">
                         <td class="td-status"><span class="label label-success">复投成功</span></td>
-                    </if>
                 </if>
             </tr>
         </volist>

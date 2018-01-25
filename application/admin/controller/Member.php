@@ -18,11 +18,15 @@ class Member extends Common
             $two_last = m::call_select(request()->get());
             $member_table = m::where($two_last[0])->order('id desc')->paginate(20);
             //$member_obj = Db::name('member');
+            $order_tables = Db::name('orders');
             foreach ($member_table as &$value){
                     $fin=m::get(['id'=>$value['recommend']]);
                     $value['recommend'] = $fin->mobile?:'无';
-                    $value['total_price'] = Db::name('orders')->where('uid',$value['id'])->where('type','in','2,3')->sum('price');
-					$value['total_earnings'] = Db::name('orders')->where(['uid'=>$value['id'],'status'=>2])->where('type',2)->sum('interest');
+                    $value['total_price'] = $order_tables
+                        ->where('uid',$value['id'])
+                        ->where('type','in','2,3')
+                        ->sum('price*num');//投资客户投资总额
+					$value['total_earnings'] = $order_tables->where(['uid'=>$value['id'],'status'=>2])->where('type','in','2,3')->sum('interest');
                     //$value['group_size'] = $this -> team($value['id'],$member_obj);
                     $arr[]=$value->toArray();
             }
