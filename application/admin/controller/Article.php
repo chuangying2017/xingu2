@@ -4,7 +4,10 @@ namespace app\admin\controller;
 
 use think\Controller;
 use think\Db;
+use think\Exception;
+use think\exception\ErrorException;
 use think\Image;
+use think\Log;
 use think\Request;
 use think\Validate;
 
@@ -42,28 +45,33 @@ class Article extends Controller
             //添加文章，首先展示文章内容
     public  function  articleadd(){
         if(Request::instance()->isAjax()){
-                    $input = input('post.');
-                    $rules = [
-                        'art_type'=>'require',
-                        'art_title'=>'require|min:3',
-                        'art_content'=>'require|min:5'
-                    ];
-                    $message = [
-                        'art_type.require'=>'类型不能空',
-                        'art_title.require'=>'标题不能为空',
-                        'art_content.min'=>'长度不够'
-                    ];
-                    $validate = new Validate($rules,$message);
-                    if(!$validate->check($input)){
-                     return ['status'=>2,'msg'=>$validate->getError()];
+                    try{
+                        $input = input('post.');
+                        $rules = [
+                            'art_type'=>'require',
+                            'art_title'=>'require|min:3',
+                            'art_content'=>'require|min:5'
+                        ];
+                        $message = [
+                            'art_type.require'=>'类型不能空',
+                            'art_title.require'=>'标题不能为空',
+                            'art_content.min'=>'长度不够'
+                        ];
+                        $validate = new Validate($rules,$message);
+                        if(!$validate->check($input)){
+                            return ['status'=>2,'msg'=>$validate->getError()];
+                        }
+                        $input['art_time'] = time();
+                        $name = Db::name('article')->insert($input);
+                        if($name){
+                            return ['status'=>1,'msg'=>"添加成功"];
+                        }else{
+                            return ['status'=>2,'msg'=>'添加失败'];
+                        }
+                    }catch (Exception $exception){
+                        return ['status'=>2, 'msg'=>$exception->getMessage()];
                     }
-                    $input['art_time'] = time();
-                    $name = Db::name('article')->insert($input);
-                    if($name){
-                        return ['status'=>1,'msg'=>"添加成功"];
-                    }else{
-                        return ['status'=>2,'msg'=>'添加失败'];
-                    }
+
         }else{
             $name = Db::name('class')->where('type',1)->select();
             $this->assign('list1',$name);
