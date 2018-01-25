@@ -146,7 +146,7 @@ class User extends \app\common\controller\Common
         \QRcode::png(request()->domain().url('index/register/index',['mid'=>base64_encode($list['invite_code'])]),false,QR_ECLEVEL_H,4,1);
     }
 
-    public function Leaving(){//留言
+    public function leaving(){//留言
 
         if(Request::instance()->isAjax()) {
             $uid = Session::get('uid');
@@ -161,7 +161,7 @@ class User extends \app\common\controller\Common
         return $this->fetch();
     }
 
-    public function LeavingAdd(){
+    public function leavingadd(){
         if (Request::instance()->isAjax()) {
             $input = input('post.');
             $uid = Session::get('uid');
