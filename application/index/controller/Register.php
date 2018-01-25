@@ -85,13 +85,11 @@ class Register extends Controller
                 'mobile'=>['regex'=>'/^1[34578]\d{9}$/'],//手机
                 'password'=> 'require|max:12|min:6',
                 'repassword'=>'confirm:password',
-                'card'=>['regex'=>'/^([\d]{17}[xX\d]|[\d]{15})$/'],
             ];
             $message = [
                 'mobile'=>'非法手机格式',
                 'password'=>'密码为6-12位任意组成！',
                 'repassword'=>'兩次密碼不一致',
-                'card'=>'请输入正确身份证',
             ];
             $validate = new Validate($rule, $message);
             if(!$validate->check($input)){
@@ -101,16 +99,6 @@ class Register extends Controller
             if(count($los) > 0){
                 return json_encode(['status'=>2,'msg'=>'手机号码已注册!']);
             }
-            $card = Db::name('member')->where('card',$input['card'])->select();
-            if(count($card) > 0){
-                return json_encode(['status'=>2,'msg'=>'身份证已注册!']);
-            }
-            if(file_exists('./text/'.$input['mobile'].'.txt'))
-            {
-                $list  = file_get_contents('./text/'.$input['mobile'].'.txt');
-                if($list !== $input['reCode']){
-                    return json_encode(['status'=>2,'msg'=>'验证码错误']);
-                }
                 $re = Db::name('member')->where('invite_code',$input['rey'])->find();
                 if(count($re) == 0){
                     return json_encode(['status'=>2,'msg'=>'邀请码错误或者不存在！']);
@@ -137,11 +125,6 @@ class Register extends Controller
                 }else{
                     return json_encode(['status'=>2,'msg'=>'网络超时！请刷新重试']);
                 }
-            }
-            else
-            {
-                return json_encode(['status'=>2,'msg'=>'手机号码与验证码不匹配']);
-            }
         }
     }
 

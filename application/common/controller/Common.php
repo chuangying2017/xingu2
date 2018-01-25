@@ -4,6 +4,7 @@ use think\Controller;
 use think\Db;
 use think\response\View;
 use think\Session;
+use think\session\driver\Redis;
 
 class Common extends Controller{
     public function _initialize()
@@ -24,21 +25,20 @@ class Common extends Controller{
                         $this->check_time();
                     }
             }else{
-                $this->redirect('index/Login/index');
+                $this->redirect(url('index/Login/index'));
             }
-            $this->assign('people_nums',file_get_contents('num.txt'));
-            $member_table['old_logtime'] = Session::get('old_logtime')?:time();
             $this->assign('data_s',$member_table);
     }
     //设置超时
     public function check_time(){
         $time = request()->time();
-        $oldtime = Session::get('log_time');
+        $redis = new Redis();
+        $oldtime = $redis->read('log_time');
         if(($time - $oldtime) > (60*20)){
-                    Session::clear('think');
+                    $redis->destroy('uid');
            $this->error('登录超时','index1/login/index');
         }else{
-             Session::set('log_time',$time);
+             $redis->write('log_time',time());
         }
     }
 }

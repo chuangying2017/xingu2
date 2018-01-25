@@ -1,0 +1,20 @@
+注册会员
+192.168.86:718/index/Login/register_member
+参数：
+手机号码:mobile
+登录密码:password
+确认登录密码:password1
+安全密码:password_two
+确认安全密码:password_two1
+推荐人:invite_code
+请求方式:GET
+
+展示产品
+192.168.86:718/index/Goods/product_message
+
+产品购买：参数需求
+产品id ： pid
+购买数量： buy_num
+会员id: member_id
+请求地址：192.168.1.86:718/Product_buy/a1
+

@@ -11,7 +11,6 @@ class Index extends \app\common\controller\Common
     {
         $table_product=Db::name('infinite_class');
         $table_res=$table_product->where('pid',0)->where('status',1)->select();
-//        dump($table_res);
         return view('',['list'=>$table_res]);
     }
 

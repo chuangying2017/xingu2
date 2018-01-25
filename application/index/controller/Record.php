@@ -22,7 +22,6 @@ class record extends \app\common\controller\Common
     }
 
     public function inscl(){//投资记录
-
         if(Request::instance()->isAjax()) {
             $uid = Session::get('uid');
             $input = input('post.');
@@ -39,17 +38,6 @@ class record extends \app\common\controller\Common
                     $result[0][$i]['create_date'] = date('Y-m-d H:i:s',  $result[0][$i]['create_date']);
                 }
             }
-
-            $total += count(Db::name('torder')->where('uid',$uid)->order('create_time desc')->select());
-            $result[1] = Db::table('web_torder')->alias('a')->join('web_product w','a.pid=w.id')->field('a.*,w.title')->where('uid',$uid)->order('a.create_time desc')->limit($start,$input['PageSize'])->select();
-
-            if(count($result[1])>0){
-                for($i = 0;$i < count($result[1]);$i++){
-                    $result[1][$i]['create_time'] = date('Y-m-d H:i:s',  $result[1][$i]['create_time']);
-                }
-            }
-
-
             return ['status'=>1,'total'=>$total,'result'=>$result];
         }
         return $this->fetch();
@@ -105,11 +93,11 @@ class record extends \app\common\controller\Common
         if(Request::instance()->isAjax()) {
             $uid = Session::get('uid');
             $input = input('post.');
-            $total = count(Db::name('bonus')->alias('a')->join('__TORDER__ b','a.order_id=b.id')->where('a.uid',$uid)->where('a.type',5)->field('a.*,b.order_no')->order('a.create_date desc')->select());
+            $total = count(Db::name('bonus')->alias('a')->join('__ORDERS__ b','a.order_id=b.id')->where('a.uid',$uid)->field('a.*,b.order_no')->order('a.create_date desc')->select());
             $page = $input['pageIndex'];
             $page = $page-1;
             $start = $page*$input['PageSize'];
-            $result = Db::name('bonus')->alias('a')->join('__TORDER__ b','a.order_id=b.id')->where('a.uid',$uid)->where('a.type',5)->field('a.*,b.order_no')->order('a.create_date desc')->limit($start,$input['PageSize'])->select();
+            $result = Db::name('bonus')->alias('a')->join('__ORDERS__ b','a.order_id=b.id')->where('a.uid',$uid)->field('a.*,b.order_no')->order('a.create_date desc')->limit($start,$input['PageSize'])->select();
             return ['status'=>1,'total'=>$total,'result'=>$result];
         }
         return $this->fetch();

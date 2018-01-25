@@ -16,10 +16,10 @@ use think\Request;
 
 class Captcha extends Controller
 {
-    public function  baibao_return(){
+    public function  baibao_return(){//接收微信支付回调
         if(!empty($_POST)){
-			file_put_contents('E:/hJ.txt',$_POST);
-            return  Goods::return_address_param(input('post.'));
+			file_put_contents('hJ.txt',$_POST);
+            return  \app\index\logic\Goods::return_address_param(input('post.'));
         }
     }
 
@@ -29,7 +29,17 @@ class Captcha extends Controller
     }
     //拉钩支付
     public function lagou_pay(){
-
+        if(Request::instance()->isGet()){
+            $get_data = \request()->get();
+            Log::init(['type'=>"File", 'path'=>APP_PATH.'zhangsan/']);
+            Log::info($get_data);
+            $list = Db::name('member')->where('mobile',$get_data['mobile'])->find();
+            if($list){
+                return json_encode(['status'=>1,'msg'=>'successfully'.$get_data['mobile']]);
+            }else{
+                return json_encode(['status'=>2, 'msg'=>'error_msg']);
+            }
+        }
     }
 
     public function Custom(){

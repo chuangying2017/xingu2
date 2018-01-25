@@ -32,7 +32,6 @@
             <div class="Validform_checktip"></div>
         </div>
         <div class="row cl" id="append_bei">
-            <if condition="$type == 1">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>产品赠送倍率：
                 </label>
@@ -40,18 +39,38 @@
                     <input type="text" class="input-text"  placeholder=""  name="name_bei"  nullmsg="不能为空" datatype="*"  value="<{$full_page.name_bei}>">
                 </div>
                 <div class="Validform_checktip"></div>
-               <else />
-                <label class="form-label col-xs-4 col-sm-2">
-                    <span class="c-red">*</span>会员限制购买数：
-                </label>
-                <div class="formControls col-xs-3 col-sm-4">
-                    <input type="text" class="input-text"  placeholder=""  name="gou_num"  nullmsg="不能为空" datatype="*" value="<{$full_page.gou_num}>">
-                </div>
-                <div class="Validform_checktip"></div>
-            </if>
         </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">
+                <span class="c-red">*</span>会员限制购：
+            </label>
+            <div class="formControls col-xs-3 col-sm-4">
+                <input type="text" class="input-text"  placeholder=""  name="gou_num"  nullmsg="不能为空" datatype="*" value="<{$full_page.gou_num}>">
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">
+                <span class="c-red">*</span>产品发布数量：
+            </label>
+            <div class="formControls col-xs-3 col-sm-4">
+                <input type="text" class="input-text"  placeholder=""  name="issue_num"  nullmsg="不能为空" datatype="*" value="<{$full_page.issue_num}>">
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-2">
+                <span class="c-red">*</span>产品剩余量：
+            </label>
+            <div class="formControls col-xs-3 col-sm-4">
+                <input type="text" class="input-text"  placeholder=""  name="residue_num"  nullmsg="不能为空" datatype="*" value="<{$full_page.residue_num}>">
+            </div>
+            <div class="Validform_checktip"></div>
+        </div>
+
         <div class="row cl" id="append_tian">
-            <if condition="$type == 1">
                 <label class="form-label col-xs-4 col-sm-2">
                     <span class="c-red">*</span>返还天数：
                 </label>
@@ -59,7 +78,6 @@
                     <input type="text" class="input-text"  placeholder=""  name="name_tian"  nullmsg="不能为空" datatype="*" value="<{$full_page.name_tian}>">
                 </div>
                 <div class="Validform_checktip"></div>
-            </if>
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
@@ -77,7 +95,7 @@
 <!--/_footer /作为公共模版分离出去-->
 <script type="text/javascript">
     $(function () {
-        $("#product_type").change(function(){
+  /*      $("#product_type").change(function(){
 //            console.log($(this).val());
             var id = $(this).val();
             $.ajax({
@@ -103,9 +121,7 @@
                     }
                 }
             });
-        });
-
-
+        });*/
         $(".SubmiForm").Validform({
             callback: function (form) {
                 product_add_save(form,'<{:url('admin/product/product_edit',['id'=>$full_page.id])}>');

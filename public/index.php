@@ -8,12 +8,6 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-header("Access-Control-Allow-Origin: *"); // 允许任意域名发起的跨域请求
-header('Access-Control-Allow-Headers: X-Requested-With,X_Requested_With');
-header('Access-Control-Allow-Methods: GET, POST, PUT');
-
-
-
 // [ 应用入口文件 ]
 
 // 定义应用目录

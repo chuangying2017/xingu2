@@ -56,3 +56,27 @@ function baibao_pay_interface($array){
     $res = $service->httpPost(config('scan_Qr_code_url'),$arra);
     return json_decode($res,true);
 }
+
+//短信密码
+function NewSms($mobile){
+    $randStr = str_shuffle('1234567890');
+    $code = substr($randStr,0,4);
+    \think\Session::set('mobile_verify',$code);
+    $content = "你的验证码是：".$code."【中正云通信】";
+    $url="http://service.winic.org:8009/sys_port/gateway/index.asp?";
+    $data = "id=%s&pwd=%s&to=%s&Content=%s&time=";
+    $id = urlencode(iconv("utf-8","gb2312","gdxg"));
+    $pwd = '2058505';
+    $to = $mobile;
+    $content = urlencode(iconv("UTF-8","GB2312",$content));
+    $rdata = sprintf($data, $id, $pwd, $to, $content);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_POST,1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS,$rdata);
+    curl_setopt($ch, CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
+

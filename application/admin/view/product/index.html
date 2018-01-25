@@ -4,31 +4,11 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 产品管理 <span class="c-gray en">&gt;</span> 产品列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="page-container">
-    <form method="get" action="<{:url('admin/product/index')}>">
-        <div class="text-c">
-	<span class="select-box" style='width:200px;'>
-	<select name="search_type"  class='select'  value=''>
-     <if condition="$type == 1">
-          <option value="1">投资产品</option>
-        <option value="0">众筹产品</option>
-     <else />
-	    <option value="0">众筹产品</option>
-        <option value="1">投资产品</option>
-     </if>
-  </select>
-  </span>
-            <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
-            <!--日期范围：-->
-            <!--<input type="text" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" name='search_starttime' class="input-text Wdate" style="width:120px;" value="<{$search['search_starttime']}>">-->
-            <!-- - -->
-            <!--<input type="text" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" name='search_endtime' id="datemax" class="input-text Wdate" style="width:120px;" value="<{$search['search_endtime']}>">-->
-            <!--<input type="text" class="input-text" style="width:250px" placeholder="输入产品名称" id="" value="<{$search['search_title']}>" name="search_title" >-->
-            <button type="submit" class="btn btn-success" id="" ><i class="Hui-iconfont">&#xe665;</i> 展示产品类别</button> </form>
-</div></form>
+
+</form>
 <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l">
 	<a href="javascript:;"  onClick="admin_del('<{:url('Product/datadel_product')}>')"    class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-	<a href="javascript:;" onClick="showpage('添加产品','<{:url('Product/productadd')}>','600','400')"  class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
+	<a href="javascript:;" onClick="showpage('添加产品','<{:url('Product/productadd')}>','700','700')"  class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong><{$count}></strong> 条</span> </div>
 <div class="mt-0">
     <table class="table table-border table-bordered table-hover table-bg">
         <thead>
@@ -37,20 +17,15 @@
             <th width="80">No</th>
             <th>产品名称</th>
             <th>产品分类</th>
-            <th>录入时间</th>
-            <th width="180">产品价格</th>
-            <if condition="$type == 1">
-                <th>产品分红倍率</th>
-                <th>
-                    分红金额（元）
-                    <br />
-                    (分红倍率*产品价格)
-                </th>
-                <th>分红返还天数</th>
-             <else />
-                <th width="180">购买限制次数</th>
-            </if>
+            <th >录入时间</th>
+            <th width="100">产品价格</th>
+            <th width="120">购买限制次数</th>
             <th width="120">购买量</th>
+            <th width="80">发布数量</th>
+            <th width="80">剩余数量</th>
+            <th width="80">分红天数</th>
+            <th width="80">返还比例</th>
+            <th width="80">返还额度</th>
             <th width="60">发布状态</th>
             <th width="120">操作</th>
         </tr>
@@ -64,14 +39,13 @@
                         <td>★<{$vo.title_s}></td>
                         <td><{$vo.create_date|date='Y-m-d H:i:s',###}></td>
                         <td><{$vo.price}></td>
-                        <if condition="$type == 1">
-                            <td><{$vo.name_bei}></td>
-                            <td><{$vo.beishu}></td>
-                            <td><{$vo.name_tian}></td>
-                          <else />
-                            <td><{$vo.gou_num}></td>
-                        </if>
+                        <td><{$vo.gou_num}></td>
                         <td><{$vo.buy_num}></td>
+                        <td><{$vo.issue_num}></td>
+                        <td><{$vo.residue_num}></td>
+                        <td><{$vo.name_tian}></td>
+                        <td><{$vo.name_bei}></td>
+                        <td><{$vo.beishu}></td>
                         <if condition='$vo.status eq 2 '>
                             <td class="td-status"><span  class="label">已下架</span></td>
                             <td class="f-14 td-manage"><a style="text-decoration:none" onClick="admin_shangjia(this,'<{$vo.id}>','<{:url('admin/product/shangjia')}>','<{:url('admin/product/xiajia')}>')" href="javascript:;" title=""><i class="Hui-iconfont">&#xe631;</i></a>

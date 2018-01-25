@@ -1,16 +1,19 @@
 <?php
 namespace app\index\controller;
 
+use app\common\controller\Common;
 use Org\service\Service;
 use think\Build;
 use think\cache\driver\Redis;
 use think\Controller;
 use think\Db;
+use think\Log;
 use think\Request;
 use think\Session;
 use think\Url;
+use think\view\driver\Think;
 
-class Goods extends \app\common\controller\Common
+class Goods extends Common
 {
 
 //    public function product(){
@@ -57,18 +60,7 @@ class Goods extends \app\common\controller\Common
     //接收购买的数据
     public function buy_data(){
             if(Request::instance()->isAjax()){
-                $list = Db::name('product')->where('id',$_POST['pid'])->find();
-                $result = Db::name('infinite_class')->where('id',$list['type_id'])->find();
-                if($result['type'] == 1){
-                    return \app\index\model\Goods::Goodsnvestment(input('post.'));//投资
-                }else{
-                    $uid = Session::get('uid');
-                    $re_num = Db::name('orders')->where('uid',$uid)->where('pid',$list['id'])->where('type',2)->select();
-                    if(count($re_num) >= $list['gou_num']){
-                        return ['status'=>2,'msg'=>'本产品限购'.$list['gou_num'].'次！'];
-                    }
-                    return \app\index\model\Goods::buy_data_verfiy(input('post.'));//众抽
-                }
+                return \app\index\logic\Goods::Goodsnvestment(input('post.'));//投资
             }
     }
 
@@ -156,4 +148,25 @@ class Goods extends \app\common\controller\Common
 
     }
 
+    //展示产品
+    public function product_message(){
+            $product = Db::name('product');
+            $result_img_product=$product->alias('p')
+                ->join('web_img w','p.id=w.pid')
+                ->where('p.status',1)
+                ->field('p.*,w.path_img')->select();
+            echo json_encode($result_img_product);
+    }
+
+    //购买产品
+    public function buy_product($type=null){
+            //$type == a1 使用余额复投 否者就是新投
+           if(Request::instance()->isGet()){
+               $post_data = input('param.');
+               Log::info($post_data);
+               return \app\index\logic\Goods::buy_product_data($post_data);
+           }else{
+               return json_encode(['status'=>2,'msg'=>'wangwu']);
+           }
+    }
 }

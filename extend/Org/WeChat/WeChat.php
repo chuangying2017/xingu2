@@ -31,8 +31,8 @@ class WeChat{
     const REPORT_LEVENL = 1;
 
     protected $config = [
-        'APPID'=>'wx3e82220fcdcaedd9',//APPID：绑定支付的APPID（必须配置，开户邮件中可查看）
-        'MCHID'=>'1493584012',//MCHID：商户号（必须配置，开户邮件中可查看）
+        'APPID'=>'wxb044063c2f33112a',//APPID：绑定支付的APPID（必须配置，开户邮件中可查看）
+        'MCHID'=>'1497314162',//MCHID：商户号（必须配置，开户邮件中可查看）
         'KEY'=>'2a8f682f582c319aa3921d859fd03303',//KEY：商户支付密钥，参考开户邮件设置（必须配置，登录商户平台自行设置）
         'APPSECRET'=>'7813490da6f1265e4901ffb80afaa36f',//APPSECRET：公众帐号secert（仅JSAPI支付的时候需要配置， 登录公众平台，进入开发者中心可设置），
     ];
@@ -51,7 +51,7 @@ class WeChat{
             'goods_tag' => 'test',
             'mch_id' => $this->config['MCHID'],//商户号
             'nonce_str' => self::getNonceStr(),
-            'notify_url' => 'http://bvrka.com/admin/captcha/xin_return_pay_weifutong',
+            'notify_url' => 'http://yc.lagopay.com/admin/captcha/baibao_return',
             'out_trade_no' => $this->config['MCHID'].date("YmdHis"),
             'product_id' => '123456789',
             'spbill_create_ip' => self::get_client_ip(),
@@ -81,10 +81,9 @@ class WeChat{
      *
      * 统一下单，WxPayUnifiedOrder中out_trade_no、body、total_fee、trade_type必填
      * appid、mchid、spbill_create_ip、nonce_str不需要填入
-     * @param WxPayUnifiedOrder $inputObj
      * @param int $timeOut
-     * @throws WxPayException
-     * @return 成功时返回，其他抛异常
+     * @return 成功时返回
+     * @internal param WxPayUnifiedOrder $inputObj
      */
     public  function unifiedOrder($timeOut = 6)
     {
@@ -98,14 +97,14 @@ class WeChat{
     }
 
 
-
     /**
      * 以post方式提交xml到对应的接口url
      *
-     * @param string $xml  需要post的xml数据
-     * @param string $url  url
+     * @param string $xml 需要post的xml数据
+     * @param string $url url
      * @param bool $useCert 是否需要证书，默认不需要
-     * @param int $second   url执行超时时间，默认30s
+     * @param int $second url执行超时时间，默认30s
+     * @return mixed
      * @throws WxPayException
      */
     private function postXmlCurl($xml, $url, $useCert = false, $second = 30)

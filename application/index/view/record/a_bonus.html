@@ -2,7 +2,7 @@
 <body>
 <header class="mui-bar mui-bar-nav mui-bar-head bg-01">
     <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
-    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">分红记录</h1>
+    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">分红返利</h1>
 </header>
 <div class="mui-content Direct" id="app">
     <div class="mui-row" id="activity-content" style="padding: 0;background: 0">
@@ -36,7 +36,7 @@
                         $.each(data.result, function(idx, obj) {
                             var a = '分红返利'
 //                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
-                            var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span> <span class="mui-pull-right">奖励类型：<span class="font-color-07">'+a+'</span></span></p><p><span>订单号：'+obj.order_no+'</span></p><p>获得时间：'+UnixToDates(obj.create_date,'y-m-d')+'</p></div></div>';
+                            var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span> <span class="mui-pull-right">奖励类型：<span class="font-color-07">'+a+'</span></span></p><p><span>订单号：'+obj.order_no+'</span></p><p>获得时间：'+obj.create_date+'</p></div></div>';
                             $('#activity-content').append(contHtml);
                         });
                         RealtotalPage = data.total;

@@ -16,7 +16,7 @@ class Products extends Model
     public static  function product_data($data){
                 $product = new Products;
                 //这个验证是公共的
-                $role = [
+                /*      $role = [
                     'title'=>'require|min:3','class_id'=>'require|number',
                     'price'=>'require|float'
                 ];
@@ -35,11 +35,8 @@ class Products extends Model
                 }
                 if($data['gou_num']){
                     $product->gou_num = $data['gou_num'];
-                }
-                $product->title=$data['title'];
-                $product->price=$data['price'];
-                $product->type_id=$data['class_id'];
-                $product->allowField(true)->save();
+                }*/
+                $product->allowField(true)->data($data)->save();
                 return isset($product->id)?['status'=>1,'msg'=>'添加成功']:['status'=>2,'msg'=>'添加失败'];
     }
     //上架
@@ -65,7 +62,7 @@ class Products extends Model
     //编辑产品
     public static function edit_product($id,$data){
                 $new = new self;
-        $role = [
+     /*   $role = [
             'title'=>'require|min:3','type_id'=>'require|number',
             'price'=>'require|float'
         ];
@@ -75,7 +72,7 @@ class Products extends Model
                 $validate = new Validate($role,$message);
                 if(!$validate->check($data)){
                     return ['status'=>2,'msg'=>$validate->getError()];
-                }
+                }*/
                 $result=$new->update($data,['id'=>$id]);
                 if($result){
                     return ['status'=>1,'msg'=>'编辑成功'];
