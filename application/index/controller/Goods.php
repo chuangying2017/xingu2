@@ -26,17 +26,17 @@ class Goods extends Common
     //异步加载数据
     public function ajax_product(){
         if(Request::instance()->isAjax()){
-            $redis_object = new Redis();
+           // $redis_object = new Redis();
             $id = 'fen'.input('post.id');
-            if(!$table_product=$redis_object->get($id)){
+          //  if(!$table_product=$redis_object->get($id)){
                 $table_product=Db::name('product')->alias('p')
                     ->join('web_img g','p.id=g.pid','left')
                     ->field('p.*,g.path_img')
                     ->where('p.type_id='.input('post.id'))
                     ->order('p.price')
                     ->select();
-                $redis_object->set($id,$table_product);
-            }
+        //        $redis_object->set($id,$table_product);
+      //      }
             foreach ($table_product as &$value){
                 $value['url'] = Url::build('index/Goods/purchase',['sid'=>base64_encode($value['id'])]);
             }
