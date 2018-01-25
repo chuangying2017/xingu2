@@ -473,7 +473,7 @@ class Goods extends Model
         $result_num = $orders_table_object->where(['pid'=>$data['pid'],'uid'=>$uid])->where($day)->select();//查出会员单个产品下单情况
         $data_product=$product_table->where('id',$data['pid'])->where('status',1)->find();//查出产品表数据
         if(!$data_product){
-            return json_encode(['status'=>2,'msg'=>'产品不存在']);
+            return ['status'=>2,'msg'=>'产品不存在'];
         }
         $num=0;$num1=0;$num2=0;//统计循环未支付和待支付$num未支付$num1在线支付$num2复投
         for ($i=0;$i<count($result_num);$i++){
@@ -486,18 +486,18 @@ class Goods extends Model
             }
         }
         if($num >= 15){ //如果未支付的订单超越15单 false
-            return json_encode(['status'=>2,'msg'=>'未支付订单过多']);
+            return ['status'=>2,'msg'=>'未支付订单过多'];
         }elseif ($num1 > 0 || $num2 > 0){//当日购买相同的产品false
-            return json_encode(['status'=>2,'msg'=>'请选择更高']);
+            return ['status'=>2,'msg'=>'请选择更高'];
         }elseif($data['buy_num'] > $data_product['gou_num']){//当前
-            return json_encode(['status'=>2,'msg'=>'购买数量超出']);
+            return ['status'=>2,'msg'=>'购买数量超出'];
         }
         $member_table = Db::name('member');//会员表
         $bonus_table = Db::name('bonus');//奖金表
 
         $member_data=$member_table->where('id',$uid)->find();
         if(!$member_data){
-            return json_encode(['status'=>2,'msg'=>'会员不存在']);
+            return ['status'=>2,'msg'=>'会员不存在'];
         }
         $data_base = database(2);//获取参数设置
         $product_buy_total = $data_product['price'] * $data['buy_num'];//购买数量 * 产品价格 = 总金额
@@ -612,7 +612,7 @@ class Goods extends Model
                             break;
                         }else{
                             $one_member_data=$member_table->where('id',$recommend_one)->find();//查询上一级
-                            $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>2])->count();
+                            $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>array('in','2,3')])->count();
                             //计算购买产品的一代奖金
                             if($one_member_data && $order_boolean){
                                 $one_bonus = $product_buy_total * ($data_base['recommend_one'] / 100);

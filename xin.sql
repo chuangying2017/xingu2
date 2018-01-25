@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-01-25 08:43:44
+Date: 2018-01-25 18:02:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -132,7 +132,7 @@ CREATE TABLE `web_bonus` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uid` int(11) DEFAULT NULL COMMENT '会员id',
   `status` tinyint(1) DEFAULT '0',
-  `type` tinyint(1) DEFAULT '0' COMMENT '奖金类型1一代、2二代、3三代、到10代',
+  `type` tinyint(1) DEFAULT '0' COMMENT '奖金类型1一代、2二代、3三代、到10代 12团队',
   `create_date` char(32) DEFAULT NULL COMMENT '奖励时间',
   `money` double(10,2) DEFAULT '0.00' COMMENT '奖励金额',
   `order_id` int(11) DEFAULT NULL COMMENT '订单ID',
@@ -544,12 +544,12 @@ CREATE TABLE `web_member` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`) USING BTREE,
   KEY `recommend` (`recommend`) USING HASH
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COMMENT='会员表';
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COMMENT='会员表';
 
 -- ----------------------------
 -- Records of web_member
 -- ----------------------------
-INSERT INTO `web_member` VALUES ('1', '18655000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444204', '192.168.1.86', '1', '2018-01-24 08:45:54', '1512444581', '10066.00', '455159', '0', null, '1', '8', '0.00', '', '1516723200', '0', '0', '0', '0.00', '0.00', null);
+INSERT INTO `web_member` VALUES ('1', '18655000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444204', '192.168.1.86', '1', '2018-01-25 16:57:50', '1512444581', '10066.00', '455159', '0', null, '1', '9', '0.00', '', '1516809600', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('2', '18600000001', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444220', '192.168.1.7', '1', '2018-01-24 16:07:28', '1512444220', '9316.67', '519802', '1', null, '1', '0', '0.00', '', '1516723200', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('3', '18600000002', '161410d496d550cd54443e4017775b80', 'c3a34e8ac361c64e3347491b78c0675d', '192.168.1.24', '1512444231', '192.168.1.86', null, '2017-12-05 14:57:48', '1516593594', '9316.67', '251084', '1', null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('4', '18600000003', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.24', '1512444242', null, null, '2018-01-23 14:38:31', '1512444242', '9316.67', '571126', '1', null, '1', '0', '0.00', null, '1516636800', '0', '0', '0', '0.00', '0.00', null);
@@ -580,13 +580,14 @@ INSERT INTO `web_member` VALUES ('28', '18600000000', '68cb582802363ea105f89d6d7
 INSERT INTO `web_member` VALUES ('29', '18600000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516616584', null, null, null, null, '0.00', '288818', null, null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('30', '18600000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516616589', null, null, null, null, '0.00', '804551', null, null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('31', '18600000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516616602', null, null, null, null, '0.00', '441948', null, null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
-INSERT INTO `web_member` VALUES ('32', '18800000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516616613', null, null, '2018-01-24 11:23:08', null, '0.00', '545111', null, null, '1', '0', '0.00', null, '1516723200', '0', '0', '0', '0.00', '0.00', null);
-INSERT INTO `web_member` VALUES ('33', '18800000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516617017', null, null, '2018-01-24 11:23:08', null, '0.00', '371500', '1', null, '1', '0', '0.00', null, '1516723200', '0', '0', '0', '0.00', '0.00', null);
+INSERT INTO `web_member` VALUES ('32', '18800000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516616613', null, null, '2018-01-25 14:15:08', null, '0.00', '545111', null, null, '1', '0', '0.00', null, '1516809600', '0', '0', '0', '0.00', '0.00', null);
+INSERT INTO `web_member` VALUES ('33', '18800000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516617017', null, null, '2018-01-25 14:15:08', null, '0.00', '371500', '1', null, '1', '0', '0.00', null, '1516809600', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('34', '13600000000', '7a1a2822569822451d9c3007f2ace1f8', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516617223', null, null, '2018-01-22 18:35:19', null, '0.00', '494601', '1', null, '1', '0', '0.00', null, '1516550400', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('35', '13200000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516618731', null, null, null, null, '0.00', '843994', '1', null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('36', '18500000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.7', '1516618859', null, null, null, null, '0.00', '396267', '1', null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('37', '18800000001', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.11', '1516688519', null, null, '2018-01-23 14:37:14', null, '0.00', '451524', '1', null, '1', '0', '0.00', null, '1516636800', '0', '0', '0', '0.00', '0.00', null);
 INSERT INTO `web_member` VALUES ('38', '13100000000', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', '192.168.1.20', '1516689460', null, null, null, null, '0.00', '661105', '1', null, '1', '0', '0.00', null, '0', '0', '0', '0', '0.00', '0.00', null);
+INSERT INTO `web_member` VALUES ('39', '13059551109', '68cb582802363ea105f89d6d7b0e20ba', '1e2263b227d3580a587068b026d2f465', null, '1516870670', null, null, '2018-01-25 17:50:47', '1516873847', '49886.70', '551109', '1', null, '1', '0', '0.00', null, '1516809600', '0', '0', '0', '0.00', '0.00', null);
 
 -- ----------------------------
 -- Table structure for web_orders
@@ -612,37 +613,15 @@ CREATE TABLE `web_orders` (
   UNIQUE KEY `id` (`id`) USING BTREE,
   KEY `uid` (`uid`) USING BTREE,
   KEY `pid` (`uid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8 COMMENT='订单表';
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8 COMMENT='订单表';
 
 -- ----------------------------
 -- Records of web_orders
 -- ----------------------------
-INSERT INTO `web_orders` VALUES ('22', '2017120549100535', '1512346341', '15', '6', '1', '100.00', '2', '2', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('26', '2017120553505054', '1512457812', '15', '7', '1', '500.00', '1', '2', '100.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('27', '2017120510099995', '1512346341', '14', '6', '1', '100.00', '2', '2', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('28', '2017120557504810', '1512459513', '14', '6', '1', '100.00', '1', '2', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('29', '2017120550491009', '1512461041', '16', '6', '1', '100.00', '1', '2', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('30', '2017120510154102', '1512463246', '15', '6', '1', '100.00', '1', '2', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('38', '2017120751100505', '1512631635', '16', '6', '1', '21.00', '1', '1', '4.20', null, 'http://pan.baidu.com/share/qrcode?w=300&h=300&url=weixin://wxpay/bizpayurl?pr=j5UKVif', null, null, null);
-INSERT INTO `web_orders` VALUES ('45', '2017121953971015', '1513648101', '15', '7', '1', '500.00', '1', '1', '100.00', null, 'http://pan.baidu.com/share/qrcode?w=300&h=300&url=weixin://wxpay/bizpayurl?pr=uJIylHR', null, null, null);
-INSERT INTO `web_orders` VALUES ('47', '2017122198539957', '1513824666', '11', '6', '1', '100.00', '1', '1', '20.00', null, 'http://pan.baidu.com/share/qrcode?w=300&h=300&url=weixin://wxpay/bizpayurl?pr=KBrR1qg', null, null, null);
-INSERT INTO `web_orders` VALUES ('49', '2017122156101971', '1513838776', '11', '6', '1', '100.00', '1', '1', '20.00', null, 'http://paysdk.weixin.qq.com/example/qrcode.php?data=weixin://wxpay/bizpayurl?pr=JHGXBht', null, null, null);
-INSERT INTO `web_orders` VALUES ('57', '20171221559956485', '1513849831', '1', '6', '1', '100.00', '1', '1', '20.00', null, 'http://paysdk.weixin.qq.com/example/qrcode.php?data=weixin://wxpay/bizpayurl?pr=ZIP4psD', null, 'wx2017122117502991177bdd300097674688', null);
-INSERT INTO `web_orders` VALUES ('98', '20171222991005157', '1513937868', '2', '6', '1', '100.00', '1', '1', '20.00', null, 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2017122218174517d789eb180201262513&package=4191832717', null, null, null);
-INSERT INTO `web_orders` VALUES ('99', '20171224529798549', '1514103876', '16', '6', '1', '100.00', '1', '1', '20.00', null, 'http://pan.baidu.com/share/qrcode?w=300&h=300&url=weixin://wxpay/bizpayurl?pr=bnu8Lj3', '205001712241624372370', null, null);
-INSERT INTO `web_orders` VALUES ('100', '20171225989948100', '1514182542', '15', '7', '1', '500.00', '1', '1', '100.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('101', '20171225995056569', '1514182721', '15', '7', '1', '500.00', '1', '1', '100.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('113', '20171226495556489', '1514290433', '12', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('114', '20171227484910052', '1514363952', '8', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('115', '20171227481005756', '1514366224', '8', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('119', '20171227505352505', '1514371202', '8', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('120', '20171227985798995', '1514371259', '8', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('121', '20171228984851574', '1514427114', '7', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('122', '20171228565157575', '1514427592', '7', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('123', '20171228505299535', '1514427746', '2', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('124', '20171228995155551', '1514429260', '3', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('125', '20171228565010154', '1514432456', '13', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, null);
-INSERT INTO `web_orders` VALUES ('126', '20171228519753975', '1514432515', '13', '6', '1', '100.00', '1', '1', '20.00', null, null, null, null, 'B0C8E6718C4FA92540C85504B470D540');
+INSERT INTO `web_orders` VALUES ('141', '20180125499999100', '1516872433', '39', '1', '1', '10.00', '1', '1', '18.00', null, null, null, null, null);
+INSERT INTO `web_orders` VALUES ('142', '20180125485149101', '1516872880', '39', '1', '1', '10.00', '1', '1', '18.00', null, null, null, null, null);
+INSERT INTO `web_orders` VALUES ('143', '20180125981004810', '1516873147', '39', '1', '1', '10.00', '1', '3', '18.00', null, null, null, null, null);
+INSERT INTO `web_orders` VALUES ('144', '20180125555457979', '1516873847', '39', '1', '1', '10.00', '1', '3', '18.00', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for web_power
@@ -792,7 +771,6 @@ INSERT INTO `web_product` VALUES ('4', '芙蓉王', '1512354936', null, null, '3
 INSERT INTO `web_product` VALUES ('5', '大中华', '1512354952', null, null, '5000.00', '36', '0', '1', null, '1.80', '60', '110', '30000', '20000');
 INSERT INTO `web_product` VALUES ('10', '和天下', '1516619086', null, null, '3000.00', '36', '0', '1', null, '2.00', '9', '300', '50000', '6000');
 INSERT INTO `web_product` VALUES ('11', '大重九', '1516619119', null, null, '5000.00', '36', '0', '1', null, '2.00', '9', '110', '60000', '50000');
-INSERT INTO `web_product` VALUES ('15', '大前门', '1516688184', null, null, '50.00', '36', '0', '1', null, '2.00', '10', '600', '50000', '40000');
 
 -- ----------------------------
 -- Table structure for web_recharge
@@ -816,7 +794,7 @@ CREATE TABLE `web_recharge` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`) USING BTREE,
   KEY `uid` (`uid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COMMENT='充值表';
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COMMENT='充值表';
 
 -- ----------------------------
 -- Records of web_recharge
@@ -838,6 +816,7 @@ INSERT INTO `web_recharge` VALUES ('40', null, '1512444608', '1', '13', '1', '20
 INSERT INTO `web_recharge` VALUES ('41', null, '1512452533', '1', '15', '1', '2017120553101485', '1', '10000.00', null, '手动充值', '1', '1', '1');
 INSERT INTO `web_recharge` VALUES ('42', null, '1512456993', '1', '15', '1', '2017120549994953', '1', '10000.00', null, '手动充值', '1', '1', '1');
 INSERT INTO `web_recharge` VALUES ('43', null, '1512461033', '1', '16', '1', '2017120557555610', '1', '5000.00', null, '手动充值', '1', '1', '1');
+INSERT INTO `web_recharge` VALUES ('44', null, '1516871430', '1', '39', '1', '2018012554971005', '1', '50000.00', null, '手动充值', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for web_role

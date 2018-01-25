@@ -21,7 +21,7 @@ class Member extends Common
             foreach ($member_table as &$value){
                     $fin=m::get(['id'=>$value['recommend']]);
                     $value['recommend'] = $fin->mobile?:'无';
-                    $value['total_price'] = Db::name('orders')->where('uid',$value['id'])->where('type',2)->sum('price');
+                    $value['total_price'] = Db::name('orders')->where('uid',$value['id'])->where('type','in','2,3')->sum('price');
 					$value['total_earnings'] = Db::name('orders')->where(['uid'=>$value['id'],'status'=>2])->where('type',2)->sum('interest');
                    // $value['group_size'] = $this -> team($value['id'],$member_obj);
                     $arr[]=$value->toArray();

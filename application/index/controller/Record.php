@@ -93,11 +93,11 @@ class record extends \app\common\controller\Common
         if(Request::instance()->isAjax()) {
             $uid = Session::get('uid');
             $input = input('post.');
-            $total = count(Db::name('bonus')->alias('a')->join('__TORDER__ b','a.order_id=b.id')->where('a.uid',$uid)->where('a.type',5)->field('a.*,b.order_no')->order('a.create_date desc')->select());
+            $total = count(Db::name('bonus')->alias('a')->join('__ORDERS__ b','a.order_id=b.id')->where('a.uid',$uid)->field('a.*,b.order_no')->order('a.create_date desc')->select());
             $page = $input['pageIndex'];
             $page = $page-1;
             $start = $page*$input['PageSize'];
-            $result = Db::name('bonus')->alias('a')->join('__TORDER__ b','a.order_id=b.id')->where('a.uid',$uid)->where('a.type',5)->field('a.*,b.order_no')->order('a.create_date desc')->limit($start,$input['PageSize'])->select();
+            $result = Db::name('bonus')->alias('a')->join('__ORDERS__ b','a.order_id=b.id')->where('a.uid',$uid)->field('a.*,b.order_no')->order('a.create_date desc')->limit($start,$input['PageSize'])->select();
             return ['status'=>1,'total'=>$total,'result'=>$result];
         }
         return $this->fetch();

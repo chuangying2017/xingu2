@@ -32,22 +32,23 @@
                 type: 'post', //HTTP请求类型
                 timeout: 10000, //超时时间设置为10秒；
                 success: function(data) {
-                    console.log(data);
+                   // console.log(data);
                     if(data.status == 1){
-                        $.each(data.result,function(index,obj){
-                            if(obj.tyua == 0){
-                                var a = (obj.status == 1 && obj.type == 2) ? '支付成功' : obj.type == 1 ?'待支付'+'<span style="color: #aa7700;" onclick="my_cexiao('+obj.id+');">撤销</span>' : '返利';
-//                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
-                                var contHtml =  '<div class="mui-row"><div class="mui-col-sm-7 mui-col-xs-7 font-size-13"><p>订单号：'+obj.order_no+'</p><p>商品名称：<span class="font-color-07">'+obj.title+'</span></p><p>购买时间：'+obj.create_date+'</p></div><div class="mui-col-sm-5 mui-col-xs-5 font-size-13"><p>购买状态：<span class="font-color-06">'+a+'</span></p><p>商品价格：<span class="font-color-07">'+obj.price+'</span></p><p>可获利息：<span class="font-color-07">'+obj.lixi+'</span></p></div></div>';
-                                $('#activity-content').append(contHtml);
-                            }
-                            if(obj.tyua ==1){
-                                var a = (obj.status == 1) ? '支付成功' : '待支付 &nbsp;<span style="color: #aa7700;" onclick="my_cexiaos('+obj.id+');">撤销</span>'
-//                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
-                                var contHtml =  '<div class="mui-row"><div class="mui-col-sm-7 mui-col-xs-7 font-size-13"><p>订单号：'+obj.order_no+'</p><p>商品名称：<span class="font-color-07">'+obj.title+'</span></p><p>应发分红：<span class="font-color-07">'+obj.should+'</span></p><p>购买时间：'+obj.create_date+'</p></div><div class="mui-col-sm-5 mui-col-xs-5 font-size-13"><p>购买状态：<span class="font-color-06">'+a+'</span></p><p>商品价格：<span class="font-color-07">'+obj.price+'</span></p><p>实发分红：<span class="font-color-07">'+obj.real+'</span></p></div></div>';
-                                $('#activity-content').append(contHtml);
-                            }
+                        data.result[0].forEach(obj=>{
+                            //console.log(obj)
+                            var a = (obj.status == 1) ? '支付成功' : '待支付 &nbsp;<span style="color: #aa7700;" onclick="my_cexiaos('+obj.id+');">撤销</span>'
+                            var contHtml =  '<div class="mui-row">' +
+                                '<div class="mui-col-sm-7 mui-col-xs-7 font-size-13">' +
+                                '<p>订单号：'+obj.order_no+'</p><p>商品名称：<span class="font-color-07">'+obj.title+'</span>' +
+                                '</p><p>应发分红：<span class="font-color-07">'+obj.interest+'</span></p><p>购买时间：'+obj.create_date+'</p>' +
+                                '</div><div class="mui-col-sm-5 mui-col-xs-5 font-size-13"><p>购买状态：<span class="font-color-06">'+a+'</span></p>' +
+                                '<p>商品价格：<span class="font-color-07">'+obj.price+'</span></p>' +
+                                '<p>实发分红：<span class="font-color-07">'+"每日20%"+'</span></p>' +
+                                '</div></div>';
+                            $('#activity-content').append(contHtml);
                         })
+
+
                         RealtotalPage = data.total;
                         if(total >= RealtotalPage){
                             end = 1;
