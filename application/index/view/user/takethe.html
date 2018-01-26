@@ -1,0 +1,112 @@
+<include file="common/header" />
+<body style="background: #072431">
+<header class="mui-bar mui-bar-nav mui-bar-head bg-01">
+    <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
+    <h1 id="title" class="mui-title font-color-01 font-size-15">提现</h1>
+</header>
+<div class="mui-content register-content" id="app" style="background: #072431">
+    <div class="mui-row">
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-25">
+                <label class="font-size-14 font-color-01"> 可用余额</label>
+                <input type="text" class="mui-input-clear font-size-14 font-color-01" value="<{$data_s.money}>" disabled>
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-25">
+                <label class="font-size-14 font-color-01">提现金额</label>
+                <input type="text" class="mui-input-clear font-size-14 tixian font-color-01" placeholder="请输入提现金额" value="100">
+            </div>
+        </div>
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row bg-25" id="showUserPicker">
+                <label class="font-size-14 font-color-01">开户银行</label>
+                <input type="text" class="mui-input-clear font-size-14 select-input font-color-01" placeholder="请选择银行" id="userResult">
+            </div>
+        </div>
+
+   
+
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row yzm bg-25">
+                <label class="font-size-14 font-color-01">图形验证码</label>
+                <div class="font-size-12">
+                    <img src="<{:captcha_src()}>" onclick="this.src='<{:captcha_src()}>?d='+Math.random()" alt="">
+                </div>
+                <input type="text" class="mui-input-clear verfiy-code font-color-01 " placeholder="请输入验证码">
+            </div>
+        </div>
+        <input type="hidden" value="" name="bank_id_s" />
+        <input type="hidden" name="bank_id" value="" />
+        <div class="mui-col-sm-12 mui-col-xs-12">
+            <div class="mui-input-row font-color-01 bg-25">
+                <label class="font-size-14 font-color-01">安全密码</label>
+                <input type="password" class="mui-input-clear safety-code font-color-01" placeholder="请输入您的安全密码">
+            </div>
+        </div>
+        <{:token()}>
+        <div class="mui-col-sm-12 mui-col-xs-12 button-st" align="center" style="padding: 0 5%">
+            <button type="button" onclick="deposit('<{:url('index/User/deposit')}>')" class="mui-btn mui-btn-block font-size-16 font-color-01 bg-24">确定</button>
+        </div>
+    </div>
+</div>
+<include file="common/footer" />
+</body>
+</html>
+<include file="common/script" />
+<script>
+    window.onload=function(){
+      $.ajax({
+          url:"<{:url('index/User/load_event')}>",
+          type:'get',dataType:'json',async:false,success:function(data){
+              if(data.status == 1){
+                   mui.alert(data.msg,'请去添加','确定',function(){
+                       window.location.href=data.url;
+                   });
+              }
+          }
+      });
+    };
+    var userPicker = new mui.PopPicker();
+
+    userPicker.setData(<{$bank}>);
+    showUserPickerButton = document.getElementById('showUserPicker');
+    userResult = document.getElementById('userResult');
+    showUserPickerButton.addEventListener('tap', function(event) {
+        userPicker.show(function(items) {
+            userResult.value = items[0].text;
+            app.bankName = items[0].text;
+            app.bankId = items[0].value;
+            $('input[name="bank_id"]').val(items[0].value);
+        });
+    }, false);
+
+
+
+    function deposit(url){
+            var tixian = $('.tixian').val();
+            var userResult = $('input[name="bank_id"]').val();//获取开户行id
+            var code = $('.verfiy-code').val();//验证码
+            var token = $('input[name="__token__"]').val();
+            var safety = $('.safety-code').val();
+           $.ajax({
+               url:url,
+               data:{money:tixian,bank_id:userResult,code:code,password_two:safety,token:token},
+               dataType:'json',
+               type:'post',
+               async:false,
+               success:function(data){
+                    if(data.status == 1){
+                           mui.alert(data.msg,function(){
+                               window.location.href=data.url
+                           });
+                    }else{
+                        mui.alert(data.msg,function () {
+                            window.location.reload();
+                        });
+                    }
+               }
+           })
+    }
+</script>
+<include file="common/pass_error" />
