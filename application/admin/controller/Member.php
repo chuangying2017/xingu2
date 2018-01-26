@@ -21,12 +21,12 @@ class Member extends Common
             $order_tables = Db::name('orders');
             foreach ($member_table as &$value){
                     $fin=m::get(['id'=>$value['recommend']]);
-                    $value['recommend'] = $fin->mobile?:'无';
+                    $value['recommend'] = $fin->mobile ?: '无';
                     $value['total_price'] = $order_tables
                         ->where('uid',$value['id'])
                         ->where('type','in','2,3')
-                        ->sum('price*num');//投资客户投资总额
-					$value['total_earnings'] = $order_tables->where(['uid'=>$value['id'],'status'=>2])->where('type','in','2,3')->sum('interest');
+                        ->sum('price*num');//获取客户购买产品和数量的总和;
+					$value['total_earnings'] = $order_tables->where(['uid'=>$value['id']])->where('type','in','2,3')->sum('interest');
                     //$value['group_size'] = $this -> team($value['id'],$member_obj);
                     $arr[]=$value->toArray();
             }

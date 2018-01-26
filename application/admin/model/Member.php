@@ -2,6 +2,7 @@
 
 namespace app\admin\model;
 
+use app\index\model\Goods;
 use think\Db;
 use think\Exception;
 use think\Model;
@@ -312,6 +313,9 @@ class Member extends Model
                  Db::startTrans();
                 $self = new self;
                 $timing = Db::name('bouns');//这是奖金表
+                //结算每日分红
+                $profit_table = Db::name('profit');//每日分红发放记录表
+                $orders_tables = new Goods();
                 $call=$timing->where('status',1)->where('nitegral_balance','not null')->select();
                 $count = empty($call)?null:count($call);
                 for($i=0;$i<$count;$i++){
