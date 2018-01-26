@@ -1,7 +1,7 @@
 .mui-content{max-width:600px;margin: 0 auto;padding-bottom: 55px!important;}
 ::-webkit-input-placeholder{font-size:14px;color:#bfbfbf}
 /*登陆界面样式*/
-.mui-login{position: fixed;width: 100%;top: 0;bottom: 0;background: url('../images/login.png')no-repeat;background-size: 100% 100%;padding-top: 70%}
+.mui-login{background: url('../images/login.png')no-repeat;background-size: 100% 100%;padding-top: 70%}
 .mui-login .mui-row-img img{text-align: center;width: 175px;height:75px;margin-top: 140px;margin-bottom: 20px;}
 .mui-login .mui-input div .mui-input-row{width: 80%;margin-left: 10%;height: 45px;margin-top:20px;padding-left: 10px;border: 1px solid #fff;border-radius: 30px}
 .mui-login .mui-input div .mui-input-row input{width: 85%;float: left;background: 0;border: none;;height: 45px;}
@@ -46,7 +46,7 @@
 .Investment .Investment-content .goods{width: 100%;float: left;border-top:1px solid #082837 }
 .Investment .Investment-content .goods .img{padding: 0 10px;width: 75px}
 .Investment .Investment-content .goods .img img{width: 60px;height:60px;margin: 20px 0;border-radius: 14px;}
-.Investment .Investment-content .goods .goods-content{padding:26px 10px 10px 10px;line-height: 24px;width: 80%}
+.Investment .Investment-content .goods .goods-content{padding:26px 10px 10px 10px;line-height: 24px;width: 70%}
 .Investment .Investment-content .goods .goods-content a{padding: 5px 20px;margin-top: -13px;border-radius: 15px;border: 1px solid #8de783;background: #5cbe52!important;}
 /*购买*/
 .purchase .purchase-head{padding: 10px 5%;line-height: 30px;}
