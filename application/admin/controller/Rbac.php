@@ -124,7 +124,7 @@ class Rbac extends Common
         $this->assign('list1',$list1);
         $this->assign('list2',$list2);
         $this->assign('list3',$list3);
-         return  $this->fetch('Rbac/admin_role_edit');
+         return  $this->fetch('rbac/admin_role_edit');
     }
         //修改规则
     public  function admin_role_edit(){
