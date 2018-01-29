@@ -288,7 +288,7 @@ class Rbac extends Common
 
                // $one_array = ['id'=>session('powershowid'),'name'=>'张三','control_action'=>'ff/ff','pid'=>'15','sort'=>'111','level'=>'16','style'=>'&nbsp;'];
                 $this->assign('power',$one_array);
-                return $this->fetch('Rbac/powerid');
+                return $this->fetch('rbac/powerid');
     }
         //登录的历史记录
     public  function loginlog()
