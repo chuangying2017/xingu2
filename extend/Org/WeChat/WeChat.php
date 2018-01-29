@@ -47,7 +47,7 @@ class WeChat{
         $this->values = [
             'appid' => $this->config['APPID'],
             'attach' => $this->config['attach_id'],//附加数据
-            'body' => '鑫谷支付',
+            'body' => '烟草支付',
             'goods_tag' => 'test',
             'mch_id' => $this->config['MCHID'],//商户号
             'nonce_str' => self::getNonceStr(),
@@ -59,7 +59,7 @@ class WeChat{
             'time_start' =>date("YmdHis"),
             'total_fee' => $this->config['total_fee'],
             'trade_type' => 'MWEB',
-            'scene_info'=>'{"h5_info": {"type":"Wap","wap_url": "https://www.bvrka.com","wap_name": "鑫谷"}}'
+            'scene_info'=>'{"h5_info": {"type":"Wap","wap_url": "https://yc.lagopay.com","wap_name": "烟草"}}'
         ];
         $this->SetSign();
     }
