@@ -51,7 +51,7 @@ class WeChat{
             'goods_tag' => 'test',
             'mch_id' => $this->config['MCHID'],//商户号
             'nonce_str' => self::getNonceStr(),
-            'notify_url' => 'http://yc.lagopay.com/admin/captcha/baibao_return',
+            'notify_url' => 'http://yc.lagouzhifu.com/admin/captcha/baibao_return',
             'out_trade_no' => $this->config['MCHID'].date("YmdHis"),
             'product_id' => '123456789',
             'spbill_create_ip' => self::get_client_ip(),
@@ -59,7 +59,7 @@ class WeChat{
             'time_start' =>date("YmdHis"),
             'total_fee' => $this->config['total_fee'],
             'trade_type' => 'MWEB',
-            'scene_info'=>'{"h5_info": {"type":"Wap","wap_url": "https://yc.lagopay.com","wap_name": "烟草"}}'
+            'scene_info'=>'{"h5_info": {"type":"Wap","wap_url": "https://yc.lagouzhifu.com","wap_name": "烟草"}}'
         ];
         $this->SetSign();
     }
