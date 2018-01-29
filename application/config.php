@@ -17,7 +17,7 @@ return [
     // 应用命名空间
     'app_namespace'          => 'app',
     // 应用调试模式
-    'app_debug'              =>false,
+    'app_debug'              =>true,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -188,7 +188,7 @@ return [
     // | Trace设置 开启 app_trace 后 有效
     // +----------------------------------------------------------------------
     // 开启应用Trace调试
-    'app_trace' =>  false,
+    'app_trace' =>  true,
     'trace'                  => [
         // 内置Html Console 支持扩展
         'type' => 'Html',
