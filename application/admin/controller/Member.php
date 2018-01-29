@@ -13,12 +13,16 @@ use think\Session;
 
 class Member extends Common
 {
+    protected $data_base_data;//设置迭代层数
         //展示页面的数据
     public  function index(){
             $two_last = m::call_select(request()->get());
             $member_table = m::where($two_last[0])->order('id desc')->paginate(20);
-            //$member_obj = Db::name('member');
+            $member_obj = Db::name('member');
             $order_tables = Db::name('orders');
+            $data_base = database(2);//获取后台设置的参数
+            $this->data_base_data = $data_base['relationship'];
+
             foreach ($member_table as &$value){
                     $fin=m::get(['id'=>$value['recommend']]);
                     $value['recommend'] = $fin->mobile ?: '无';
@@ -27,7 +31,7 @@ class Member extends Common
                         ->where('type','in','2,3')
                         ->sum('price*num');//获取客户购买产品和数量的总和;
 					$value['total_earnings'] = $order_tables->where(['uid'=>$value['id']])->where('type','in','2,3')->sum('interest');
-                    //$value['group_size'] = $this -> team($value['id'],$member_obj);
+                    $value['group_size'] = $this -> team($value['id'],$member_obj);
                     $arr[]=$value->toArray();
             }
             $page = $member_table->render();
@@ -35,8 +39,9 @@ class Member extends Common
         }
 
     public function team($id,$obj){
-         $member = $obj->where('recommend',$id)->where('status',1)->select();
-        $num=count($member);
+        $member = $obj->where('recommend',$id)->where('status',1)->select();
+        $num_count = count($member);
+        $num=$num_count < $this->data_base_data ? $num_count : $this->data_base_data;//最多迭代后台设置的层级
         if($num < 1){
             return $num;
         }else{

@@ -14,12 +14,12 @@
         <input type="hidden" name="hid" value="<{$list.id}>">
         <span class="font-color-14">￥<span id="prices"><{$list.price}></span></span>
         <br>
-        <div class="mui-numbox" data-numbox-min='1' style="position: absolute;right: 10px;margin-top: -40px">
+    <!--    <div class="mui-numbox" data-numbox-min='1' style="position: absolute;right: 10px;margin-top: -40px">
             <button class="mui-btn mui-btn-numbox-minus" type="button" onclick="click_k(this)">-</button>
             <input id="test" class="mui-input-numbox" type="number" value="1" disabled/>
             <button class="mui-btn mui-btn-numbox-plus" type="button" onclick="click_k(this)">+</button>
-        </div>
-
+        </div>-->
+        <input id="test" class="mui-input-numbox" type="hidden" value="1" disabled/>
     </div>
     <div class="mui-row purchase-content">
         <input type="hidden" value="7" name="pay_type" />
@@ -106,12 +106,12 @@
                     console.log(data);
                     if(data.status == 4){
                         mui.alert(data.msg,function(){
-                            window.location.href = "Index/show";
+                            window.location.href = '<{:url("index/index/index")}>';
                         });
                         return false
                     }else if(data.status == 5){
                         mui.alert(data.msg,function () {
-                            window.location.href = "/Index/show";
+                            window.location.href = '<{:url("index/index/index")}>';
                         });
                         return false
                     }

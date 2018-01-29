@@ -92,46 +92,52 @@ var app = new Vue({
                     });
             },
         Toggle:function(){
-                if(!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.rephoneNumber))){
-                    app.repasses = '';
-                    app.repass = '';
-                    return mui.alert('手机号码格式不正确');
+            if(!(/^1[3|4|5|7|8][0-9]{9}$/.test(this.rephoneNumber))){
+                app.repasses = '';
+                app.repass = '';
+                return mui.alert('手机号码格式不正确');
+            }
+            if(this.reCode == ''){
+                app.repasses = '';
+                app.repass = '';
+                return mui.alert('短信验证码为必须填写！')
+            }
+            if(!( /^[0-9a-zA-Z]{6}$/.test(this.rey))){
+                app.repasses = '';
+                app.repass = '';
+                return mui.alert('邀请码错误或者不存在！');
+            }
+            if(this.repass !== this.repasses){
+                app.repasses = '';
+                app.repass = '';
+                return mui.alert('两次密码不一致');
+            }
+            axios.get('/index/register/lsd',{
+                params: {
+                    mobile:app.rephoneNumber,
+                    rey:app.rey,
+                    reCode:app.reCode,
+                    password:app.repass,
+                    repassword:app.repasses,
                 }
-                if(!( /^[0-9a-zA-Z]{6}$/.test(this.rey))){
-                    app.repasses = '';
-                    app.repass = '';
-                    return mui.alert('邀请码错误或者不存在！');
-                }
-                if(this.repass !== this.repasses){
-                    app.repasses = '';
-                    app.repass = '';
-                    return mui.alert('两次密码不一致');
-                }
-                axios.get('/index/register/lsd',{
-                    params: {
-                        mobile:app.rephoneNumber,
-                        rey:app.rey,
-                        password:app.repass,
-                        repassword:app.repasses,
+            })
+                .then(function (response) {
+                    // console.log(response);
+                    if(response.data.status == 2){
+                        app.repasses = '';
+                        app.repass = '';
+                        return mui.alert(response.data.msg);
                     }
+                    if(response.data.status == 1){
+                        app.ok=!app.ok;
+                    }
+
                 })
-                    .then(function (response) {
-                        // console.log(response);
-                        if(response.data.status == 2){
-                            app.repasses = '';
-                            app.repass = '';
-                            return mui.alert(response.data.msg);
-                        }
-                        if(response.data.status == 1){
-                            app.ok=!app.ok;
-                        }
+                .catch(function (error) {
+                    // console.log(error)
+                });
 
-                    })
-                    .catch(function (error) {
-                        // console.log(error)
-                    });
-
-            },
+        },
         submit_bank:function(){
                 if(this.bankUsername == ''){
                     return mui.alert('请输入开户姓名');

@@ -22,7 +22,7 @@ use think\Validate;
 
 class Goods extends Model
 {
-
+    protected static $attr_value;//设置后台迭代人数的值
     protected function httpPost($url,$post_data){
         $ch = curl_init();
 
@@ -383,7 +383,8 @@ class Goods extends Model
         //查询出我的上级
         $member = Db::name('member');
         $one_level=$member->where('id',$uid)->find();
-        $database = database(2);
+        $database = database(2);//获取后台设置的参数
+        self::$attr_value = $database['relationship'];
         $count_team = self::team_people($one_level['id']);
         if($one_level['invite_person'] >= $database['team_people_num_zhis'] && $count_team >= $database['team_people_num1'] && !empty($one_level)){//判断直推人数是否达到要求
             $team_bonus_money=$price * ($database['bonus_money_team1'] / 100);//计算团队奖励
@@ -414,6 +415,7 @@ class Goods extends Model
         //传本身的id过来然后这边记性计算有无
         /*
          * 如果团队里面没有人购买产品是不算奖励在里面
+         * 按照后台设置的迭代人数去计算
          * */
         $member = Db::name('member');
         $select_find = $member->where('recommend',$id)->where('status',1)->select();//获取直推人数
@@ -432,8 +434,10 @@ class Goods extends Model
     public function trans_func($id){
         $member = Db::name('member');
         $select_find = $member->where('recommend',$id)->where('status',1)->select();//获取直推人数
-        $count_num = count($select_find);//获取直推人数总数
-        $res_ult = Db::name('orders')->where(['status'=>1,'type'=>2,'uid'=>$id])->find();//查询有无购买产品
+        $iteration_people = count($select_find); //获取直推人数总数
+        $count_num = $iteration_people < self::$attr_value ? $iteration_people : self::$attr_value;//设置一个迭代人数
+        $res_ult = Db::name('orders')->where(['uid'=>$id])->where('type','in','2,3')->find();//查询有无购买产品
+        //2表示在线支付3表示复投
         $count = 0;
         if($res_ult){
             $count+=1;
@@ -504,7 +508,7 @@ class Goods extends Model
         $order_id = $orders_table_object->insertGetId([//产生一个订单id
             'order_no'=>self::self_return(),
             'create_date'=>time(),'price'=>$data_product['price'],
-            'uid'=>$uid,'pid'=>$data['pid'],'num'=>$data['buy_num'],
+            'uid'=>$uid,'pid'=>$data['pid'],'num'=>$data['buy_num'],//type=1待支付
             'type'=>1,'interest'=>$data_product['price'] * ($data_product['name_bei'] / 10) * $data_product['name_tian']//得到价格的20%金额
         ]);
         $order_num = $order_table->find($order_id);
@@ -544,23 +548,42 @@ class Goods extends Model
             }*/
         }
         elseif($data['pay_type'] == 9){//余额复投
-            $product_buy_total += $product_buy_total * 0.03;
-            if($member_data['money'] < $product_buy_total){
+                   $total_charge = $product_buy_total * 0.03;//复投产生百分之3的手续费
+            if($member_data['money'] < ($product_buy_total + $total_charge)){
                 return ['status'=>5,'msg'=>'余额不足'];
             }
             try{
             $order_table->where('id',$order_id)->update(['type'=>3]);
-            $member_table->where(['id'=>$uid])->update(['money'=>$member_data['money'] - $product_buy_total,'update_time'=>time()]);
+            //结算每次分配的金额
+            $each_num_money = $product_buy_total * ($data_product['name_bei'] / 10);
+            $member_table->where(['id'=>$uid])->update(['money'=>$member_data['money'] - $product_buy_total - $total_charge,'update_time'=>time(),
+                'bonus'=>$member_data['bonus'] + $each_num_money]);//把每日分配的金额加入到会员表
+            Db::name('mp')->insert([//会员分红表
+                'uid'=>$uid,'create_date'=>\request()->time(),
+                'total_money'=>$product_buy_total,//每次购买分配的总金额
+                'type'=>'1',//分配类型1分配中
+                'day_each'=>$data_product['name_tian'] - 1,//获取产品的发放天数 -1
+                'raito'=>$data_product['name_bei'],
+                'each_money'=>$each_num_money,//每次分配的金额
+                'order_id'=>$order_id//添加一个订单id
+            ]);
+            Db::name('profit')->insert([//每日分红表
+                'uid'=>$uid,
+                'money'=>$each_num_money,
+                'type'=>'1',//type=1表示每日分红
+                'create_time'=>\request()->time(),
+                'order_id'=>$order_id
+            ]);
             if($member_data['recommend']){//计算直推荐关系奖金
-                $recommend_id = 0;$recommend_one = $member_data['recommend'];
+                $recommend_id = 0;$recommend_one = $member_data['recommend'];//$recommend_one推荐人id
                 for ($j=1;$j<$data_base['iteration_of']+1;$j++){//计算迭代10层级关系
-                    if($recommend_id >= $j){
+                    if($recommend_id >= $j){//$recommend_id这个等于2的时候计算第二次
                         switch ($recommend_id){
                             case 2://计算二代奖金
-                                $two_bonus = $product_buy_total * ($data_base['recommend_tow'] / 100);
-                                $two_level_member=$member_table->where('id',$one_member_data['recommend'])->find();
-                                if($two_level_member){
-                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$one_member_data['recommend'],'type'=>2])->count();
+                                $two_bonus = $product_buy_total * ($data_base['recommend_tow'] / 100);//计算二代的奖励
+                                $two_level_member=$member_table->where('id',$one_member_data['recommend'])->find();//查看上一级推荐人
+                                if($two_level_member){//为true就进来查询有无购买记录
+                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$one_member_data['recommend']])->where('type','in','2,3')->count();
                                     if($order_boolean){
                                         $member_table->where('id',$two_level_member['id'])->setInc('bonus',$two_bonus);//添加二级推荐奖励
                                         $bonus_table->insert([
@@ -568,15 +591,15 @@ class Goods extends Model
                                         ]);//生成一条奖金记录
                                     }
                                     $recommend_id++;
-                                }else{
-                                    return ['status'=>2,'msg'=>'复投成功'];
+                                }else{//否者不为真就是停止
+                                    return ['status'=>4,'msg'=>'复投成功','url'=>\url('index/index/index')];
                                 }
                                 break;
                             case 3://计算三代奖金
                                 $three_bonus = $product_buy_total * ($data_base['recommend_three'] / 100);
                                 $three_level_member=$member_table->where('id',$two_level_member['recommend'])->find();
                                 if($three_level_member){
-                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$two_level_member['recommend'],'type'=>2])->count();
+                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$two_level_member['recommend']])->where('type','in','2,3')->count();
                                     if($order_boolean){
                                         $member_table->where('id',$three_level_member['id'])->setInc('bonus',$three_bonus);//添加三级级推荐奖励
                                         $bonus_table->insert([
@@ -584,17 +607,17 @@ class Goods extends Model
                                         ]);//生成一条奖金记录
                                     }
                                     $recommend_id++;
-                                    $recommend_one = $three_level_member['recommend'];
+                                    $recommend_one = $three_level_member['recommend'];//拿到上一级的id
                                 }else{
-                                    return ['status'=>2,'msg'=>'复投成功'];
+                                    return ['status'=>4,'msg'=>'复投成功','url'=>\url('index/index/index')];
                                 }
                                 break;
                             default://剩余全部计算奖金
                                 $total_bonus = $product_buy_total * ($data_base['iteration_percentage'] / 100);
-                                $all_member_data = $member_table->where('id',$recommend_one)->find();
-                                if($all_member_data){
-                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$all_member_data['recommend'],'type'=>2])->count();
-                                    if($order_boolean){
+                                $all_member_data = $member_table->where('id',$recommend_one)->find();//查询一下这个id有没有
+                                if($all_member_data){//查询上一级有无推荐人
+                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one])->where('type','in','2,3')->count();
+                                    if($order_boolean){//查询一下上一级有无购买超过100元的金额
                                         $member_table->where('id',$all_member_data['id'])->setInc('bonus',$total_bonus);//添加三级级推荐奖励
                                         $bonus_table->insert([
                                             'uid'=>$all_member_data['id'],'type'=>$recommend_id,'create_date'=>time(),'money'=>$total_bonus,'order_id'=>$order_id
@@ -603,14 +626,14 @@ class Goods extends Model
                                     $recommend_one = $all_member_data['recommend'];
                                     $recommend_id++;
                                 }else{
-                                    return ['status'=>2,'msg'=>'复投成功'];
+                                    return ['status'=>4,'msg'=>'复投成功','url'=>\url('index/index/index')];
                                 }
                                 break;
                         }
                     }else{
                         if($recommend_id > 0){
                             break;
-                        }else{
+                        }else{//大于0，第二次循环计算推荐奖励,第一次是0，计算第一次的推荐奖励
                             $one_member_data=$member_table->where('id',$recommend_one)->find();//查询上一级
                             $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>array('in','2,3')])->count();
                             //计算购买产品的一代奖金
@@ -620,10 +643,11 @@ class Goods extends Model
                                 $bonus_table->insert([
                                     'uid'=>$one_member_data['id'],'type'=>'1','create_date'=>time(),'money'=>$one_bonus,'order_id'=>$order_id
                                 ]);//生成一条奖金记录
+                                $recommend_id = 2;//循环第二次
                             }elseif ($one_member_data){
                                 $recommend_id = 2;
                             }else{
-                                return ['status'=>2,'msg'=>'复投成功'];
+                                return ['status'=>4,'msg'=>'复投成功','url'=>\url('index/index/index')];
                             }
                         }
                     }
@@ -631,7 +655,7 @@ class Goods extends Model
             }
             self::mean_total_money($order_num['uid'],$product_buy_total);
             if($order_id){
-                return ['status'=>4,'msg'=>'复投成功'];
+                return ['status'=>4,'msg'=>'复投成功','url'=>\url('index/index/index')];
             }else{
                 return ['status'=>5,'msg'=>'复投失败'];
             }

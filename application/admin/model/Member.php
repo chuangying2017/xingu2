@@ -49,9 +49,9 @@ class Member extends Model
                         $user->data([
                                 'mobile'=>$data['mobile'],
                                 'recommend'=>$data['recommend'],
-                                'password'=>md5_pass(2,$data['password']),
-                                'password_two'=>md5_pass(1,$data['password_two']),
-                                'invite_code'=>$invite,
+                                'password'=>md5_pass(2,$data['password']),//前台会员登录密码
+                                'password_two'=>md5_pass(1,$data['password_two']),//前台会员提现密码
+                                'invite_code'=>$invite,//生成一个推荐人id
                                 'reg_ip'=>request()->ip(),'reg_time'=>time()
                         ]);
                         $user->isUpdate(false)->allowField(true)->save();

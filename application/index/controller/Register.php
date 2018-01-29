@@ -99,6 +99,12 @@ class Register extends Controller
             if(count($los) > 0){
                 return json_encode(['status'=>2,'msg'=>'手机号码已注册!']);
             }
+            if(file_exists('./text/'.$input['mobile'].'.txt'))
+            {
+                $list  = file_get_contents('./text/'.$input['mobile'].'.txt');
+                if($list !== $input['reCode']){
+                    return json_encode(['status'=>2,'msg'=>'验证码错误']);
+                }
                 $re = Db::name('member')->where('invite_code',$input['rey'])->find();
                 if(count($re) == 0){
                     return json_encode(['status'=>2,'msg'=>'邀请码错误或者不存在！']);
@@ -113,7 +119,6 @@ class Register extends Controller
                     $data['invite_code'] = substr( $data['mobile'],-3).rand(000,999);
                 }
                 $data['reg_time'] = time();
-                $data['card'] = $input['card'];
                 $call_back=Db::table('web_member')->strict(true)->insertGetId($data);
                 $fanhui=Db::table('web_member')->where('id',$re['id'])->setInc('invite_person');
                 if($call_back && $fanhui){
@@ -125,8 +130,15 @@ class Register extends Controller
                 }else{
                     return json_encode(['status'=>2,'msg'=>'网络超时！请刷新重试']);
                 }
+            }
+            else
+            {
+                return json_encode(['status'=>2,'msg'=>'手机号码与验证码不匹配']);
+            }
         }
     }
+
+
 
     public function pas(){//提现密码
         if (Request::instance()->isGet()) {

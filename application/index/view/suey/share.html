@@ -1,30 +1,26 @@
 <include file="common/header" />
+<style>
+    .mui-tuig{position: fixed;top: 44px;bottom: 0;padding-top: 0!important;}
+    .mui-tuig .mui-row{height: 100%;}
+    .mui-tuig .mui-row .img{height: 70%}
+    .mui-tuig .mui-row .text{height: 30%;}
+</style>
 <body style="background: #072431">
 <header class="mui-bar mui-bar-nav mui-bar-head bg-01">
     <a class="mui-icon mui-icon-back mui-pull-left mui-action-back font-color-01" ></a>
-    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">推广管理</h1>
+    <h1 id="title" class="mui-title font-clo-01 font-size-15 font-color-01">分享二维码</h1>
 </header>
 
-<div class="mui-content mui-tuig" id="app" style="background: #072431">
+<div class="mui-content mui-tuig" id="app">
     <div class="mui-row">
-        <div class="mui-col-sm-3 mui-col-xs-3"></div>
-        <div class="mui-col-sm-6 mui-col-xs-6" align="center">
-            <!--<span class="font-color-01">推广二维码</span>-->
-            <img src="<{:url('index/User/qrcode_s')}>" style="" alt="">
+        <div class="mui-col-sm-12 mui-col-xs-12 img">
+            <img src="/index/images/er.png" alt="" width="100%" height="100%">
         </div>
-        <div class="mui-col-sm-3 mui-col-xs-3"></div>
-        <div class="mui-col-sm-3 mui-col-xs-3"></div>
-        <div class="mui-col-sm-6 mui-col-xs-6 lisn" style="">
-
-            <input id="foo" value="<{$tui}>" type="text" style="border-radius:5px;width:100%;" class="mui-text-center bg-11 font-size-14 mui-ellipsis">
-            <button class="btn mui-btn mui-btn-warning mui-btn-block font-size-14 btn" data-clipboard-target="#foo" aria-label="复制成功！" >复制链接</button>
+        <div class="mui-col-sm-12 mui-col-xs-12 text">
+            <div class="mui-row" style="width: 40%;height: 100%;margin-left: 30%;padding: 10px 10px">
+                <img src="<{:url('index/User/qrcode_s')}>" style="" alt="" width="100%" height="100%">
+            </div>
         </div>
-        <div class="mui-col-sm-3 mui-col-xs-3"></div>
-
-        <div style="text-align:center;margin-top:10px;">
-
-        </div>
-
     </div>
 </div>
 <include file="common/footer" />

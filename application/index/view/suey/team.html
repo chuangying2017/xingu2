@@ -5,6 +5,10 @@
     .weixis .mui-table-view .mui-table-view-cell .mui-collapse-content .parent{padding-left: 35%;}
     .weixis .mui-table-view .mui-table-view-cell .mui-collapse-content .hels{padding-left: 73%}
     .weixis .mui-row .mui-col-sm-4{padding: 10px 0 5px 0}
+    .weixis .header-content{text-align: center;font-size: 14px;background: #082837;color: #fff}
+    ul,li{margin: 0;padding: 0}
+    .weixis ul li{width: 100%;padding: 5px 20px;font-size: 14px;display: flex;}
+    .weixis ul li span{flex: 1}
 </style>
 <body class="bg-03">
 <header class="mui-bar mui-bar-nav mui-bar-head bg-01">
@@ -12,134 +16,112 @@
     <h1 id="title" class="mui-title font-color-01 font-size-15">我的团队</h1>
 </header>
 <div class="mui-content bg-03 weixi weixis" id="app">
-    <div class="mui-row">
-        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center font-size-14">
-            一代(<{$one}>) <br>
-        </div>
-        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center font-size-14">
-            二代(<{$two}>) <br>
-            <span></span>
-        </div>
-        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center font-size-14">
-            三代(<{$three}>) <br>
+    <div class="mui-row header-content" id="showUserPicker">
+        <div style="width: 100%;padding: 10px 0;background: url('/index/images/07.png') no-repeat 90% 50%;background-size:20px 8px;" id="test">
+            直推人数
         </div>
     </div>
-    <div class="mui-row">
-        <div class="mui-col-sm-4 mui-col-xs-4 mui-text-center" style="line-height: 32px;text-align: center">
-            <volist name="list" id="vo">
-                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$vo.id}>"> <{$vo.mobile}></a>
-            </volist>
-        </div>
-        <div class="mui-col-sm-4 mui-col-xs-4" style="line-height: 32px;text-align: center">
-            <volist name="twonum" id="vos">
-                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$vos.id}>"><{$vos.mobile}></a>
-            </volist>
-        </div>
-        <div class="mui-col-sm-4 mui-col-xs-4" style="line-height: 32px;text-align: center">
-            <volist name="threess" id="ls">
-                <a class="mui-row font-size-14 font-color-02" href="#" data-id="<{$ls.id}>" style=""><{$ls.mobile}></a>
-            </volist>
-        </div>
-    </div>
-    <!--<ul class="mui-table-view">-->
-        <!--<volist name="list" id="vo">-->
-            <!--<li class="mui-table-view-cell mui-collapse font-size-12">-->
-                <!--<a class="" href="#" data-id="<{$vo.id}>"><span class="iconfont font-size-16 font-color-06">&#xe620;</span> <{$vo.mobile}></a>-->
-            <!--</li>-->
-        <!--</volist>-->
-    <!--</ul>-->
+    <ul class="listMenu">
+        <li>
+            <span>会员账号</span><span>注册时间</span>
+        </li>
+        <li class="news">
+<!--            <span>1383838438</span><span>2018-01-02  18:00:00</span>-->
+        </li>
+    </ul>
 </div>
 <include file="common/footer" />
 </body>
 </html>
 <include file="common/script" />
 <script>
-    function clli(a,id){
-        $.ajax({
-            url:'<{:url("index/Suey/recommend_data_ajax")}>',
-            data:{dd:id},
-            dataType:'json',
-            type:'post',
-            success:function(data){
-                console.log(data);
-                if(data.status == 1){
-                    $(a).siblings().remove();
-                    var shtml ='';
-                    for(var i=0;i<data.count;i++){
-                        shtml += '<p class="hels">'+data.data[i]['mobile']+'</p>';
-                    }
-                    $(a).parent().append(shtml);
-                    $(a).removeAttr('onclick');
-                }
-            }
+    getAjax(1)
+    var userPicker = new mui.PopPicker();
+    userPicker.setData([
+        {
+            value:1,
+            text:'直推人数'
+        },
+        {
+            value:2,
+            text:'第二代人数'
+        },
+        {
+            value:3,
+            text:'第三代人数'
+        },
+        {
+            value:4,
+            text:'第四代人数'
+        },
+        {
+            value:5,
+            text:'第五代人数'
+        },
+        {
+            value:6,
+            text:'第六代人数'
+        },
+        {
+            value:7,
+            text:'第七代人数'
+        },
+        {
+            value:8,
+            text:'第八代人数'
+        },
+        {
+            value:9,
+            text:'第九代人数'
+        },
+        {
+            value:10,
+            text:'第十代人数'
+        }
+    ]);
+    var showUserPickerButton = document.getElementById('showUserPicker');
+    var userResult = document.getElementById('userResult');
+//    userPicker.userPickers[0].setSelectedIndex(4, 2000);
+    showUserPickerButton.addEventListener('tap', function(event) {
+        userPicker.show(function(items) {
+                console.log(items)
+                document.getElementById('test').innerHTML = items[0].text
+            getAjax(items[0].value)
         });
-        $(a).parent().siblings('.mui-collapse-content').children('.hels').addClass('hidden');
-        $(a).parent().siblings('.mui-collapse-content').find('.parent').find('.iconfont').html('&#xe620;');
-        $(a).siblings('.hels').removeClass('hidden');
-        $(a).find('.iconfont').html('&#xe636;');
+    }, false);
+
+    function getLocalTime(timestamp) {
+        var d = new Date(timestamp * 1000);    //根据时间戳生成的时间对象
+        var date = (d.getFullYear()) + "-" +
+            (d.getMonth() + 1) + "-" +
+            (d.getDate()) + " " +
+            (d.getHours()) + ":" +
+            (d.getMinutes()) + ":" +
+            (d.getSeconds());
+        return date;
     }
 
-    mui('.mui-collapse').on('tap','a',function () {
-        var po = this;
-        var id = $(this).attr('data-id');
-        mui.ajax('<{:url("index/Suey/recommend_data_ajax")}>', {
-            data: {dd:id},
-            dataType: 'json',
-            type: 'post', //HTTP请求类型
-            timeout: 10000, //超时时间设置为10秒；
-            success: function (data) {
+    function getAjax(val) {
+        mui.ajax('<{:url("index/Suey/team")}>',{
+            data:{num:val},
+            dataType:'json',
+            type:'post',
+            timeout: 10000,
+            success:function(data){
                 console.log(data)
-//                    console.log(data);
-                                if(data.status == 1) {
-                                    $(po).siblings().remove();
-                                    var html = '';
-                                    for (var i = 0; i < data.count; i++) {
-                                        html += '<div class="mui-collapse-content">'
-                                            + ' <p onclick="clli(this,' + data.data[i]['id'] + ')" class="parent"><span class="iconfont font-size-14 font-color-06">&#xe620;</span>' + data.data[i]['mobile'] + '</p>'
-                                            + '</div>';
-                                    }
+                var html = '';
+                if(data.status == 2){
+                    html = '<li class="news"><span class="alie">暂无数据</span></li>'
+                }else{
+                    for(var i=0;i<data.length;i++){
+                        html += '<li class="news"><span>'+data[i].mobile+'</span><span>'+getLocalTime(data[i].reg_time)+'</span></li>';
+                    }
+                }
+                $('.news').remove()
+                $('.listMenu').append(html);
+            }
+        })
+    }
 
-                                    $(po).parent().append(html)
-                                }else{
-                                    $(po).siblings().remove();
-                                     var hh = '<div class="mui-collapse-content">'
-                                        + ' <p class="parent" style="padding-left:43%"><span class="iconfont font-size-14 font-color-06"></span>' + data.msg + '</p>'
-                                        + '</div>';
-                                    $(po).parent().append(hh)
-                                }
-             }
-        });
-    })
-//    function show_ls(a,id){
-//        alert(11);
-//        return ;
-//        $.ajax({
-//            url:'<{:url("index/Suey/recommend_data_ajax")}>',
-//            data:{dd:id},
-//            dataType:'json',
-//            type:'post',
-//            success:function(data){
-//                console.log(data);
-//                if(data.status == 1){
-//                    var html ='';
-//                    for(var i=0;i<data.count;i++){
-//                        html += '<div class="mui-collapse-content">'
-//                        +' <p onclick="clli(this,'+data[i]['id']+')" class="parent"><span class="iconfont font-size-14 font-color-06">&#xe620;</span>'+ data[i]['mobile']+'</p>'
-//                        +'</div>';
-//                    }
-//                    a.append(html);
-//                }
-//            }
-//        });
-//        $(a).parent().siblings('.mui-table-view-cell').find('a').find('.iconfont').html('&#xe620;');
-//        $(a).find('.iconfont').html('&#xe636;');
-//    }
-
-
-    mui('.mui-collapse').on('tap','a',function(){
-        $(this).parent().siblings().children('a').children('span').html('&#xe620;')
-        $(this).children('span').html('&#xe636;');
-    })
-	 document.getElementById('MemberInfo').classList.add('mui-active');
 </script>
 <include file="common/pass_error" />

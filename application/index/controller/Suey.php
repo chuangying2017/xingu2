@@ -84,51 +84,12 @@ class Suey extends \app\common\controller\Common
     }
 
     public function team(){//我的团队
-        $uid  = Session::get('uid');
-        $memberr = Db::name('member');
-        $result=$memberr->where('recommend',$uid)->where('status',1)->select();
-        for ($i=0;$i<count($result);$i++){
-                $select_one=$memberr->where('recommend',$result[$i]['id'])->where('status',1)->select();
-                for($j=0;$j<count($select_one);$j++){
-                        $select_two=$memberr->where('recommend',$select_one[$j]['id'])->where('status',1)->select();
-                }
+        if(\request()->isAjax()){
+            $input = input('post.');
+            $input['uid'] = Session::get('uid');
+            return \app\index\logic\User::iteration($input);
         }
-        $countls = Db::name('member')->where('recommend',$uid)->select();//一代人数
-        $countlsnum = count($countls);//一代人数
-        $ernum = 0;
-        $twonum = 0;
-        $li = array();
-        $lis = array();
-        for($i = 0;$i < $countlsnum;$i++){
-            $list =Db::name('member')->where('recommend',$countls[$i]['id'])->select();
-            $ernum += count($list);//二代人数
-            for($ii = 0;$ii < $ernum;$ii++){
-                if(empty($list[$ii])){
-
-                }else{
-                    $li[] = $list[$ii];
-                }
-            }
-            for($k = 0;$k < $ernum;$k++){
-                $yu = Db::name('member')->where('recommend',$list[$k]['id'])->select();
-                $twonum += count($yu);//三代人数
-                for($kk = 0;$kk < $twonum;$kk++){
-                    if(empty($yu[$kk])){
-
-                    }else{
-                        $lis[] = $yu[$kk];
-                    }
-                }
-            }
-        }
-        $this -> assign('twonum',$li);
-        $this -> assign('threess',$lis);
-        $this -> assign('one',$countlsnum);
-        $this -> assign('two',$ernum);
-        $this -> assign('three',$twonum);
-        $this->assign('select_one',$select_one);
-        $this->assign('select_two',$select_two);
-        return view('',['list'=>$result]);
+        return view();
     }
     //推荐人异步数据
     public function recommend_data_ajax(){
@@ -154,7 +115,6 @@ class Suey extends \app\common\controller\Common
 			$numls = substr($list[$i]['bank_user'],0,4);
             $list[$i]['bank_user'] = $numls.' **** **** '.substr($list[$i]['bank_user'],-4);
         }
-//        dump($list);
         $this->assign('list',$list);
         return $this->fetch();
     }
@@ -168,6 +128,7 @@ class Suey extends \app\common\controller\Common
                 'bank'=>'require',
                 'zhihang'=>'require',
                 'bankShen'=> ['regex'=>'/^([\d]{17}[xX\d]|[\d]{15})$/'],
+                'bankcode'=>'require|min:6|max:12'
             ];
             $message = [
                 'name'=>'开户姓名不能为空',
@@ -175,6 +136,7 @@ class Suey extends \app\common\controller\Common
                 'zhihang'=>'开户支行不能为空',
                 'bank_user'=>'银行卡号不合法，请核对',
                 'bankShen'=> '请输入正确身份证',
+                'bankcode.require'=>'不能为空','bankcode.min'=>'最小6位数','bankcode.max'=>'最大12位数'
             ];
             $validate = new Validate($rule, $message);
             if(!$validate->check($input)){
@@ -182,12 +144,15 @@ class Suey extends \app\common\controller\Common
             }
             $uid = Session::get('uid');
             $DB = Db::name('member')->where('id',$uid)->find();
+            if($DB['password_two'] != md5_pass(1,$input['bankcode'])){
+                return ['status'=>2,'msg'=>'安全密码错误!'];
+            }
             $phone = $DB['mobile'];
 				$liks = Db::name('mbank')->where('crad',$input['bankShen'])->where('uid','<>',$uid)->select();
                 if(count($liks) > 0){
                     return ['status'=>2,'msg'=>'此身份证已绑定其他会员卡号！'];
                 }
-                $data['uid'] = Session::get('uid');
+                $data['uid'] = $uid;
                 $data['name'] = $input['name'];
                 $data['bank'] = $input['bank'];
                 $data['zhihang'] = $input['zhihang'];

@@ -35,19 +35,41 @@
                     if(data.status == 1){
                         $.each(data.result, function(idx, obj) {
                             var a = ''
-                            if(obj.type == 1){
-                                a = '一代奖励'
+                            switch (obj.type){
+                                case 1:
+                                    a = '一代奖励';
+                                    break;
+                                case 2:
+                                    a = '二代奖励';
+                                    break;
+                                case 3:
+                                    a = '三代奖励';
+                                    break;
+                                case 4:
+                                    a = '四代奖励';
+                                    break;
+                                case 5:
+                                    a = '五代奖励';
+                                    break;
+                                case 6:
+                                    a = '六代奖励';
+                                    break;
+                                case 7:
+                                    a = '七代奖励';
+                                    break;
+                                case 8:
+                                    a = '八代奖励';
+                                    break;
+                                case 9:
+                                    a = '九代奖励';
+                                    break;
+                                case 10:
+                                    a = '十代奖励';
+                                    break;
+                                default:
+                                    a = '团队奖励';
+                                    break;
                             }
-                            if(obj.type == 2){
-                                a = '二代奖励'
-                            }
-                            if(obj.type == 3){
-                                a = '三代奖励'
-                            }
-                            if(obj.type == 4){
-                                a = '团队奖励'
-                            }
-//                            var contHtml =  '<li class="mui-table-view-cell font-size-14"><a onclick="Show_news('+obj.id+')"><span class="mui-icon mui-icon-forward font-size-16"></span>'+obj.art_title+'</a></li>';
                             var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span></p><p>奖励类型：<span class="font-color-07">'+a+'</span></p><p>获得时间：'+obj.create_date+'</p></div></div>';
                             $('#activity-content').append(contHtml);
                         });
