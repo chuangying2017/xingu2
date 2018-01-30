@@ -45,7 +45,7 @@ class User extends Model
         $this->table_object['profit'] = Db::name('profit');//每日分红展示表
     }
 
-    //计算每日分红
+    //定时每日分红
     public  function each_day_money(){
           $result_mp = $this->table_object['mp']->where(['type'=>1,'day_each'=>['egt','1']])->select();//首先查出所有的会员分红
            for ($i=0;$i<count($result_mp);$i++){//计算所有的会员分红

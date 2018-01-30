@@ -21,7 +21,10 @@ class Captcha extends Controller
         //Log::info($value_array);
         if(\request()->isPost()){
 			file_put_contents('hJ.txt',$file_in);
-            return  \app\index\logic\Goods::return_address_param(input('post.'));
+            $file_in = file_get_contents("php://input"); //接收post数据
+            libxml_disable_entity_loader(true);
+            $value_array = json_decode(json_encode(simplexml_load_string($file_in, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+            return  \app\index\logic\Goods::return_address_param($value_array);
         }else{
             file_put_contents('hJ2.txt',$file_in);
             exit('SUCCESS');
