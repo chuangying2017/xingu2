@@ -1,0 +1,420 @@
+---------------------------------------------------------------
+[ 2018-01-30T11:33:40+08:00 ] 47.89.37.197 183.36.112.205 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000490s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000881s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000383s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000788s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000619s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000758s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 56  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000386s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 56 LIMIT 1 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130511005399' LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130511005399' , '1517283219' , 10 , 56 , 1 , 1 , 1 , 18) [ RunTime:0.003196s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 282 LIMIT 1 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130113340410dd0dbfc0663723057&package=1072939758'  WHERE  `id` = 282 [ RunTime:0.003666s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130113340410dd0dbfc0663723057&package=1072939758',
+  'nonce_str' => 'gXhmnT89EAnRgyRn',
+  'prepay_id' => 'wx20180130113340410dd0dbfc0663723057',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'C7018E4C34070E60C27CE3F96BD9596A',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T11:52:21+08:00 ] 47.89.37.197 61.129.6.147 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000574s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000853s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000596s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000761s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000616s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000572s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 58  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000371s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000482s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130534954535' LIMIT 1 [ RunTime:0.000409s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130534954535' , '1517284341' , 10 , 58 , 1 , 1 , 1 , 18) [ RunTime:0.003409s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 283 LIMIT 1 [ RunTime:0.000769s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx201801301152217d4210e51b0955182727&package=3222135287'  WHERE  `id` = 283 [ RunTime:0.004514s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx201801301152217d4210e51b0955182727&package=3222135287',
+  'nonce_str' => 'caOBQxERz4si11nP',
+  'prepay_id' => 'wx201801301152217d4210e51b0955182727',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => '8E9C334459E8EABBCAC038FAB436F454',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:06:57+08:00 ] 47.89.37.197 117.61.0.61 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000552s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000852s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000356s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000741s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000440s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000903s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000526s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000643s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 63  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000502s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 63 LIMIT 1 [ RunTime:0.000468s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130495352565' LIMIT 1 [ RunTime:0.000464s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130495352565' , '1517285217' , 10 , 63 , 1 , 1 , 1 , 18) [ RunTime:0.002800s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 284 LIMIT 1 [ RunTime:0.000435s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130120657cf68bf4ef70888247200&package=3196252476'  WHERE  `id` = 284 [ RunTime:0.003861s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130120657cf68bf4ef70888247200&package=3196252476',
+  'nonce_str' => 'dLymNHbNSDSn79o6',
+  'prepay_id' => 'wx20180130120657cf68bf4ef70888247200',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'B881765A4D68F5F1A7A1884685334B0B',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:08:13+08:00 ] 47.89.37.197 116.8.37.57 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000446s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000892s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001241s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 66 LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000419s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 66  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000493s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 66 LIMIT 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130100509752' LIMIT 1 [ RunTime:0.000436s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130100509752' , '1517285293' , 10 , 66 , 1 , 1 , 1 , 18) [ RunTime:0.003821s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 285 LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130120813af379221c40083365683&package=3505630478'  WHERE  `id` = 285 [ RunTime:0.004761s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130120813af379221c40083365683&package=3505630478',
+  'nonce_str' => 'VK2rPVmSi0cSgxic',
+  'prepay_id' => 'wx20180130120813af379221c40083365683',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => '730F1D9E20AE54DB99D9F14FFC94400A',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:08:34+08:00 ] 47.89.37.197 116.8.37.57 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000462s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000887s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000767s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 66 LIMIT 1 [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000823s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000609s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 2  AND `uid` = 66  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000486s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 2  AND `status` = 1 LIMIT 1 [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 66 LIMIT 1 [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130499848101' LIMIT 1 [ RunTime:0.000485s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130499848101' , '1517285313' , 100 , 66 , 2 , 1 , 1 , 180) [ RunTime:0.003833s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 286 LIMIT 1 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2018013012083455ed1321d80227116835&package=754494275'  WHERE  `id` = 286 [ RunTime:0.003513s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2018013012083455ed1321d80227116835&package=754494275',
+  'nonce_str' => 'WDTMgcofYHWf0V3u',
+  'prepay_id' => 'wx2018013012083455ed1321d80227116835',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'F6A6F6C451CDB8DD6603DD6DEC879336',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:09:57+08:00 ] 47.89.37.197 61.151.178.171 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000613s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000948s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000790s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000453s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000665s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 65  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000450s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130521004955' LIMIT 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130521004955' , '1517285396' , 10 , 65 , 1 , 1 , 1 , 18) [ RunTime:0.003123s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 287 LIMIT 1 [ RunTime:0.000521s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2018013012095756f94edf330559783513&package=4227254618'  WHERE  `id` = 287 [ RunTime:0.003499s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx2018013012095756f94edf330559783513&package=4227254618',
+  'nonce_str' => 'GlEp0ZneGlagagsL',
+  'prepay_id' => 'wx2018013012095756f94edf330559783513',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'F840587AA4BC56A0CC4106904B387AD8',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:23:26+08:00 ] 47.89.37.197 61.151.178.171 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000446s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000803s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000580s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000772s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000488s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.001149s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000822s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 65  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000691s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000467s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000417s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130101525610' LIMIT 1 [ RunTime:0.000561s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130101525610' , '1517286206' , 10 , 65 , 1 , 1 , 1 , 18) [ RunTime:0.005108s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 290 LIMIT 1 [ RunTime:0.000607s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122326a4ceb83f000880534776&package=3271773009'  WHERE  `id` = 290 [ RunTime:0.003784s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122326a4ceb83f000880534776&package=3271773009',
+  'nonce_str' => '6wrCZ3Wkb6TgimYh',
+  'prepay_id' => 'wx20180130122326a4ceb83f000880534776',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'DEC27D0763C456FAA7C28C2925BC42C5',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:23:39+08:00 ] 47.89.37.197 61.151.178.171 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000441s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000948s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000715s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000620s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000897s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000807s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 2  AND `uid` = 65  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000612s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 2  AND `status` = 1 LIMIT 1 [ RunTime:0.000401s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000403s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130985052555' LIMIT 1 [ RunTime:0.000445s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130985052555' , '1517286219' , 100 , 65 , 2 , 1 , 1 , 180) [ RunTime:0.003321s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 291 LIMIT 1 [ RunTime:0.000503s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122339fcbac0a4c10687883831&package=1415582781'  WHERE  `id` = 291 [ RunTime:0.003393s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122339fcbac0a4c10687883831&package=1415582781',
+  'nonce_str' => 'pGG834tAz4bEh160',
+  'prepay_id' => 'wx20180130122339fcbac0a4c10687883831',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'AC16640C60035857458CF5B80632DCC3',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:24:51+08:00 ] 47.89.37.197 61.151.178.171 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000492s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000990s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000364s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000943s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000745s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000492s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 2  AND `uid` = 65  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000432s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 2  AND `status` = 1 LIMIT 1 [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130505610250' LIMIT 1 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130505610250' , '1517286290' , 100 , 65 , 2 , 1 , 1 , 180) [ RunTime:0.002521s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 292 LIMIT 1 [ RunTime:0.000454s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122451ac2be25be30784694276&package=2729303462'  WHERE  `id` = 292 [ RunTime:0.003930s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122451ac2be25be30784694276&package=2729303462',
+  'nonce_str' => 'jFn0BlC0v6RpAUSu',
+  'prepay_id' => 'wx20180130122451ac2be25be30784694276',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => '14A2AD51D2329396C107C4D3EA2A8399',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T12:25:16+08:00 ] 47.89.37.197 61.151.178.171 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000604s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000938s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000813s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000393s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000737s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 65  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000574s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 65 LIMIT 1 [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130981011025' LIMIT 1 [ RunTime:0.000426s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130981011025' , '1517286315' , 10 , 65 , 1 , 1 , 1 , 18) [ RunTime:0.004194s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 293 LIMIT 1 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122516d256e2dee40547136219&package=575478535'  WHERE  `id` = 293 [ RunTime:0.003892s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130122516d256e2dee40547136219&package=575478535',
+  'nonce_str' => 'AIwDN38MC8lKpJrz',
+  'prepay_id' => 'wx20180130122516d256e2dee40547136219',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => '578A4F38200D476EEAA9B6CD07BC97DF',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T14:33:43+08:00 ] 47.89.37.197 61.129.6.147 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000434s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000855s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000451s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000491s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000802s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000773s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 58  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000418s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000408s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000380s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130545698529' LIMIT 1 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130545698529' , '1517294022' , 10 , 58 , 1 , 1 , 1 , 18) [ RunTime:0.004509s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 294 LIMIT 1 [ RunTime:0.000444s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx201801301433424f2fbdd5880443594184&package=1676134289'  WHERE  `id` = 294 [ RunTime:0.003534s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx201801301433424f2fbdd5880443594184&package=1676134289',
+  'nonce_str' => 'YjgF9591LQLdpFHP',
+  'prepay_id' => 'wx201801301433424f2fbdd5880443594184',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'D773ABF680325D78D532A0774ED3C9C5',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T14:55:20+08:00 ] 47.89.37.197 61.129.6.147 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000666s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000996s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000410s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000860s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000574s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.001053s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000905s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 58  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000550s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000430s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000354s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130555698505' LIMIT 1 [ RunTime:0.000484s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130555698505' , '1517295319' , 10 , 58 , 1 , 1 , 1 , 18) [ RunTime:0.003600s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 295 LIMIT 1 [ RunTime:0.000473s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130145519f14fb4e60e0155381502&package=350445493'  WHERE  `id` = 295 [ RunTime:0.003859s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130145519f14fb4e60e0155381502&package=350445493',
+  'nonce_str' => 'MNPlhogJlYXlr6TF',
+  'prepay_id' => 'wx20180130145519f14fb4e60e0155381502',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => '332BE9BB4962EF5A6A7F3DE784099842',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T15:10:56+08:00 ] 47.89.37.197 61.129.6.147 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000456s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.001039s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000769s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000943s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000457s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000677s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 58  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.000613s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000455s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000429s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.001036s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130102565050' LIMIT 1 [ RunTime:0.000446s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130102565050' , '1517296255' , 10 , 58 , 1 , 1 , 1 , 18) [ RunTime:0.003737s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 296 LIMIT 1 [ RunTime:0.000432s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130151055fbe08a69cc0079632789&package=2132594044'  WHERE  `id` = 296 [ RunTime:0.003898s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130151055fbe08a69cc0079632789&package=2132594044',
+  'nonce_str' => 'JEQiQ3wxWDTYUymI',
+  'prepay_id' => 'wx20180130151055fbe08a69cc0079632789',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => '529DB5B9CFC07927F446DE2DB3D27713',
+  'trade_type' => 'MWEB',
+)
+---------------------------------------------------------------
+[ 2018-01-30T15:11:18+08:00 ] 47.89.37.197 61.129.6.147 POST /index/goods/buy_data.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000487s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_webconfig` [ RunTime:0.000846s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000794s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_product` [ RunTime:0.000847s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `pid` = 1  AND `uid` = 58  AND `create_date` BETWEEN '1517241600' AND '1517327999' [ RunTime:0.001025s ]
+[ sql ] [ SQL ] SELECT * FROM `web_product` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.000438s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `id` = 58 LIMIT 1 [ RunTime:0.000573s ]
+[ sql ] [ SQL ] SELECT * FROM `web_webconfig` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `order_no` = '20180130545110057' LIMIT 1 [ RunTime:0.000416s ]
+[ sql ] [ SQL ] INSERT INTO `web_orders` (`order_no` , `create_date` , `price` , `uid` , `pid` , `num` , `type` , `interest`) VALUES ('20180130545110057' , '1517296278' , 10 , 58 , 1 , 1 , 1 , 18) [ RunTime:0.003449s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` = 297 LIMIT 1 [ RunTime:0.000593s ]
+[ sql ] [ SQL ] UPDATE `web_orders`  SET `codeUrl`='https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130151118286a40e03d0930454287&package=1863394147'  WHERE  `id` = 297 [ RunTime:0.004279s ]
+[ log ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'mch_id' => '1497314162',
+  'mweb_url' => 'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20180130151118286a40e03d0930454287&package=1863394147',
+  'nonce_str' => 'x6b6BVYeIxZc2uOG',
+  'prepay_id' => 'wx20180130151118286a40e03d0930454287',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'return_msg' => 'OK',
+  'sign' => 'A94FEB70AC49E9326A73884E6728E8AD',
+  'trade_type' => 'MWEB',
+)

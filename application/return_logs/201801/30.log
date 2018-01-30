@@ -1,0 +1,174 @@
+---------------------------------------------------------------
+[ 2018-01-30T15:08:08+08:00 ] 47.89.37.197 140.207.54.76 POST /admin/captcha/baibao_return
+[ info ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'attach' => '294&cashier1',
+  'bank_type' => 'CFT',
+  'cash_fee' => '980',
+  'fee_type' => 'CNY',
+  'is_subscribe' => 'Y',
+  'mch_id' => '1497314162',
+  'nonce_str' => 'h77r8cyx63phs6u5wdxcmluiqlctjzvy',
+  'openid' => 'oMXs-1pf1cWiFTBr1-KPyNmsD3pI',
+  'out_trade_no' => '149731416220180130143342',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'sign' => '124BA515CC50F32D6C606D54E6A7D198',
+  'time_end' => '20180130143355',
+  'total_fee' => '980',
+  'trade_type' => 'MWEB',
+  'transaction_id' => '4200000058201801303693366653',
+)
+[ info ] array (
+)
+[ error ] [8]Array to string conversion
+[ error ] [8]未定义数组索引: merchant_id
+[ error ] [0]method not exist:think\db\Query->error
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000754s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` IS NULL  AND `type` = 1 LIMIT 1 [ RunTime:0.000352s ]
+---------------------------------------------------------------
+[ 2018-01-30T15:11:25+08:00 ] 47.89.37.197 101.226.103.62 POST /admin/captcha/baibao_return
+[ info ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'attach' => '297&cashier1',
+  'bank_type' => 'CFT',
+  'cash_fee' => '990',
+  'fee_type' => 'CNY',
+  'is_subscribe' => 'Y',
+  'mch_id' => '1497314162',
+  'nonce_str' => 'tv4z6u6yykr2nug5l24v7qn0edl45kpi',
+  'openid' => 'oMXs-1pf1cWiFTBr1-KPyNmsD3pI',
+  'out_trade_no' => '149731416220180130151118',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'sign' => '6042F41A4E32FC9DC7F3A28392416791',
+  'time_end' => '20180130151124',
+  'total_fee' => '990',
+  'trade_type' => 'MWEB',
+  'transaction_id' => '4200000077201801303668220046',
+)
+[ info ] array (
+)
+[ error ] [8]Array to string conversion
+[ error ] [8]未定义数组索引: merchant_id
+[ error ] [0]method not exist:think\db\Query->error
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000216s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.001080s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` IS NULL  AND `type` = 1 LIMIT 1 [ RunTime:0.000435s ]
+---------------------------------------------------------------
+[ 2018-01-30T15:11:40+08:00 ] 47.89.37.197 140.207.54.76 POST /admin/captcha/baibao_return
+[ info ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'attach' => '297&cashier1',
+  'bank_type' => 'CFT',
+  'cash_fee' => '990',
+  'fee_type' => 'CNY',
+  'is_subscribe' => 'Y',
+  'mch_id' => '1497314162',
+  'nonce_str' => 'tv4z6u6yykr2nug5l24v7qn0edl45kpi',
+  'openid' => 'oMXs-1pf1cWiFTBr1-KPyNmsD3pI',
+  'out_trade_no' => '149731416220180130151118',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'sign' => '6042F41A4E32FC9DC7F3A28392416791',
+  'time_end' => '20180130151124',
+  'total_fee' => '990',
+  'trade_type' => 'MWEB',
+  'transaction_id' => '4200000077201801303668220046',
+)
+[ info ] array (
+)
+[ error ] [8]Array to string conversion
+[ error ] [8]未定义数组索引: merchant_id
+[ error ] [0]method not exist:think\db\Query->error
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000252s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.001114s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` IS NULL  AND `type` = 1 LIMIT 1 [ RunTime:0.000655s ]
+---------------------------------------------------------------
+[ 2018-01-30T15:11:57+08:00 ] 47.89.37.197 101.226.103.61 POST /admin/captcha/baibao_return
+[ info ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'attach' => '297&cashier1',
+  'bank_type' => 'CFT',
+  'cash_fee' => '990',
+  'fee_type' => 'CNY',
+  'is_subscribe' => 'Y',
+  'mch_id' => '1497314162',
+  'nonce_str' => 'tv4z6u6yykr2nug5l24v7qn0edl45kpi',
+  'openid' => 'oMXs-1pf1cWiFTBr1-KPyNmsD3pI',
+  'out_trade_no' => '149731416220180130151118',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'sign' => '6042F41A4E32FC9DC7F3A28392416791',
+  'time_end' => '20180130151124',
+  'total_fee' => '990',
+  'trade_type' => 'MWEB',
+  'transaction_id' => '4200000077201801303668220046',
+)
+[ info ] array (
+)
+[ error ] [8]Array to string conversion
+[ error ] [8]未定义数组索引: merchant_id
+[ error ] [0]method not exist:think\db\Query->error
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000198s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.001419s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` IS NULL  AND `type` = 1 LIMIT 1 [ RunTime:0.000589s ]
+---------------------------------------------------------------
+[ 2018-01-30T15:12:28+08:00 ] 47.89.37.197 58.251.80.51 POST /admin/captcha/baibao_return
+[ info ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'attach' => '297&cashier1',
+  'bank_type' => 'CFT',
+  'cash_fee' => '990',
+  'fee_type' => 'CNY',
+  'is_subscribe' => 'Y',
+  'mch_id' => '1497314162',
+  'nonce_str' => 'tv4z6u6yykr2nug5l24v7qn0edl45kpi',
+  'openid' => 'oMXs-1pf1cWiFTBr1-KPyNmsD3pI',
+  'out_trade_no' => '149731416220180130151118',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'sign' => '6042F41A4E32FC9DC7F3A28392416791',
+  'time_end' => '20180130151124',
+  'total_fee' => '990',
+  'trade_type' => 'MWEB',
+  'transaction_id' => '4200000077201801303668220046',
+)
+[ info ] array (
+)
+[ error ] [8]Array to string conversion
+[ error ] [8]未定义数组索引: merchant_id
+[ error ] [0]method not exist:think\db\Query->error
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000241s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.000963s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` IS NULL  AND `type` = 1 LIMIT 1 [ RunTime:0.000362s ]
+---------------------------------------------------------------
+[ 2018-01-30T15:15:31+08:00 ] 47.89.37.197 183.3.234.53 POST /admin/captcha/baibao_return
+[ info ] array (
+  'appid' => 'wxb044063c2f33112a',
+  'attach' => '297&cashier1',
+  'bank_type' => 'CFT',
+  'cash_fee' => '990',
+  'fee_type' => 'CNY',
+  'is_subscribe' => 'Y',
+  'mch_id' => '1497314162',
+  'nonce_str' => 'tv4z6u6yykr2nug5l24v7qn0edl45kpi',
+  'openid' => 'oMXs-1pf1cWiFTBr1-KPyNmsD3pI',
+  'out_trade_no' => '149731416220180130151118',
+  'result_code' => 'SUCCESS',
+  'return_code' => 'SUCCESS',
+  'sign' => '6042F41A4E32FC9DC7F3A28392416791',
+  'time_end' => '20180130151124',
+  'total_fee' => '990',
+  'trade_type' => 'MWEB',
+  'transaction_id' => '4200000077201801303668220046',
+)
+[ info ] array (
+)
+[ error ] [8]Array to string conversion
+[ error ] [8]未定义数组索引: merchant_id
+[ error ] [0]method not exist:think\db\Query->error
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000206s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_orders` [ RunTime:0.001150s ]
+[ sql ] [ SQL ] SELECT * FROM `web_orders` WHERE  `id` IS NULL  AND `type` = 1 LIMIT 1 [ RunTime:0.000373s ]

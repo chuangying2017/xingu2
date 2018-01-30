@@ -1,0 +1,204 @@
+---------------------------------------------------------------
+[ 2018-01-30T11:39:14+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785858&password=369258
+[ info ] array (
+  'mobile' => '18587785858',
+  'password' => '369258',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000202s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001210s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785858 LIMIT 1 [ RunTime:0.000543s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:39:24+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785050&password=
+[ info ] array (
+  'mobile' => '18587785050',
+  'password' => '',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000407s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001078s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785050 LIMIT 1 [ RunTime:0.000587s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:39:34+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785052&password=369258
+[ info ] array (
+  'mobile' => '18587785052',
+  'password' => '369258',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000175s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001259s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785052 LIMIT 1 [ RunTime:0.000540s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:39:40+08:00 ] 47.89.37.197 27.19.172.47 GET /index/login/Verification?mobile=13152516553&password=123123
+[ info ] array (
+  'mobile' => '13152516553',
+  'password' => '123123',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000281s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001107s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13152516553 LIMIT 1 [ RunTime:0.000513s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:39:47+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785053&password=
+[ info ] array (
+  'mobile' => '18587785053',
+  'password' => '',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000163s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001131s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785053 LIMIT 1 [ RunTime:0.000674s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:39:51+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785053&password=369258
+[ info ] array (
+  'mobile' => '18587785053',
+  'password' => '369258',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000140s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001020s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785053 LIMIT 1 [ RunTime:0.000502s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:40:06+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785058&password=
+[ info ] array (
+  'mobile' => '18587785058',
+  'password' => '',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000187s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001058s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785058 LIMIT 1 [ RunTime:0.000432s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:40:11+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785058&password=369258
+[ info ] array (
+  'mobile' => '18587785058',
+  'password' => '369258',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000269s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001235s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785058 LIMIT 1 [ RunTime:0.000646s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:40:18+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785858&password=369258
+[ info ] array (
+  'mobile' => '18587785858',
+  'password' => '369258',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001109s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001127s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785858 LIMIT 1 [ RunTime:0.000461s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:41:13+08:00 ] 47.89.37.197 101.226.225.59 GET /index/login/Verification?mobile=14795633524&password=lthzyn520
+[ info ] array (
+  'mobile' => '14795633524',
+  'password' => 'lthzyn520',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000276s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001277s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 14795633524 LIMIT 1 [ RunTime:0.000602s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:41:30+08:00 ] 47.89.37.197 101.226.225.59 GET /index/login/Verification?mobile=15224658260&password=lthzyn520
+[ info ] array (
+  'mobile' => '15224658260',
+  'password' => 'lthzyn520',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000180s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000969s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 15224658260 LIMIT 1 [ RunTime:0.000451s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:52:02+08:00 ] 47.89.37.197 61.129.6.147 GET /index/login/Verification?mobile=15296557699&password=123456
+[ info ] array (
+  'mobile' => '15296557699',
+  'password' => '123456',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000877s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001072s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 15296557699 LIMIT 1 [ RunTime:0.000701s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:57:51+08:00 ] 47.89.37.197 117.61.135.247 GET /index/login/Verification?mobile=13012357424&password=aaaa1111
+[ info ] array (
+  'mobile' => '13012357424',
+  'password' => 'aaaa1111',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000191s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.000975s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13012357424 LIMIT 1 [ RunTime:0.000594s ]
+---------------------------------------------------------------
+[ 2018-01-30T11:58:04+08:00 ] 47.89.37.197 117.61.135.247 GET /index/login/Verification?mobile=13008803326&password=aaaa1111
+[ info ] array (
+  'mobile' => '13008803326',
+  'password' => 'aaaa1111',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000144s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001005s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13008803326 LIMIT 1 [ RunTime:0.000481s ]
+---------------------------------------------------------------
+[ 2018-01-30T12:06:50+08:00 ] 47.89.37.197 117.61.0.61 GET /index/login/Verification?mobile=18779763293&password=q123456789
+[ info ] array (
+  'mobile' => '18779763293',
+  'password' => 'q123456789',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000250s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001201s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18779763293 LIMIT 1 [ RunTime:0.000626s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `re_num`=0,`re_time`=1517241600  WHERE  `mobile` = 18779763293 [ RunTime:0.003591s ]
+---------------------------------------------------------------
+[ 2018-01-30T12:08:01+08:00 ] 47.89.37.197 116.8.37.57 GET /index/login/Verification?mobile=13012346748&password=aaaa1111
+[ info ] array (
+  'mobile' => '13012346748',
+  'password' => 'aaaa1111',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000691s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001154s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13012346748 LIMIT 1 [ RunTime:0.000556s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `re_num`=0,`re_time`=1517241600  WHERE  `mobile` = 13012346748 [ RunTime:0.003221s ]
+---------------------------------------------------------------
+[ 2018-01-30T12:09:10+08:00 ] 47.89.37.197 117.61.135.247 GET /index/login/Verification?mobile=13012357424&password=aaaaa1111
+[ info ] array (
+  'mobile' => '13012357424',
+  'password' => 'aaaaa1111',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001363s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001675s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13012357424 LIMIT 1 [ RunTime:0.000525s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `re_num`=0,`re_time`=1517241600  WHERE  `mobile` = 13012357424 [ RunTime:0.003609s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `re_num`=re_num+1  WHERE  `mobile` = 13012357424 [ RunTime:0.003055s ]
+---------------------------------------------------------------
+[ 2018-01-30T12:09:18+08:00 ] 47.89.37.197 117.61.135.247 GET /index/login/Verification?mobile=13012357424&password=aaaa1111
+[ info ] array (
+  'mobile' => '13012357424',
+  'password' => 'aaaa1111',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000191s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001022s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13012357424 LIMIT 1 [ RunTime:0.000755s ]
+---------------------------------------------------------------
+[ 2018-01-30T12:09:51+08:00 ] 47.89.37.197 61.151.178.171 GET /index/login/Verification?mobile=13012357424&password=aaaa1111
+[ info ] array (
+  'mobile' => '13012357424',
+  'password' => 'aaaa1111',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000170s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001231s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13012357424 LIMIT 1 [ RunTime:0.000653s ]
+---------------------------------------------------------------
+[ 2018-01-30T14:53:25+08:00 ] 47.89.37.197 223.104.22.249 GET /index/login/Verification?mobile=13059551109&password=123456
+[ info ] array (
+  'mobile' => '13059551109',
+  'password' => '123456',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000194s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001345s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 13059551109 LIMIT 1 [ RunTime:0.000638s ]
+---------------------------------------------------------------
+[ 2018-01-30T15:13:01+08:00 ] 47.89.37.197 101.226.225.59 GET /index/login/Verification?mobile=14795633524&password=lthzyn520
+[ info ] array (
+  'mobile' => '14795633524',
+  'password' => 'lthzyn520',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000209s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001111s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 14795633524 LIMIT 1 [ RunTime:0.000567s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `re_num`=0,`re_time`=1517241600  WHERE  `mobile` = 14795633524 [ RunTime:0.003643s ]
+---------------------------------------------------------------
+[ 2018-01-30T15:13:15+08:00 ] 47.89.37.197 223.104.91.108 GET /index/login/Verification?mobile=18587785052&password=369258
+[ info ] array (
+  'mobile' => '18587785052',
+  'password' => '369258',
+)
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000199s ] mysql:host=localhost;port=3306;dbname=xin;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `web_member` [ RunTime:0.001465s ]
+[ sql ] [ SQL ] SELECT * FROM `web_member` WHERE  `mobile` = 18587785052 LIMIT 1 [ RunTime:0.000633s ]
+[ sql ] [ SQL ] UPDATE `web_member`  SET `re_num`=0,`re_time`=1517241600  WHERE  `mobile` = 18587785052 [ RunTime:0.003421s ]
