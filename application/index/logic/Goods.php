@@ -314,6 +314,7 @@ class Goods extends Model
             $product_buy_total = $return_data['price'] * $return_data['num'];//购买数量 * 产品价格 = 总金额
             $data_product=$product_tables->find($return_data['pid']);//获取产品记录
             $each_num_money = $data_product['name_bei'] / 10 * $product_buy_total;//每次分配的金额
+            $member_table->where('id',$member_data['id'])->setInc('money',$product_buy_total);//现在投资马上有20%分红
             Db::name('mp')->insert([//会员分红表
                 'uid'=>$member_data['id'],'create_date'=>\request()->time(),
                 'total_money'=>$product_buy_total,//每次购买分配的总金额
