@@ -43,12 +43,9 @@ class Captcha extends Controller
     }
 
     public function Custom(){
-        dump($_SERVER);
-        die;
-        //测试支付
-        $WeChat = new WeChat();
-        $result = $WeChat->unifiedOrder();
-        dump($result);
+        //演示实例化
+            $tables = new \app\index\logic\User();
+            dump($tables->each_day_money());
     }
     //
     public  function indexddd(){

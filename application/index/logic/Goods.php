@@ -276,7 +276,9 @@ class Goods extends Model
         if(!$return_data){
             self::error('非法请求',url('index/Index/index'));
         }
-        $add_insert_result=$order_table->where(['id'=>$return_data['id']])->update(['type'=>2,'update_time'=>time()]);
+        $add_insert_result=$order_table
+            ->where(['id'=>$return_data['id']])
+            ->update(['type'=>2,'update_time'=>time()]);//type=2表示在线支付
         if(!$add_insert_result){
             Log::init(['type'=>'File','path'=> APP_PATH.'error_logs/']);
             Log::error('订单更改失败');
@@ -286,20 +288,40 @@ class Goods extends Model
         Db::name('product')->where('id',$return_data['pid'])->setInc('buy_num');//购买成功，把购买的数量加入到那个产品的购买量
         try{
             $data_base = database(2);//拿到后台设置的参数
-            $member_table = Db::name('member');
+            $member_table = Db::name('member');//会员table
             $bonus_table = Db::name('bonus');//奖金表
-            $member_data = $member_table->where('id',$return_data['uid'])->find();
+            $product_tables = Db::name('product');//产品表
+            $member_data = $member_table->where('id',$return_data['uid'])->find();//会员
             $product_buy_total = $return_data['price'] * $return_data['num'];//购买数量 * 产品价格 = 总金额
+            $data_product=$product_tables->find($return_data['pid']);//获取产品记录
+            $each_num_money = $data_product['name_bei'] / 10 * $product_buy_total;//每次分配的金额
+            Db::name('mp')->insert([//会员分红表
+                'uid'=>$member_data['id'],'create_date'=>\request()->time(),
+                'total_money'=>$product_buy_total,//每次购买分配的总金额
+                'type'=>'1',//分配类型1分配中
+                'day_each'=>$data_product['name_tian'] - 1,//获取产品的发放天数 -1
+                'raito'=>$data_product['name_bei'],
+                'each_money'=>$each_num_money,//每次分配的金额
+                'order_id'=>$return_data['id'],//添加一个订单id
+                'residue_money'=>($data_product['name_tian'] - 1) * $each_num_money//得到一个剩余分配金额
+            ]);
+            Db::name('profit')->insert([//每日分红表
+                'uid'=>$member_data['id'],
+                'money'=>$each_num_money,
+                'type'=>'1',//type=1表示每日分红
+                'create_time'=>\request()->time(),
+                'order_id'=>$return_data['id']
+            ]);
             if($member_data['recommend']){//计算直推荐关系奖金
-                $recommend_id = 0;$recommend_one = $member_data['recommend'];
+                $recommend_id = 0;$recommend_one = $member_data['recommend'];//$recommend_one推荐人id
                 for ($j=1;$j<$data_base['iteration_of']+1;$j++){//计算迭代10层级关系
-                    if($recommend_id >= $j){
+                    if($recommend_id >= $j){//$recommend_id这个等于2的时候计算第二次
                         switch ($recommend_id){
                             case 2://计算二代奖金
-                                $two_bonus = $product_buy_total * ($data_base['recommend_tow'] / 100);
-                                $two_level_member=$member_table->where('id',$one_member_data['recommend'])->find();
-                                if($two_level_member){
-                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$one_member_data['recommend'],'type'=>2])->count();
+                                $two_bonus = $product_buy_total * ($data_base['recommend_tow'] / 100);//计算二代的奖励
+                                $two_level_member=$member_table->where('id',$one_member_data['recommend'])->find();//查看上一级推荐人
+                                if($two_level_member){//为true就进来查询有无购买记录
+                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$one_member_data['recommend']])->where('type','in','2,3')->count();
                                     if($order_boolean){
                                         $member_table->where('id',$two_level_member['id'])->setInc('bonus',$two_bonus);//添加二级推荐奖励
                                         $bonus_table->insert([
@@ -307,15 +329,15 @@ class Goods extends Model
                                         ]);//生成一条奖金记录
                                     }
                                     $recommend_id++;
-                                }else{
-                                    exit;
+                                }else{//否者不为真就是停止
+                                    exit('success');
                                 }
                                 break;
                             case 3://计算三代奖金
                                 $three_bonus = $product_buy_total * ($data_base['recommend_three'] / 100);
                                 $three_level_member=$member_table->where('id',$two_level_member['recommend'])->find();
                                 if($three_level_member){
-                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$two_level_member['recommend'],'type'=>2])->count();
+                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$two_level_member['recommend']])->where('type','in','2,3')->count();
                                     if($order_boolean){
                                         $member_table->where('id',$three_level_member['id'])->setInc('bonus',$three_bonus);//添加三级级推荐奖励
                                         $bonus_table->insert([
@@ -323,17 +345,17 @@ class Goods extends Model
                                         ]);//生成一条奖金记录
                                     }
                                     $recommend_id++;
-                                    $recommend_one = $three_level_member['recommend'];
+                                    $recommend_one = $three_level_member['recommend'];//拿到上一级的id
                                 }else{
-                                    exit;
+                                    exit('success');
                                 }
                                 break;
                             default://剩余全部计算奖金
                                 $total_bonus = $product_buy_total * ($data_base['iteration_percentage'] / 100);
-                                $all_member_data = $member_table->where('id',$recommend_one)->find();
-                                if($all_member_data){
-                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$all_member_data['recommend'],'type'=>2])->count();
-                                    if($order_boolean){
+                                $all_member_data = $member_table->where('id',$recommend_one)->find();//查询一下这个id有没有
+                                if($all_member_data){//查询上一级有无推荐人
+                                    $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one])->where('type','in','2,3')->count();
+                                    if($order_boolean){//查询一下上一级有无购买超过100元的金额
                                         $member_table->where('id',$all_member_data['id'])->setInc('bonus',$total_bonus);//添加三级级推荐奖励
                                         $bonus_table->insert([
                                             'uid'=>$all_member_data['id'],'type'=>$recommend_id,'create_date'=>time(),'money'=>$total_bonus,'order_id'=>$order_id
@@ -341,15 +363,17 @@ class Goods extends Model
                                     }
                                     $recommend_one = $all_member_data['recommend'];
                                     $recommend_id++;
+                                }else{
+                                    exit('success');
                                 }
                                 break;
                         }
                     }else{
                         if($recommend_id > 0){
                             break;
-                        }else{
+                        }else{//大于0，第二次循环计算推荐奖励,第一次是0，计算第一次的推荐奖励
                             $one_member_data=$member_table->where('id',$recommend_one)->find();//查询上一级
-                            $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>2])->count();
+                            $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>array('in','2,3')])->count();
                             //计算购买产品的一代奖金
                             if($one_member_data && $order_boolean){
                                 $one_bonus = $product_buy_total * ($data_base['recommend_one'] / 100);
@@ -357,21 +381,23 @@ class Goods extends Model
                                 $bonus_table->insert([
                                     'uid'=>$one_member_data['id'],'type'=>'1','create_date'=>time(),'money'=>$one_bonus,'order_id'=>$order_id
                                 ]);//生成一条奖金记录
+                                $recommend_id = 2;//循环第二次
                             }elseif ($one_member_data){
                                 $recommend_id = 2;
                             }else{
-                                exit();
+                                exit('success');
                             }
                         }
                     }
                 }
             }
+            self::mean_total_money($return_data['uid'],$product_buy_total);
+            exit('success');
             //统计直推人数奖励
             /*
              * 这里计算团队
              * 奖金
              * */
-            self::mean_total_money($return_data['uid'],$product_buy_total);
         }catch (Exception $exception){
             Log::init(['type'=>'File','path'=>APP_PATH.'pay_log/']);
             Log::error($exception->getMessage());
@@ -565,7 +591,8 @@ class Goods extends Model
                 'day_each'=>$data_product['name_tian'] - 1,//获取产品的发放天数 -1
                 'raito'=>$data_product['name_bei'],
                 'each_money'=>$each_num_money,//每次分配的金额
-                'order_id'=>$order_id//添加一个订单id
+                'order_id'=>$order_id,//添加一个订单id
+                'residue_money'=>($data_product['name_tian'] - 1) * $each_num_money//得到一个剩余分配金额
             ]);
             Db::name('profit')->insert([//每日分红表
                 'uid'=>$uid,
@@ -803,5 +830,88 @@ class Goods extends Model
                 'residue_num'=>$data_product['residue_num'] - $data['buy_num'],'update_time'=>time()
             ]);
             return $order_id;//直接返回一个会员id
+    }
+    //提现
+    public static function deposit_money($data){
+        $role = [
+            'money'=>'require|float',
+            'password_two'=>'require|min:6',
+            'code'=>"require|min:4|captcha",
+            'bank_id'=>'require|number'
+        ];
+        $message = [
+            'money.require'=>'金额不能为空',
+            'money.float'=>'必须是小数',
+            'password_two.require'=>'安全密码不能为空',
+            'password_two.min'=>'安全密码长度不够',
+            'code.require'=>'验证码不能为空',
+            'code.min'=>'验证码不能小于四位数',
+            'bank_id.require'=>'银行不能为空',
+            'bank_id.number'=>'银行必须是数字',
+            'code.captcha'=>'验证码不正确'
+        ];
+        $validate = new Validate($role,$message);
+        if(!$validate::token('','',['__token__'=>$data['token']])){
+            return ['status'=>2,'msg'=>'请不要重复提交表单'];
+        }
+        if(!$validate->check($data)){
+            return ['status'=>2,'msg'=>$validate->getError()];
+        }
+        $bank_ = Db::name('mbank')->where('id',$data['bank_id'])->find();
+        if(!$bank_){
+            return ['status'=>2,'msg'=>'您的银行卡不正确'];
+        }
+        $new = new \app\index\model\User();
+        $uid = Session::get('uid');
+        $member_data=$new::get(['id'=>$uid]);
+        if($member_data->password_two !== md5_pass(1,$data['password_two'])){
+            return ['status'=>2,'msg'=>'安全密码不正确'];
+        }
+        $databases = database(2);
+
+        if($databases['tixian_status'] < 1){
+            return ['status'=>2,'msg'=>'提现已关闭'];
+        }
+        if($databases['deposit_time_start'] > 0 ){
+            $deposit_time_start = strtotime(date('Y-m-d').$databases['deposit_time_hour'].$databases['deposit_time_minute']);//start time
+            $deposit_time_end = strtotime(date('Y-m-d').$databases['deposit_time_hour_stop'].$databases['deposit_time_minute_stop']);//time out.
+            $time = request()->time();
+            if($time < $deposit_time_start || $time > $deposit_time_end){
+                return ['status'=>2,'msg'=>'请在当天'.date('H:i:s',$deposit_time_start).' 至 '.date('H:i:s',$deposit_time_end).'提现'];
+            }
+        }
+        $day['create_date'] = array('between',strtotime(date('Y-m-d').' 00:00:00').','.strtotime(date('Y-m-d').' 23:59:59'));
+        $count_deposit = Db::name('deposit')->where($day)->where('uid',$uid)->count();
+        if($count_deposit >= $databases['deposit_number']){
+            return ['status'=>2,'msg'=>'每日可提现'.$databases['deposit_number'].'次'];
+        }
+        if($databases['tixianjinemin'] > $data['money']){
+            return ['status'=>2,'msg'=>'提现金额不能小于'.$databases['tixianjinemin'].'￥'];
+        }
+        if($databases['tixianjinemax'] <= $data['money']){
+            return ['status'=>2,'msg'=>'提现金额不能大于'.$databases['tixianjinemax'].'￥'];
+        }
+        if($member_data->money < $data['money']){
+            return ['status'=>2,'msg'=>'余额不足'];
+        }
+        $member_data->money -= $data['money'];
+        $shouxufei=$data['money'] * ($databases['shouxufei'] / 100);
+        $benjin=$data['money'] - $shouxufei;
+        $web_deposit = Db::name('deposit')->insert([
+            'money'=>$benjin,
+            'service_charge'=>$shouxufei,
+            'create_date'=>request()->time(),
+            'uid'=>$uid,'name'=>$bank_['name'],
+            'bank'=>$bank_['bank'],'province'=>$bank_['sheng'],
+            'city'=>$bank_['shi'],'kaihubank'=>$bank_['zhihang'],'bank_crad'=>$bank_['bank_user'],'mobile'=>$bank_['mobile'],
+            'crad'=>$bank_['crad'],
+            'type'=>1
+        ]);
+        $member_data->save();
+        if($web_deposit){
+            return ['status'=>1,'msg'=>'提现成功','url'=>Url::build('index/Suey/withdrawals','','')];
+        }else{
+            return ['status'=>2,'msg'=>'提现失败'];
+        }
     }
 }

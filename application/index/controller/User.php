@@ -58,7 +58,7 @@ class User extends \app\common\controller\Common
     //提现
     public function deposit(){
         if(Request::instance()->isAjax()){
-            return \app\index\model\User::deposit_money(input('post.'));
+            return \app\index\logic\Goods::deposit_money(input('post.'));
         }
     }
     public function up_pass(){//修改密码
