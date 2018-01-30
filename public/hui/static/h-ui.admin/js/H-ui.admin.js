@@ -828,7 +828,7 @@ function product_add_artivle(){
     var type_name = $('input[name="type_name"]').val();
     var content = $('textarea[name="type_message"]').val();
     $.ajax({
-        url:'/product/product_add_article',
+        url:'/admin/product/product_add_article',
         data:{type_name:type_name,type_message:content},
         dataType:'json',
         type:'post',
@@ -857,7 +857,7 @@ function product_add_class_save(){
 		var type_name = $('input[name="type_name"]').val();
 		var content = $('textarea[name="content"]').val();
 		$.ajax({
-			url:'/product/product_class_adds',
+			url:'/admin/product/product_class_adds',
 			data:{pid:class_name,title:type_name,content:content},
 			dataType:'json',
 			type:'post',
