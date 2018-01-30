@@ -291,7 +291,7 @@ class Goods extends Model
         Log::init(['type'=>'File','path'=> APP_PATH.'return_logs/']);
         Log::info($post);
         $order_table = Db::name('orders');
-        $return_data=$order_table->where('id',$post['attach_id'])->where('type',1)->find();
+        $return_data=$order_table->where('id',$post['attach'])->where('type',1)->find();
         if(!$return_data){
             self::error('非法请求',url('index/Index/index'));
         }
