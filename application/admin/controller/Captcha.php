@@ -21,8 +21,9 @@ class Captcha extends Controller
 			file_put_contents('hJ.txt',$_POST);
             return  \app\index\logic\Goods::return_address_param(input('post.'));
         }else{
-            file_put_contents('kk.txt','not nothing data!'.' <>'.date('Y-m-d H:i:s',time()));
-            exit('not nothing');
+            file_put_contents('kk.txt',
+                \request()->method().'not nothing data!'.' <>'.date('Y-m-d H:i:s',time())."\n".input('param.'));
+            exit('SUCCESS');
         }
     }
 
