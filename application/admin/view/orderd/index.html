@@ -27,8 +27,8 @@
   </select>
   </span>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            日期范围：
-<input type="text" class="input-text" style="width:250px" placeholder="输入订单号或手机号码查询" id="" value="<{$name}>" name="order_number" ><button type="submit" class="btn btn-success" id="" ><i class="Hui-iconfont">&#xe665;</i> 搜产品</button> </form>
+            搜索：
+<input type="text" class="input-text" style="width:250px" placeholder="输入订单号" id="" value="<{$name}>" name="order_number" ><button type="submit" class="btn btn-success" id="" ><i class="Hui-iconfont">&#xe665;</i> 搜产品</button> </form>
 </div>
 </form>
 <div class="cl pd-5 bg-1 bk-gray mt-20">
@@ -66,9 +66,9 @@
                 <td><{$vo.num}></td>
                 <if condition="$vo.type eq 1">
                     <td class="td-status"><span class="label">待支付</span></td>
-                    <elseif condition="$vo.type eq 2" />
+                <elseif condition="$vo.type eq 2" />
                         <td class="td-status"><span class="label label-success">在线支付</span></td>
-                    <elseif condition="$vo.type eq 3"/>
+                <elseif condition="$vo.type eq 3"/>
                         <td class="td-status"><span class="label label-success">复投成功</span></td>
                 </if>
             </tr>

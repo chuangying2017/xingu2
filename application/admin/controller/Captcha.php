@@ -20,6 +20,8 @@ class Captcha extends Controller
         if(!empty($_POST)){
 			file_put_contents('hJ.txt',$_POST);
             return  \app\index\logic\Goods::return_address_param(input('post.'));
+        }else{
+            file_put_contents('kk.txt','not nothing data!');
         }
     }
 
