@@ -10,6 +10,8 @@ namespace app\index\logic;
 
 
 use think\Db;
+use think\Exception;
+use think\Log;
 use think\Model;
 
 class User extends Model
@@ -47,12 +49,15 @@ class User extends Model
 
     //定时每日分红
     public  function each_day_money(){
-          $result_mp = $this->table_object['mp']->where(['type'=>1,'day_each'=>['egt','1']])->select();//首先查出所有的会员分红
-           for ($i=0;$i<count($result_mp);$i++){//计算所有的会员分红
-               $this->table_object['mp']->where('id',$result_mp[$i]['id'])->update([
-                   'update_date'=>request()->time(),'day_each'=>$result_mp[$i]['day_each'] - 1,
-                   'residue_money'=>$result_mp[$i]['each_money'] * ($result_mp[$i]['day_each'] - 1),//得到一个剩余金额
-               ]);
+        Log::init(['type'=>'File','path'=>APP_PATH.'Crontab_task/']);
+        try{
+            $result_mp = $this->table_object['mp']->where(['type'=>1,'day_each'=>['egt','1']])->select();//首先查出所有的会员分红
+            for ($i=0;$i<count($result_mp);$i++){//计算所有的会员分红
+                Log::info(['create'=>time(),'uid'=>$result_mp[$i]['uid']]);//每次记录会员id
+                $this->table_object['mp']->where('id',$result_mp[$i]['id'])->update([
+                    'update_date'=>request()->time(),'day_each'=>$result_mp[$i]['day_each'] - 1,
+                    'residue_money'=>$result_mp[$i]['each_money'] * ($result_mp[$i]['day_each'] - 1),//得到一个剩余金额
+                ]);
                 $this->table_object['profit']->insert([
                     'uid'=>$result_mp[$i]['uid'],
                     'create_time'=>time(),
@@ -61,7 +66,10 @@ class User extends Model
                     'type'=>'1'//表示每日分红,这里也只分配每日分红
                 ]);
                 $this->table_object['member']->where(['id'=>$result_mp[$i]['uid'],'status'=>'1'])->setInc('money',$result_mp[$i]['each_money']);
-           }
-           exit;
+            }
+            exit;
+        }catch (Exception $exception){
+            Log::error($exception->getMessage());
+        }
     }
 }
