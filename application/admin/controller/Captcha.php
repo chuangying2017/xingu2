@@ -25,6 +25,10 @@ class Captcha extends Controller
 
     }
 
+    public function ceshi_bash(){
+        file_put_contents('bash.txt','123456');
+    }
+
     public function zhang(){
         //鑫谷公众号的密钥
         dump(md5_pass(2,'xingu'));
