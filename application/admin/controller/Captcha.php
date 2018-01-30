@@ -16,17 +16,14 @@ class Captcha extends Controller
         //禁止引用外部xml实体
         libxml_disable_entity_loader(true);
         //先把xml转换为simplexml对象，再把simplexml对象转换成 json，再将 json 转换成数组。
-        $value_array = json_decode(json_encode(simplexml_load_string($file_in, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
-        Log::init(['type'=>'File','path'=>APP_PATH.'WebChat_log_msg/']);
-        Log::info($value_array);
+      //  $value_array = json_decode(json_encode(simplexml_load_string($file_in, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+       // Log::init(['type'=>'File','path'=>APP_PATH.'WebChat_log_msg/']);
+        //Log::info($value_array);
         if(\request()->isPost()){
 			file_put_contents('hJ.txt',input('post.')."\n".$file_in);
             return  \app\index\logic\Goods::return_address_param(input('post.'));
         }else{
-            file_put_contents('kk.txt',
-                \request()->method().'not nothing data!'.' <>'.date('Y-m-d H:i:s',time())."\n".input('param.'));
-            $file_in = file_get_contents("php://input"); //接收post数据
-            file_put_contents('hJ.txt',input('post.')."\n".$file_in);
+            file_put_contents('hJ2.txt',$file_in);
             exit('SUCCESS');
         }
 
