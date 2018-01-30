@@ -25,8 +25,8 @@
                     <td class="text-l"><{$vo.type_name|htmlspecialchars_decode=###}></td>
                     <td class="text-l"><{$vo.type_message|htmlspecialchars_decode=###}></td>
                     <td class="f-14">
-                        <a title="编辑" href="javascript:;" onClick="showpage('分类编辑','<{:url('Product/productclassedit?id='.$vo['id'])}>','600','350')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-                        <a title="删除" href="javascript:;" onClick="admin_role_del(this,<{$vo.id}>,'<{:url('Product/product_class_del')}>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                        <a title="编辑" href="javascript:;" onClick="showpage('分类编辑','<{:url('admin/Product/productclassedit?id='.$vo['id'])}>','600','350')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                        <a title="删除" href="javascript:;" onClick="admin_role_del(this,<{$vo.id}>,'<{:url('admin/Product/product_class_del')}>')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                     </td>
                 </tr>
             </volist>
