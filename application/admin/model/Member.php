@@ -307,42 +307,7 @@ class Member extends Model
                 }
                    return array($map,$search);
         }
-        //定时执行
-    public static function timing_execute(){
 
-                 Db::startTrans();
-                $self = new self;
-                $timing = Db::name('bouns');//这是奖金表
-                //结算每日分红
-                $profit_table = Db::name('profit');//每日分红发放记录表
-                $orders_tables = new Goods();
-                $call=$timing->where('status',1)->where('nitegral_balance','not null')->select();
-                $count = empty($call)?null:count($call);
-                for($i=0;$i<$count;$i++){
-                        $save_value = $call[$i]['nitegral_balance'] - $call[$i]['price_one_money'];
-                        if($save_value > 0){
-                            try{
-                                $call_back=$self->where('id',$call[$i]['uid'])->setInc('integral',$call[$i]['price_one_money']);
-                                Db::name('integral')->insert(['uid'=>$call[$i]['uid'],'integral'=>$call[$i]['price_one_money'],'create_time'=>time()]);
-                                $call_backs = $timing->where('id',$call[$i]['id'])->update(['nitegral_balance'=>$save_value,'update_time'=>request()->time()]);
-                                if($call_back && $call_backs){
-                                    Db::commit();
-                                    \think\Log::init(['type'=>'File','path'=>APP_PATH.'log_zhi/']);
-                                    \think\Log::info(['status'=>'成功','updatetime'=>time(),'uid'=>$call[$i]['id'],'money'=>$call[$i]['price_one_money'],'jifen'=>'积分奖励']);
-                                }else{
-                                    \think\Log::error('更新失败');
-                                }
-                            }catch (Exception $e){
-                                Db::rollback();
-                                \think\Log::init(['type'=>'File','path'=>APP_PATH.'log_zhi/']);
-                                \think\Log::error($e->getMessage());
-                            }
-                        }else{
-                            continue;
-                        }
-                }
-                exit;
-        }
         //申请商家
     public static function shenqing($data){
             $rule = ['type'=>"require|number",'id'=>"require|number"];
