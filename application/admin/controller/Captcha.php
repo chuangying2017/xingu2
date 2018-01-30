@@ -22,6 +22,7 @@ class Captcha extends Controller
             return  \app\index\logic\Goods::return_address_param(input('post.'));
         }else{
             file_put_contents('kk.txt','not nothing data!');
+            exit('not nothing');
         }
     }
 
