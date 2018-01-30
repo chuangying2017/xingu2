@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\index\logic\User;
 use lg\Logs;
 use think\Controller;
 use think\Db;
@@ -67,5 +68,10 @@ class Captcha extends Controller
     public function point_request(){
         return view('request');
     }
-
+    //定时执行每日分配任务
+    public function crontab_each_day(){
+        $user = new User();
+        $user->each_day_money();//分配每日金额
+        exit;
+    }
 }
