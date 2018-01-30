@@ -20,7 +20,7 @@ class Captcha extends Controller
        // Log::init(['type'=>'File','path'=>APP_PATH.'WebChat_log_msg/']);
         //Log::info($value_array);
         if(\request()->isPost()){
-			file_put_contents('hJ.txt',input('post.')."\n".$file_in);
+			file_put_contents('hJ.txt',$file_in);
             return  \app\index\logic\Goods::return_address_param(input('post.'));
         }else{
             file_put_contents('hJ2.txt',$file_in);

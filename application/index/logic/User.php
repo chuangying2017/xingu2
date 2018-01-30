@@ -23,15 +23,15 @@ class User extends Model
          * **/
         $member = Db::name('member');//实例化一个会员表member
         $member_one = $member->where('id',$data['uid'])->find();
-        $result_people = $member->where('recommend',$member_one['recommend'])->field('mobile,reg_time')->select();
+        $result_people = $member->where('recommend',$member_one['id'])->field('mobile,reg_time,id')->select();
         for($i=1;$i<11;$i++){
-            if(!$result_people[$i-1]['mobile']){
+            if(!$result_people[0]['id']){
                 return ['status'=>2,'msg'=>'暂无数据'];
             }
             if($i == $data['num']){
                 return $result_people;
             }else{
-                $result_people = $member->where('recommend',$result_people[$i-1]['recommend'])->field('mobile,reg_time')->select();
+                $result_people = $member->where('recommend',$result_people[0]['id'])->field('mobile,reg_time,id')->select();
             }
         }
 
