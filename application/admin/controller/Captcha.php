@@ -11,21 +11,14 @@ use think\Request;
 class Captcha extends Controller
 {
     public function  baibao_return(){//接收微信支付回调
-        $file_in = file_get_contents("php://input"); //接收post数据
-        file_put_contents('xml.txt',$file_in);
-        //禁止引用外部xml实体
-        libxml_disable_entity_loader(true);
-        //先把xml转换为simplexml对象，再把simplexml对象转换成 json，再将 json 转换成数组。
-      //  $value_array = json_decode(json_encode(simplexml_load_string($file_in, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
-       // Log::init(['type'=>'File','path'=>APP_PATH.'WebChat_log_msg/']);
-        //Log::info($value_array);
+
         if(\request()->isPost()){
-			file_put_contents('hJ.txt',$file_in);
             $file_in = file_get_contents("php://input"); //接收post数据
             libxml_disable_entity_loader(true);
             $value_array = json_decode(json_encode(simplexml_load_string($file_in, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
             return  \app\index\logic\Goods::return_address_param($value_array);
         }else{
+            $file_in = file_get_contents("php://input"); //接收post数据
             file_put_contents('hJ2.txt',$file_in);
             exit('SUCCESS');
         }
