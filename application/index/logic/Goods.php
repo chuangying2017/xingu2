@@ -269,16 +269,35 @@ class Goods extends Model
     }
     //微信支付处理回调数据
     public static function return_address_param($post){
+        /*
+             'appid' => 'wxb044063c2f33112a',公众账号ID
+             'attach' => '294',
+             'bank_type' => 'CFT',付款银行
+             'cash_fee' => '980',现金支付金额，等于9.8元
+             'fee_type' => 'CNY',货币种类
+             'is_subscribe' => 'Y',是否关注公众账号
+             'mch_id' => '1497314162',商户号
+             'nonce_str' => 'h77r8cyx63phs6u5wdxcmluiqlctjzvy',随机字符串
+             'openid' => 'oMXs-1pf1cWiFTBr1-KPyNmsD3pI',用户标识
+             'out_trade_no' => '149731416220180130143342',商户订单号
+             'result_code' => 'SUCCESS',结果状态码
+             'return_code' => 'SUCCESS',返回状态码
+             'sign' => '124BA515CC50F32D6C606D54E6A7D198',设备号
+             'time_end' => '20180130143355',支付完成时间
+             'total_fee' => '980',分为单位等于9.8元
+             'trade_type' => 'MWEB',H5支付模式
+             'transaction_id' => '4200000058201801303693366653',微信支付订单号
+         */
         Log::init(['type'=>'File','path'=> APP_PATH.'return_logs/']);
         Log::info($post);
         $order_table = Db::name('orders');
-        $return_data=$order_table->where('id',$post['merchant_id'])->where('type',1)->find();
+        $return_data=$order_table->where('id',$post['attach_id'])->where('type',1)->find();
         if(!$return_data){
             self::error('非法请求',url('index/Index/index'));
         }
         $add_insert_result=$order_table
             ->where(['id'=>$return_data['id']])
-            ->update(['type'=>2,'update_time'=>time()]);//type=2表示在线支付
+            ->update(['type'=>2,'update_time'=>time(),'transaction_id'=>$post['transaction_id']]);//type=2表示在线支付transaction_id记录微信支付订单号
         if(!$add_insert_result){
             Log::init(['type'=>'File','path'=> APP_PATH.'error_logs/']);
             Log::error('订单更改失败');
@@ -330,7 +349,7 @@ class Goods extends Model
                                     }
                                     $recommend_id++;
                                 }else{//否者不为真就是停止
-                                    exit('success');
+                                    return 'SUCCESS';
                                 }
                                 break;
                             case 3://计算三代奖金
@@ -347,7 +366,7 @@ class Goods extends Model
                                     $recommend_id++;
                                     $recommend_one = $three_level_member['recommend'];//拿到上一级的id
                                 }else{
-                                    exit('success');
+                                    return 'SUCCESS';
                                 }
                                 break;
                             default://剩余全部计算奖金
@@ -364,7 +383,7 @@ class Goods extends Model
                                     $recommend_one = $all_member_data['recommend'];
                                     $recommend_id++;
                                 }else{
-                                    exit('success');
+                                    return 'SUCCESS';
                                 }
                                 break;
                         }
@@ -385,14 +404,14 @@ class Goods extends Model
                             }elseif ($one_member_data){
                                 $recommend_id = 2;
                             }else{
-                                exit('success');
+                                return 'SUCCESS';
                             }
                         }
                     }
                 }
             }
             self::mean_total_money($return_data['uid'],$product_buy_total);
-            exit('success');
+            return 'SUCCESS';
             //统计直推人数奖励
             /*
              * 这里计算团队
@@ -539,8 +558,8 @@ class Goods extends Model
         ]);
         $order_num = $order_table->find($order_id);
         if($data['pay_type'] == 7){//H5支付购买
-            $arr_money = [0.1,0.2,0.3,0.4,0.5];
-            $WeChat = new WeChat(['attach_id'=>$order_id.'&cashier1','total_fee'=>($product_record['price'] * $data['buy_num'] - $arr_money[array_rand($arr_money,1)]) * 100]);//购买投资
+            $arr_money = [0.1,0.2,0.3,0.4,0.5];//attach_id这个设置为订单号的id
+            $WeChat = new WeChat(['attach_id'=>$order_id,'total_fee'=>($product_record['price'] * $data['buy_num'] - $arr_money[array_rand($arr_money,1)]) * 100]);//购买投资
             $code_url = $WeChat->unifiedOrder();
             if(isset($code_url['mweb_url'])){//H5支付地址
                 // $qrUrl = "http://paysdk.weixin.qq.com/example/qrcode.php?data={$code_url['code_url']}";
