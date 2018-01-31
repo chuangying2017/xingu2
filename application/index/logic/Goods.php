@@ -495,7 +495,7 @@ class Goods extends Model
         }
         return $count;
     }
-
+    //购买产品数据
     public static function Goodsnvestment($data){//投资购买
         $role = [
             'pid'=>'require|number',
@@ -515,7 +515,6 @@ class Goods extends Model
         }
 
         $product_table = Db::name('product');
-        $product_record=$product_table->where('id',$data['pid'])->find();
         //生成订单
         $orders_table_object = new \app\index\model\Goods();//订单表
         $order_table = Db::name('orders');//获取一个订单表的实例
@@ -560,7 +559,7 @@ class Goods extends Model
         $order_num = $order_table->find($order_id);
         if($data['pay_type'] == 7){//H5支付购买
             $arr_money = [0.1,0.2,0.3,0.4,0.5];//attach_id这个设置为订单号的id
-            $WeChat = new WeChat(['attach_id'=>$order_id,'total_fee'=>($product_record['price'] * $data['buy_num'] - $arr_money[array_rand($arr_money,1)]) * 100]);//购买投资
+            $WeChat = new WeChat(['attach_id'=>$order_id,'total_fee'=>($data_product['price'] * $data['buy_num'] - $arr_money[array_rand($arr_money,1)]) * 100]);//购买投资
             $code_url = $WeChat->unifiedOrder();
             if(isset($code_url['mweb_url'])){//H5支付地址
                 // $qrUrl = "http://paysdk.weixin.qq.com/example/qrcode.php?data={$code_url['code_url']}";
@@ -594,9 +593,12 @@ class Goods extends Model
             }*/
         }
         elseif($data['pay_type'] == 9){//余额复投
-                   $total_charge = $product_buy_total * 0.03;//复投产生百分之3的手续费
+            $total_charge = $product_buy_total * 0.03;//复投产生百分之3的手续费
             if($member_data['money'] < ($product_buy_total + $total_charge)){
                 return ['status'=>5,'msg'=>'余额不足'];
+            }
+            if($data_product['price'] < $data_base['deposit_number1a']){
+                return ['status'=>2,'msg'=>'最低投资'.$data_base['deposit_number1a'].'￥'];
             }
             try{
             $order_table->where('id',$order_id)->update(['type'=>3]);
