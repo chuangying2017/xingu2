@@ -49,11 +49,6 @@ class Captcha extends Controller
         }
     }
 
-    public function Custom(){
-        //演示实例化
-            $tables = new \app\index\logic\User();
-            dump($tables->each_day_money());
-    }
     //
     public  function indexddd(){
        dump(md5(md5_pass('2','123456')));
