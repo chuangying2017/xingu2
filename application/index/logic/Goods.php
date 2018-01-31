@@ -430,6 +430,7 @@ class Goods extends Model
         $one_level=$member->where('id',$uid)->find();
         $database = database(2);//获取后台设置的参数
         $count_team = self::team_people($one_level['id']);
+        //判断最大直和团队人数
         if($one_level['invite_person'] >= $database['team_people_num_zhis'] && $count_team >= $database['team_people_num1'] && !empty($one_level)){//判断直推人数是否达到要求
             $team_bonus_money=$price * ($database['bonus_money_team1'] / 100);//计算团队奖励
             /*
@@ -440,6 +441,7 @@ class Goods extends Model
                 'uid'=>$one_level['id'],'create_date'=>time(),'type'=>12,'money'=>$team_bonus_money
             ]);
             $team = self::mean_total_money($one_level['recommend'],$price);
+            //判断直推较小的人数
         }else if($one_level['invite_person'] >= $database['team_people_num_zhi'] && $count_team >= $database['team_people_num'] && !empty($one_level)){
             $team_bonus_money=$price * ($database['bonus_money_team'] / 100);//计算团队奖励
             $member->where('id',$one_level['id'])->setInc('bonus',$team_bonus_money);//将金额加入会员列表
