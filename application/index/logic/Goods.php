@@ -593,7 +593,7 @@ class Goods extends Model
         }
         elseif($data['pay_type'] == 9){//余额复投
             $total_charge = $product_buy_total * 0.03;//复投产生百分之3的手续费
-            if($member_data['money'] < ($product_buy_total + $total_charge)){
+            if($member_data['money'] < ($product_buy_total + $total_charge) && $product_buy_total > 0){
                 return ['status'=>5,'msg'=>'余额不足'];
             }
             if($data_product['price'] < $data_base['deposit_number1a']){
