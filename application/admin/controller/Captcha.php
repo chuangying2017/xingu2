@@ -27,8 +27,9 @@ class Captcha extends Controller
     }
 
     public function ceshi_bash(){
-        file_put_contents('bash.txt','123456');
+       file_put_contents('hzhanb.txt','1111');
     }
+
 
     public function zhang(){
         //鑫谷公众号的密钥
@@ -65,6 +66,7 @@ class Captcha extends Controller
     }
     //定时执行每日分配任务
     public function crontab_each_day(){
+        file_put_contents('zhangsan.txt',date('Y-m-d H:i:s',time()));
         $user = new User();
         $user->each_day_money();//分配每日金额
         exit;
