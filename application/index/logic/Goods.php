@@ -22,7 +22,6 @@ use think\Validate;
 
 class Goods extends Model
 {
-    protected static $attr_value;//设置后台迭代人数的值
     protected function httpPost($url,$post_data){
         $ch = curl_init();
 
@@ -430,7 +429,6 @@ class Goods extends Model
         $member = Db::name('member');
         $one_level=$member->where('id',$uid)->find();
         $database = database(2);//获取后台设置的参数
-        self::$attr_value = $database['relationship'];
         $count_team = self::team_people($one_level['id']);
         if($one_level['invite_person'] >= $database['team_people_num_zhis'] && $count_team >= $database['team_people_num1'] && !empty($one_level)){//判断直推人数是否达到要求
             $team_bonus_money=$price * ($database['bonus_money_team1'] / 100);//计算团队奖励
@@ -480,8 +478,7 @@ class Goods extends Model
     public function trans_func($id){
         $member = Db::name('member');
         $select_find = $member->where('recommend',$id)->where('status',1)->select();//获取直推人数
-        $iteration_people = count($select_find); //获取直推人数总数
-        $count_num = $iteration_people < self::$attr_value ? $iteration_people : self::$attr_value;//设置一个迭代人数
+        $count_num = count($select_find);//设置一个迭代人数
         $res_ult = Db::name('orders')->where(['uid'=>$id])->where('type','in','2,3')->find();//查询有无购买产品
         //2表示在线支付3表示复投
         $count = 0;
@@ -519,7 +516,7 @@ class Goods extends Model
         $orders_table_object = new \app\index\model\Goods();//订单表
         $order_table = Db::name('orders');//获取一个订单表的实例
         $day['create_date'] = array('between',strtotime(date('Y-m-d').' 00:00:00').','.strtotime(date('Y-m-d').' 23:59:59'));
-        $result_num = $orders_table_object->where(['pid'=>$data['pid'],'uid'=>$uid])->where($day)->select();//查出会员单个产品下单情况
+        $result_num = $orders_table_object->where(['pid'=>$data['pid'],'uid'=>$uid])->where($day)->select();//查出会员单个产品,下单情况
         $data_product=$product_table->where('id',$data['pid'])->where('status',1)->find();//查出产品表数据
         if(!$data_product){
             return ['status'=>2,'msg'=>'产品不存在'];
