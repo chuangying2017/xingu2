@@ -499,11 +499,11 @@ class Goods extends Model
         $role = [
             'pid'=>'require|number',
             'pay_type'=>'require|number',//支付接口类型
-            'buy_num'=>'require|number|max:5',//产品数量
+            'buy_num'=>'require|number|max:5|>:0',//产品数量
         ];
         $uid = Session::get('uid');
         $message = [
-            'pay_type.require'=>'支付类型不能为空','pay_type.number'=>'支付类型不正确',
+            'pay_type.require'=>'支付类型不能为空','pay_type.number'=>'支付类型不正确','buy_num.gt'=>'请输入1以上',
             'pid.require'=>'产品id不能为空','pid.number'=>'必须是数字','buy_num.require'=>'产品数量必须的','buy_num.number'=>'必须是数字'];
         $validate = new Validate($role,$message);
         if(!$validate::token('','',['__token__'=>$data['token']])){
