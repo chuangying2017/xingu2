@@ -27,7 +27,7 @@ class Captcha extends Controller
     }
 
     public function ceshi_bash(){
-       file_put_contents('hzhanb.txt','1111');
+       file_put_contents('bash_new.txt',date('Y-m-d H:i:s',time()));
     }
 
 
