@@ -27,7 +27,10 @@ class Captcha extends Controller
     }
 
     public function ceshi_bash(){
-       file_put_contents('bash_new.txt',date('Y-m-d H:i:s',time()));
+        $myfile = fopen("bash_new.txt", "w") or die("Unable to open file!");
+        $txt = date('Y-m-d H:i:s',time())."\n";
+        fwrite($myfile, $txt);
+        fclose($myfile);
     }
 
 
