@@ -86,7 +86,7 @@ class record extends \app\common\controller\Common
     public function my_cexiaos(){
         if(Request::instance()->isAjax()){
             $Input = input('post.id');
-            $result = Db::name('torder')->where(['uid'=>Session::get('uid'),'id'=>$Input,'status'=>0])->delete();
+            $result = Db::name('orders')->where(['uid'=>Session::get('uid'),'id'=>$Input,'type'=>1])->delete();
             if($result){
                 return ['status'=>1,'msg'=>'撤销成功','url'=>url('index/record/inscl')];
             }else{
