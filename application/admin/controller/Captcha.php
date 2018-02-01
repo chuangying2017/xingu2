@@ -74,4 +74,9 @@ class Captcha extends Controller
         $user->each_day_money();//分配每日金额
         exit;
     }
+    //隔日定时奖金转换余额
+    public function day_bonus_shift(){
+        $User_logic = new User();
+        $User_logic->cron_member_money();
+    }
 }
