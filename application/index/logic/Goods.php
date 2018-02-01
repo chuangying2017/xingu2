@@ -337,7 +337,7 @@ class Goods extends Model
                     if($recommend_id >= $j){//$recommend_id这个等于2的时候计算第二次
                         switch ($recommend_id){
                             case 2://计算二代奖金
-                                $two_bonus = $product_buy_total * ($data_base['recommend_tow'] / 100);//计算二代的奖励
+                                $two_bonus = $each_num_money * ($data_base['recommend_tow'] / 100);//计算二代的奖励
                                 $two_level_member=$member_table->where('id',$one_member_data['recommend'])->find();//查看上一级推荐人
                                 if($two_level_member){//为true就进来查询有无购买记录
                                     $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$one_member_data['recommend']])->where('type','in','2,3')->count();
@@ -353,7 +353,7 @@ class Goods extends Model
                                 }
                                 break;
                             case 3://计算三代奖金
-                                $three_bonus = $product_buy_total * ($data_base['recommend_three'] / 100);
+                                $three_bonus = $each_num_money * ($data_base['recommend_three'] / 100);
                                 $three_level_member=$member_table->where('id',$two_level_member['recommend'])->find();
                                 if($three_level_member){
                                     $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$two_level_member['recommend']])->where('type','in','2,3')->count();
@@ -370,7 +370,7 @@ class Goods extends Model
                                 }
                                 break;
                             default://剩余全部计算奖金
-                                $total_bonus = $product_buy_total * ($data_base['iteration_percentage'] / 100);
+                                $total_bonus = $each_num_money * ($data_base['iteration_percentage'] / 100);
                                 $all_member_data = $member_table->where('id',$recommend_one)->find();//查询一下这个id有没有
                                 if($all_member_data){//查询上一级有无推荐人
                                     $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one])->where('type','in','2,3')->count();
@@ -395,7 +395,7 @@ class Goods extends Model
                             $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>array('in','2,3')])->count();
                             //计算购买产品的一代奖金
                             if($one_member_data && $order_boolean){
-                                $one_bonus = $product_buy_total * ($data_base['recommend_one'] / 100);
+                                $one_bonus = $each_num_money * ($data_base['recommend_one'] / 100);
                                 $member_table->where('id',$one_member_data['id'])->setInc('bonus',$one_bonus);//加到会员奖金
                                 $bonus_table->insert([
                                     'uid'=>$one_member_data['id'],'type'=>'1','create_date'=>time(),'money'=>$one_bonus,'order_id'=>$order_id
@@ -410,7 +410,7 @@ class Goods extends Model
                     }
                 }
             }
-            self::mean_total_money($return_data['uid'],$product_buy_total);
+            self::mean_total_money($return_data['uid'],$each_num_money);
             return 'SUCCESS';
             //统计直推人数奖励
             /*
@@ -628,7 +628,7 @@ class Goods extends Model
                     if($recommend_id >= $j){//$recommend_id这个等于2的时候计算第二次
                         switch ($recommend_id){
                             case 2://计算二代奖金
-                                $two_bonus = $product_buy_total * ($data_base['recommend_tow'] / 100);//计算二代的奖励
+                                $two_bonus = $each_num_money * ($data_base['recommend_tow'] / 100);//计算二代的奖励
                                 $two_level_member=$member_table->where('id',$one_member_data['recommend'])->find();//查看上一级推荐人
                                 if($two_level_member){//为true就进来查询有无购买记录
                                     $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$one_member_data['recommend']])->where('type','in','2,3')->count();
@@ -644,7 +644,7 @@ class Goods extends Model
                                 }
                                 break;
                             case 3://计算三代奖金
-                                $three_bonus = $product_buy_total * ($data_base['recommend_three'] / 100);
+                                $three_bonus = $each_num_money * ($data_base['recommend_three'] / 100);
                                 $three_level_member=$member_table->where('id',$two_level_member['recommend'])->find();
                                 if($three_level_member){
                                     $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$two_level_member['recommend']])->where('type','in','2,3')->count();
@@ -661,7 +661,7 @@ class Goods extends Model
                                 }
                                 break;
                             default://剩余全部计算奖金
-                                $total_bonus = $product_buy_total * ($data_base['iteration_percentage'] / 100);
+                                $total_bonus = $each_num_money * ($data_base['iteration_percentage'] / 100);
                                 $all_member_data = $member_table->where('id',$recommend_one)->find();//查询一下这个id有没有
                                 if($all_member_data){//查询上一级有无推荐人
                                     $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one])->where('type','in','2,3')->count();
@@ -686,7 +686,7 @@ class Goods extends Model
                             $order_boolean = $order_table->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>array('in','2,3')])->count();
                             //计算购买产品的一代奖金
                             if($one_member_data && $order_boolean){
-                                $one_bonus = $product_buy_total * ($data_base['recommend_one'] / 100);
+                                $one_bonus = $each_num_money * ($data_base['recommend_one'] / 100);
                                 $member_table->where('id',$one_member_data['id'])->setInc('bonus',$one_bonus);//加到会员奖金
                                 $bonus_table->insert([
                                     'uid'=>$one_member_data['id'],'type'=>'1','create_date'=>time(),'money'=>$one_bonus,'order_id'=>$order_id
