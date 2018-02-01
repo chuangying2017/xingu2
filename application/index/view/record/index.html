@@ -70,7 +70,7 @@
                                     a = '团队奖励';
                                     break;
                             }
-                            var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span></p><p>奖励类型：<span class="font-color-07">'+a+'</span></p><p>获得时间：'+obj.create_date+'</p></div></div>';
+                            var contHtml =  ' <div class="mui-row"><div class="mui-col-sm-12 mui-col-xs-12 font-size-14"><p>奖金金额：<span class="font-size-16 font-color-07">￥'+obj.money+'</span></p><p>奖励类型：<span class="font-color-07">'+a+'</span></p><p>获得时间：'+getLocalTime(obj.create_date)+'</p></div></div>';
                             $('#activity-content').append(contHtml);
                         });
                         RealtotalPage = data.total;
@@ -128,6 +128,16 @@
             }
         }
     });
+    function getLocalTime(timestamp) {
+        var d = new Date(timestamp * 1000);    //根据时间戳生成的时间对象
+        var date = (d.getFullYear()) + "-" +
+            (d.getMonth() + 1) + "-" +
+            (d.getDate()) + " " +
+            (d.getHours()) + ":" +
+            (d.getMinutes()) + ":" +
+            (d.getSeconds());
+        return date;
+    }
 	document.getElementById('MemberInfo').classList.add('mui-active');
 </script>
 <include file="common/pass_error" />
