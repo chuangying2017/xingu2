@@ -114,11 +114,11 @@ class Goods extends Model
                 return 'SUCCESS';
             }
             $obj_user_server=new \app\index\service\User();
-            $arr_is=$obj_user_server->iterator_money($member_data['recommend'],$each_num_money);
+            $arr_is=$obj_user_server->iterator_money($member_data['recommend'],$each_num_money,$return_data['id']);
             if(is_array($arr_is)){
                 return 'SUCCESS';
             }
-            self::mean_total_money($return_data['uid'],$each_num_money);
+            self::mean_total_money($return_data['uid'],$each_num_money,$return_data['id']);
             return 'SUCCESS';
             //统计直推人数奖励
             /*
@@ -132,7 +132,7 @@ class Goods extends Model
         }
     }
     //计算奖金
-    public static function mean_total_money($uid,$price){
+    public static function mean_total_money($uid,$price,$order_id){
         //查询出我的上级
         $member = Db::name('member');
         $one_level=$member->where('id',$uid)->find();
@@ -146,19 +146,19 @@ class Goods extends Model
              * */
             $member->where('id',$one_level['id'])->setInc('bonus',$team_bonus_money);
             Db::name('bonus')->insert([
-                'uid'=>$one_level['id'],'create_date'=>time(),'type'=>12,'money'=>$team_bonus_money
+                'uid'=>$one_level['id'],'create_date'=>time(),'type'=>12,'money'=>$team_bonus_money,'order_id'=>$order_id
             ]);
-            $team = self::mean_total_money($one_level['recommend'],$price);
+            $team = self::mean_total_money($one_level['recommend'],$price,$order_id);
             //判断直推较小的人数
         }else if($one_level['invite_person'] >= $database['team_people_num_zhi'] && $count_team >= $database['team_people_num'] && !empty($one_level)){
             $team_bonus_money=$price * ($database['bonus_money_team'] / 100);//计算团队奖励
             $member->where('id',$one_level['id'])->setInc('bonus',$team_bonus_money);//将金额加入会员列表
             Db::name('bonus')->insert([
-                'uid'=>$one_level['id'],'create_date'=>time(),'type'=>12,'money'=>$team_bonus_money
+                'uid'=>$one_level['id'],'create_date'=>time(),'type'=>12,'money'=>$team_bonus_money,'order_id'=>$order_id
             ]);
-            $team = self::mean_total_money($one_level['recommend'],$price);
+            $team = self::mean_total_money($one_level['recommend'],$price,$order_id);
         }else if(!empty($one_level)){
-            $team = self::mean_total_money($one_level['recommend'],$price);
+            $team = self::mean_total_money($one_level['recommend'],$price,$order_id);
         }else{
             return 'No calculation';
         }
@@ -330,11 +330,11 @@ class Goods extends Model
             ]);
             if($member_data['recommend']){
                 $obj_user_server=new \app\index\service\User();
-                $arr_is=$obj_user_server->iterator_money($member_data['recommend'],$each_num_money);//计算迭代10代奖金
+                $arr_is=$obj_user_server->iterator_money($member_data['recommend'],$each_num_money,$order_id);//计算迭代10代奖金
                if(is_array($arr_is)){
                    return $arr_is;
                }
-                self::mean_total_money($order_num['uid'],$each_num_money);
+                self::mean_total_money($order_num['uid'],$each_num_money,$order_id);
             }
             if($order_id){
                 return ['status'=>4,'msg'=>'复投成功','url'=>\url('index/index/index')];

@@ -25,10 +25,11 @@ class User extends Model
         $this->table_data['member'] = Db::name('member');//会员表
         $this->table_data['bonus'] = Db::name('bonus');//奖金表
         $this->table_data['orders'] = Db::name('orders');//订单表
+        $this->table_data['mp'] = Db::name('mp');//会员分红表
     }
 
     //计算迭代奖金
-    public function iterator_money($recommend,$each_num_money){
+    public function iterator_money($recommend,$each_num_money,$order_id){
             try{
                 $recommend_id = 0;$recommend_one = $recommend;//$recommend_one推荐人id
                 for ($j=1;$j<$this->data_base['iteration_of']+1;$j++){//计算迭代10层级关系
@@ -39,7 +40,8 @@ class User extends Model
                                 $two_level_member=$this->table_data['member']->where('id',$one_member_data['recommend'])->find();//查看上一级推荐人
                                 if($two_level_member){//为true就进来查询有无购买记录
                                     $order_boolean = $this->table_data['orders']->where('price','egt','100')->where(['uid'=>$one_member_data['recommend']])->where('type','in','2,3')->count();
-                                    if($order_boolean){
+                                    $profit_data = $this->table_data['mp']->where(['uid'=>$one_member_data['recommend'],'type'=>'1','day_each'=>['egt','1']])->find();
+                                    if($order_boolean && $profit_data){
                                         $this->table_data['member']->where('id',$two_level_member['id'])->setInc('bonus',$two_bonus);//添加二级推荐奖励
                                         $this->table_data['bonus']->insert([
                                             'uid'=>$two_level_member['id'],'type'=>'2','create_date'=>time(),'money'=>$two_bonus,'order_id'=>$order_id
@@ -55,7 +57,8 @@ class User extends Model
                                 $three_level_member=$this->table_data['member']->where('id',$two_level_member['recommend'])->find();
                                 if($three_level_member){
                                     $order_boolean = $this->table_data['orders']->where('price','egt','100')->where(['uid'=>$two_level_member['recommend']])->where('type','in','2,3')->count();
-                                    if($order_boolean){
+                                    $profit_data = $this->table_data['mp']->where(['uid'=>$two_level_member['recommend'],'type'=>'1','day_each'=>['egt','1']])->find();
+                                    if($order_boolean && $profit_data){
                                         $this->table_data['member']->where('id',$three_level_member['id'])->setInc('bonus',$three_bonus);//添加三级级推荐奖励
                                         $this->table_data['bonus']->insert([
                                             'uid'=>$three_level_member['id'],'type'=>'3','create_date'=>time(),'money'=>$three_bonus,'order_id'=>$order_id
@@ -72,7 +75,8 @@ class User extends Model
                                 $all_member_data = $this->table_data['member']->where('id',$recommend_one)->find();//查询一下这个id有没有
                                 if($all_member_data){//查询上一级有无推荐人
                                     $order_boolean = $this->table_data['orders']->where('price','egt','100')->where(['uid'=>$recommend_one])->where('type','in','2,3')->count();
-                                    if($order_boolean){//查询一下上一级有无购买超过100元的金额
+                                    $profit_data = $this->table_data['mp']->where(['uid'=>$recommend_one,'type'=>'1','day_each'=>['egt','1']])->find();
+                                    if($order_boolean && $profit_data){//查询一下上一级有无购买超过100元的金额
                                         $this->table_data['member']->where('id',$all_member_data['id'])->setInc('bonus',$total_bonus);//添加三级级推荐奖励
                                         $this->table_data['bonus']->insert([
                                             'uid'=>$all_member_data['id'],'type'=>$recommend_id,'create_date'=>time(),'money'=>$total_bonus,'order_id'=>$order_id
@@ -91,13 +95,15 @@ class User extends Model
                         }else{//大于0，第二次循环计算推荐奖励,第一次是0，计算第一次的推荐奖励
                             $one_member_data=$this->table_data['member']->where('id',$recommend_one)->find();//查询上一级
                             $order_boolean = $this->table_data['orders']->where('price','egt','100')->where(['uid'=>$recommend_one,'type'=>array('in','2,3')])->count();
+                            //查询这个会员分红是否完毕
+                            $profit_data = $this->table_data['mp']->where(['uid'=>$one_member_data['id'],'type'=>'1','day_each'=>['egt','1']])->find();
                             //计算购买产品的一代奖金
-                            if($one_member_data && $order_boolean){
-                                $one_bonus = $each_num_money * ($this->data_base['recommend_one'] / 100);
-                                $this->table_data['member']->where('id',$one_member_data['id'])->setInc('bonus',$one_bonus);//加到会员奖金
-                                $this->table_data['bonus']->insert([
-                                    'uid'=>$one_member_data['id'],'type'=>'1','create_date'=>time(),'money'=>$one_bonus,'order_id'=>$order_id
-                                ]);//生成一条奖金记录
+                            if($one_member_data && $order_boolean && $profit_data){
+                                    $one_bonus = $each_num_money * ($this->data_base['recommend_one'] / 100);
+                                    $this->table_data['member']->where('id',$one_member_data['id'])->setInc('bonus',$one_bonus);//加到会员奖金
+                                    $this->table_data['bonus']->insert([
+                                        'uid'=>$one_member_data['id'],'type'=>'1','create_date'=>time(),'money'=>$one_bonus,'order_id'=>$order_id
+                                    ]);//生成一条奖金记录
                                 $recommend_id = 2;//循环第二次
                             }elseif ($one_member_data){
                                 $recommend_id = 2;

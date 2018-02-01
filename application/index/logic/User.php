@@ -88,11 +88,11 @@ class User extends Model
                 $recommend_level_people = $this->table_object['member']->where(['id'=>$result_mp[$i]['uid'],'status'=>'1'])->filed('id,recommend')->find();
                 if($recommend_level_people['recommend']){
                     $new_count = new \app\index\service\User();
-                    $is_array=$new_count->iterator_money($recommend_level_people['recommend'],$result_mp[$i]['each_money']);
+                    $is_array=$new_count->iterator_money($recommend_level_people['recommend'],$result_mp[$i]['each_money'],$result_mp[$i]['order_id']);
                     if(is_array($is_array)){
                         continue;
                     }
-                    Goods::mean_total_money($result_mp[$i]['uid'],$result_mp[$i]['each_money']);
+                    Goods::mean_total_money($result_mp[$i]['uid'],$result_mp[$i]['each_money'],$result_mp[$i]['order_id']);
                     continue;
                 }
             }
