@@ -855,7 +855,7 @@ class Goods extends Model
     //提现
     public static function deposit_money($data){
         $role = [
-            'money'=>'require|float',
+            'money'=>'require|float|>:0',
             'password_two'=>'require|min:6',
             'code'=>"require|min:4|captcha",
             'bank_id'=>'require|number'
