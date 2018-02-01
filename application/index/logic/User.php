@@ -101,4 +101,21 @@ class User extends Model
             Log::error($exception->getMessage());
         }
     }
+
+    //定时将所有的会员bonus奖金转到余额money
+    public function cron_member_money(){
+        try{
+            Log::init(['type'=>'File','path'=>APP_PATH.'logs_bonus/']);
+            $all_member_data=$this->table_object['member']->where(['status'=>1,'bonus'=>['gt','0']])->select();
+            for ($i=0;$i<count($all_member_data);$i++){
+                $result_id=$this->table_object['member']->where(['id'=>$all_member_data[$i]['id']])->update([
+                    'money'=>$all_member_data[$i]['money'] + $all_member_data[$i]['bonus'],'bonus'=>0
+                ]);
+                Log::info(['create_time'=>date('Y-m-d H:i:s',time()),'success_id'=>$result_id]);
+            }
+        }catch (Exception $exception){
+            Log::error($exception->getMessage());
+        }
+
+    }
 }
