@@ -132,7 +132,7 @@ class Goods extends Model
         }
     }
     //计算奖金
-    private static function mean_total_money($uid,$price){
+    public static function mean_total_money($uid,$price){
         //查询出我的上级
         $member = Db::name('member');
         $one_level=$member->where('id',$uid)->find();

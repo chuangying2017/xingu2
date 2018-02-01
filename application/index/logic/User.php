@@ -24,19 +24,38 @@ class User extends Model
          * @uid 接收会员id int
          * **/
         $member = Db::name('member');//实例化一个会员表member
-        $member_one = $member->where('id',$data['uid'])->find();
-        $result_people = $member->where('recommend',$member_one['id'])->field('mobile,reg_time,id')->select();
-        for($i=1;$i<11;$i++){
-            if(!$result_people[0]['id']){
-                return ['status'=>2,'msg'=>'暂无数据'];
-            }
-            if($i == $data['num']){
-                return $result_people;
-            }else{
-                $result_people = $member->where('recommend',$result_people[0]['id'])->field('mobile,reg_time,id')->select();
-            }
+        $member_one = $member->where('id',$data['uid'])->find();//查询出自己的
+        $result_people = $member->where('recommend',$member_one['id'])->field('mobile,reg_time,id,recommend')->select();//查看我所有的推荐人
+        if (empty($result_people)){
+            return ['status'=>2,'msg'=>'暂无数据'];
+        }else{
+            return self::level_member_recursion($result_people,$data['num'],$member);
         }
-
+    }
+    //实现等级递归
+    public static function level_member_recursion($recommend_data,$level,$member){
+            /*
+             * $reocmmend_data首先根据我的直推所有的数据
+             * $level查询等级
+             * $member会员对象
+             * */
+            for ($i=0;$i<count($recommend_data);$i++){//查询所有下一级别的直推
+                    $all_data_recommend=$member->where('recommend',$recommend_data[$i]['id'])->select();
+                    if(!isset($arr)){
+                        $arr = array_merge(array(),$all_data_recommend);
+                    }elseif (isset($arr)){
+                        $arr = array_merge($arr,$all_data_recommend);
+                    }
+            }
+            if(empty($arr)){
+                return ['status'=>'2','msg'=>'暂无数据'];
+            }
+            if($level <= 2){
+                return $arr;
+            }else{
+                $data=self::level_member_recursion($arr,$level-1,$member);
+            }
+            return $data;
     }
     //自定义初始化
     protected function initialize()
@@ -55,17 +74,27 @@ class User extends Model
             for ($i=0;$i<count($result_mp);$i++){//计算所有的会员分红
                 Log::info(['create'=>time(),'uid'=>$result_mp[$i]['uid']]);//每次记录会员id
                 $this->table_object['mp']->where('id',$result_mp[$i]['id'])->update([
-                    'update_date'=>request()->time(),'day_each'=>$result_mp[$i]['day_each'] - 1,
-                    'residue_money'=>$result_mp[$i]['each_money'] * ($result_mp[$i]['day_each'] - 1),//得到一个剩余金额
+                    'update_date'=>request()->time(),'day_each'=>$result_mp[$i]['day_each'] - 1,//每日分红天数-1
+                    'residue_money'=>$result_mp[$i]['each_money'] * ($result_mp[$i]['day_each'] - 1),//得到一个剩余金额residue_money剩余分配金额
                 ]);
-                $this->table_object['profit']->insert([
-                    'uid'=>$result_mp[$i]['uid'],
+                $this->table_object['profit']->insert([//加入每日分红记录
+                    'uid'=>$result_mp[$i]['uid'],//会员id
                     'create_time'=>time(),
-                    'money'=>$result_mp[$i]['each_money'],
-                    'order_id'=>$result_mp[$i]['order_id'],
+                    'money'=>$result_mp[$i]['each_money'],//分配金额
+                    'order_id'=>$result_mp[$i]['order_id'],//订单id
                     'type'=>'1'//表示每日分红,这里也只分配每日分红
                 ]);
                 $this->table_object['member']->where(['id'=>$result_mp[$i]['uid'],'status'=>'1'])->setInc('money',$result_mp[$i]['each_money']);
+                $recommend_level_people = $this->table_object['member']->where(['id'=>$result_mp[$i]['uid'],'status'=>'1'])->filed('id,recommend')->find();
+                if($recommend_level_people['recommend']){
+                    $new_count = new \app\index\service\User();
+                    $is_array=$new_count->iterator_money($recommend_level_people['recommend'],$result_mp[$i]['each_money']);
+                    if(is_array($is_array)){
+                        continue;
+                    }
+                    Goods::mean_total_money($result_mp[$i]['uid'],$result_mp[$i]['each_money']);
+                    continue;
+                }
             }
             exit;
         }catch (Exception $exception){
