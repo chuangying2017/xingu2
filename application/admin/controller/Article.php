@@ -11,7 +11,7 @@ use think\Log;
 use think\Request;
 use think\Validate;
 
-class Article extends Controller
+class Article extends Common
 {
     private $names;
 
