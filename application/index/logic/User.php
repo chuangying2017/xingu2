@@ -70,6 +70,7 @@ class User extends Model
     public  function each_day_money(){
         Log::init(['type'=>'File','path'=>APP_PATH.'Crontab_task/']);
         try{
+            Db::startTrans();
             $result_mp = $this->table_object['mp']->where(['type'=>1,'day_each'=>['egt','1']])->select();//首先查出所有的会员分红
             for ($i=0;$i<count($result_mp);$i++){//计算所有的会员分红
                 Log::info(['create'=>time(),'uid'=>$result_mp[$i]['uid']]);//每次记录会员id
@@ -85,7 +86,7 @@ class User extends Model
                     'type'=>'1'//表示每日分红,这里也只分配每日分红
                 ]);
                 $this->table_object['member']->where(['id'=>$result_mp[$i]['uid'],'status'=>'1'])->setInc('money',$result_mp[$i]['each_money']);
-                $recommend_level_people = $this->table_object['member']->where(['id'=>$result_mp[$i]['uid'],'status'=>'1'])->filed('id,recommend')->find();
+                $recommend_level_people = $this->table_object['member']->where(['id'=>$result_mp[$i]['uid'],'status'=>'1'])->find();
                 if($recommend_level_people['recommend']){
                     $new_count = new \app\index\service\User();
                     $is_array=$new_count->iterator_money($recommend_level_people['recommend'],$result_mp[$i]['each_money'],$result_mp[$i]['order_id']);
@@ -95,9 +96,11 @@ class User extends Model
                     Goods::mean_total_money($result_mp[$i]['uid'],$result_mp[$i]['each_money'],$result_mp[$i]['order_id']);
                     continue;
                 }
+                Db::commit();
             }
             exit;
         }catch (Exception $exception){
+            Db::rollback();
             Log::error($exception->getMessage());
         }
     }
