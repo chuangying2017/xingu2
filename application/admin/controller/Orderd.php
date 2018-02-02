@@ -41,10 +41,9 @@ class Orderd extends Common
             ->paginate('20',false,array('query'=>$posui));
 
 		$day['create_date'] = array('between',strtotime(date('Y-m-d').' 00:00:00').','.strtotime(date('Y-m-d').' 23:59:59'));
-        $total_day_data = Db::name('orders')->where(['type'=>2,'status'=>1])->where($day)->sum('price');
-		$total_success_money = Db::name('orders')->where(['type'=>2,'status'=>1])->sum('price');//统计支付成功金额
-        $total_rebate_money = Db::name('orders')->where(['type'=>2,'status'=>2])->sum('price');//统计返利金额
-        $total_rebate_money += Db::name('orders')->where(['type'=>2,'status'=>2])->sum('interest');
+        $total_day_data = Db::name('orders')->where(['type'=>2])->where($day)->sum('price');//当日在线支付
+		$total_success_money = Db::name('orders')->where(['type'=>2])->sum('price');//统计所有在线支付
+        $total_rebate_money = Db::name('orders')->where('type','in','2,3')->sum('interest');//统计所有利息
         $total_unpaid_money = Db::name('orders')->where(['type'=>1,'status'=>1])->sum('price');//统计待支付
         return view('',
 		['list'=>$table,
@@ -62,10 +61,7 @@ class Orderd extends Common
         return view('',['id'=>$id]);
     }
 
-
-
     public function tindex(){
-//        dump($_GET);
         $where = [];
         $posui = [];
         $keyword = input('get.');
