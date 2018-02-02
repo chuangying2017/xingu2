@@ -26,6 +26,9 @@ class User extends Model
         $member = Db::name('member');//实例化一个会员表member
         $member_one = $member->where('id',$data['uid'])->find();//查询出自己的
         $result_people = $member->where('recommend',$member_one['id'])->field('mobile,reg_time,id,recommend')->select();//查看我所有的推荐人
+        if($data['num'] == 1){//查询直推
+            return $result_people;
+        }
         if (empty($result_people)){
             return ['status'=>2,'msg'=>'暂无数据'];
         }else{
