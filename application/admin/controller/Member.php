@@ -31,22 +31,21 @@ class Member extends Common
                         ->where('type','in','2,3')
                         ->sum('price*num');//获取客户购买产品和数量的总和;
 					$value['total_earnings'] = $order_tables->where(['uid'=>$value['id']])->where('type','in','2,3')->sum('interest');
-                    $value['group_size'] = $this -> team($value['id'],$member_obj);
+                    $value['group_size'] = $this -> team($value['id'],$member_obj,$data_base['relationship']);
                     $arr[]=$value->toArray();
             }
             $page = $member_table->render();
             return view('index',['search'=>$two_last[1],'count'=>m::count(),'page'=>$page,'list'=>$arr]);
         }
 
-    public function team($id,$obj){
+    public function team($id,$obj,$search_level){
         $member = $obj->where('recommend',$id)->where('status',1)->select();
-        $num_count = count($member);
-        $num=$num_count < $this->data_base_data ? $num_count : $this->data_base_data;//最多迭代后台设置的层级
-        if($num < 1){
+        $num = count($member);
+        if($num < 1 || $search_level < 1){
             return $num;
         }else{
             for($i=0;$i<$num;$i++){
-                $num+=self::team($member[$i]['id'],$obj);
+                $num+=self::team($member[$i]['id'],$obj,$search_level - 1);
             }
             return $num;
         }

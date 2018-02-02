@@ -118,7 +118,7 @@ class Goods extends Model
             if(is_array($arr_is)){
                 return 'SUCCESS';
             }
-            self::mean_total_money($return_data['uid'],$each_num_money,$return_data['id']);
+            self::mean_total_money($member_data['recommend'],$each_num_money,$return_data['id']);
             return 'SUCCESS';
             //统计直推人数奖励
             /*
@@ -137,7 +137,7 @@ class Goods extends Model
         $member = Db::name('member');
         $one_level=$member->where('id',$uid)->find();
         $database = database(2);//获取后台设置的参数
-        $count_team = self::team_people($one_level['id']);
+        $count_team = self::team_people($one_level['id'],$database['relationship']);
         //判断最大直和团队人数
         if($one_level['invite_person'] >= $database['team_people_num_zhis'] && $count_team >= $database['team_people_num1'] && !empty($one_level)){//判断直推人数是否达到要求
             $team_bonus_money=$price * ($database['bonus_money_team1'] / 100);//计算团队奖励
@@ -165,7 +165,7 @@ class Goods extends Model
         return $team;
     }
     //查询已有购买的会员
-    public static function team_people($id){
+    public static function team_people($id,$relationship){
         //传本身的id过来然后这边记性计算有无
         /*
          * 如果团队里面没有人购买产品是不算奖励在里面
@@ -179,26 +179,26 @@ class Goods extends Model
             return $count_team;
         }else{
             for($i=0;$i<$count_team;$i++){
-                $count += self::trans_func($select_find[$i]['id']);
+                $count += self::trans_func($select_find[$i]['id'],$relationship);
             }
             return $count;
         }
     }
     //传递给另一个方法做处理
-    public function trans_func($id){
+    public function trans_func($id,$search_level){
         $member = Db::name('member');
         $select_find = $member->where('recommend',$id)->where('status',1)->select();//获取直推人数
         $count_num = count($select_find);//设置一个迭代人数
         $res_ult = Db::name('orders')->where(['uid'=>$id])->where('type','in','2,3')->find();//查询有无购买产品
         //2表示在线支付3表示复投
         $count = 0;
-        if($res_ult){
+        if($res_ult || $search_level < 1){
             $count+=1;
         }else{
             return $count;
         }
         for ($k=0;$k<$count_num;$k++){
-            $count += self::trans_func($select_find[$k]['id']);
+            $count += self::trans_func($select_find[$k]['id'],$search_level - 1);
         }
         return $count;
     }
@@ -334,7 +334,12 @@ class Goods extends Model
                if(is_array($arr_is)){
                    return $arr_is;
                }
-                self::mean_total_money($order_num['uid'],$each_num_money,$order_id);
+               //传递上级的id过去查询一下团队人数
+                /*
+                 * $each_num_money每次分配的金额，满足条件
+                 * 按照后台设置的模式计算
+                 * */
+                self::mean_total_money($member_data['recommend'],$each_num_money,$order_id);
             }
             if($order_id){
                 return ['status'=>4,'msg'=>'复投成功','url'=>\url('index/index/index')];
