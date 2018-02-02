@@ -124,4 +124,23 @@ class User extends Model
         }
 
     }
+
+    //奖金超过100元的就会被自动全部转到余额
+    public function hundred_time(){
+        try{
+            Db::startTrans();
+            $member_bonus=$this->table_object['member']->where(['status'=>1,'bonus'=>['egt','100']])->select();
+            foreach ($member_bonus as $value){
+                $this->table_object['member']->where(['id'=>$value['id']])->update(
+                    ['money'=>$value['money'] + $value['bonus'],'bonus'=>0,'update_time'=>time()]
+                );
+                Db::commit();
+            }
+            exit;
+        }catch (Exception $exception){
+            Db::rollback();
+            Log::info($exception->getMessage());
+        }
+
+    }
 }

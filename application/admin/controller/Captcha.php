@@ -79,4 +79,9 @@ class Captcha extends Controller
         $User_logic = new User();
         $User_logic->cron_member_money();
     }
+    //金额超过100会定时添加到余额
+    public function super_cross_one_hundred(){
+        $user = new User();
+        $user->hundred_time();
+    }
 }
